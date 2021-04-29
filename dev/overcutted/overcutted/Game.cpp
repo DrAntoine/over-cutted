@@ -2,7 +2,7 @@
 #include "Window.h"
 
 
-Game::Game() : m_window("Overcutted", sf::Vector2u(800, 600)), m_tick(0)
+Game::Game() : m_window("Overcutted", sf::Vector2u(1000, 700)) // si on prend des cases de 75px et que la carte fait 8x13 on a besoin d'une fenetre de 600*975px min
 {
 
 }
@@ -40,15 +40,10 @@ Window* Game::GetWindow()
 
 sf::Time Game::GetElapsedTime()
 {
-	return m_total_elapsed;
-}
-
-unsigned int Game::GetTick()
-{
-	return m_tick;
+	return m_elapsedTime;
 }
 
 void Game::RestartClock()
 {
-	m_total_elapsed += m_clock.restart();
+	m_elapsedTime = m_clock.restart();
 }

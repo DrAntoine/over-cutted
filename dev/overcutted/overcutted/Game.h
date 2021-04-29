@@ -2,7 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "Window.h"
-#include "World.h"
 
 class Game
 {
@@ -16,13 +15,11 @@ public:
 
 	Window* GetWindow();
 	sf::Time GetElapsedTime();
-	unsigned int GetTick();
 	void RestartClock();
 private:
 	Window m_window;
 	sf::Clock m_clock;
-	sf::Time m_total_elapsed;
-	unsigned int m_tick; // =4294967295 si on raffraichi à 60Hz ça nous laisse 828J de tick avant de dépasser le seuil limite du type.
+	sf::Time m_elapsedTime;
 	//World m_world;
 };
 
