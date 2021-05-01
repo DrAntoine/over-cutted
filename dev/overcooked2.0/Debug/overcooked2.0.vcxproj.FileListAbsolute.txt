@@ -1,0 +1,2 @@
+F:\cours\POO\projet sfml\overcooked2.0\overcooked2.0\Debug\overcooked2.0.exe
+F:\cours\POO\projet sfml\overcooked2.0\overcooked2.0\Debug\overcooked2.0.pdb
