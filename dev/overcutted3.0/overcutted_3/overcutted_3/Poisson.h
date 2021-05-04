@@ -5,5 +5,6 @@ class Poisson:public Aliment
 private:
 
 public:
+
 };
 
