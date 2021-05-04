@@ -1,4 +1,5 @@
 #pragma once
+#include "Outil.h"
 
 /*class Outil : public Tuile
 {

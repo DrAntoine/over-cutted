@@ -1,7 +1,7 @@
 #pragma once
+#include "Tuile.h"
 
-
-class PlanTravail
+class PlanTravail : public Tuile
 
 {
 private:

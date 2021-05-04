@@ -1,6 +1,8 @@
 #pragma once
 
-class Poubelle
+#include "Outil.h"
+
+class Poubelle : public Outil
 {
 private:
 	bool statepoubelle;

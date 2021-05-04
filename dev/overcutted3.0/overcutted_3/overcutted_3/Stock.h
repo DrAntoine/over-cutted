@@ -1,4 +1,6 @@
 #pragma once
+#include "Tuile.h"
+
 class Stock : public Tuile
 {
 private:

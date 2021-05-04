@@ -1,5 +1,7 @@
 #pragma once
-class Outil
+#include "Tuile.h"
+
+class Outil : public Tuile
 {
 };
 
