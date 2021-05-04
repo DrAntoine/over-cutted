@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "EventManager.h"
 
 class Window
 {
@@ -16,10 +17,14 @@ public:
 
 	bool IsDone();
 	bool IsFullscreen();
-	void ToggleFullscreen();
+	void ToggleFullscreen(EventDetails* l_details);
 	sf::Vector2u GetWindowSize();
 
 	sf::RenderWindow* GetRenderWindow();
+
+	bool IsFocused();
+	EventManager* GetEventManager();
+	void Close(EventDetails* l_details = nullptr);
 
 private:
 	void Setup(const std::string& l_title, const sf::Vector2u& l_size);
@@ -31,5 +36,8 @@ private:
 	std::string m_windowTitle;
 	bool m_IsDone;
 	bool m_IsFullScreen;
+
+	EventManager m_eventManager;
+	bool m_isFocused;
 };
 
