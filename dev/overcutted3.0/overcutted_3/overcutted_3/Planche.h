@@ -1,6 +1,6 @@
 #pragma once
 
-class Outil : public Tuile
+/*class Outil : public Tuile
 {
 
 	public
@@ -8,7 +8,7 @@ class Outil : public Tuile
 		virtual void utiliser(Aliment * aliment);
 		virtual void utiliser();
 
-};
+};*/
 
 
 class Planche: public Outil

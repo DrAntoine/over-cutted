@@ -12,12 +12,5 @@ public:
 
 };
 
-class Deplacable : public Entite
-{
-protected:
-
-
-
-};
 
 
