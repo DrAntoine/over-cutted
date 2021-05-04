@@ -1,20 +1,18 @@
 #pragma once
-#include<SFML/Graphics.hpp>
+
 #include "Deplacable.h"
 
+
+enum class Etat { intacte, couper };
 class Aliment : public Deplacable
 {
+
 protected:
-	bool cuit;
-	bool coupe;
+	Etat m_etat;
 
 public:
-	Aliment() : Deplacable()
-	{
-		coupe = false;
-	}
-	void melange();
-
-	void setCoupe() { coupe = true; }
+	Aliment();
+	void setCoupe();
+	//void melange();
 };
 

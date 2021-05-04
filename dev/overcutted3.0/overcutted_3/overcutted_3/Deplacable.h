@@ -3,6 +3,8 @@
 class Deplacable:public Entite
 {
 protected:
+
 public:
+
 };
 
