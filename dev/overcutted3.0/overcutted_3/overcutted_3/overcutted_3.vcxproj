@@ -18,46 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Aliments.h" />
-    <ClInclude Include="Asiette.h" />
-    <ClInclude Include="Crevette.h" />
-    <ClInclude Include="Entite.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="OuvertureSalle.h" />
-    <ClInclude Include="Perso.h" />
-    <ClInclude Include="Planche.h" />
-    <ClInclude Include="PlanTravail.h" />
-    <ClInclude Include="Poisson.h" />
-    <ClInclude Include="Poubelle.h" />
-    <ClInclude Include="Recette.h" />
-    <ClInclude Include="Stock.h" />
-    <ClInclude Include="Tuile.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Aliments.cpp" />
-    <ClCompile Include="Asiette.cpp" />
-    <ClCompile Include="Crevette.cpp" />
-    <ClCompile Include="Entite.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="OuvertureSalle.cpp" />
-    <ClCompile Include="Perso.cpp" />
-    <ClCompile Include="Planche.cpp" />
-    <ClCompile Include="PlanTravail.cpp" />
-    <ClCompile Include="Poisson.cpp" />
-    <ClCompile Include="Poubelle.cpp" />
-    <ClCompile Include="Recette.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Stock.cpp" />
-    <ClCompile Include="Tuile.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{be7107c1-2bc5-4c52-b8a0-f5f9c0620f2a}</ProjectGuid>
-    <RootNamespace>overcutted</RootNamespace>
+    <ProjectGuid>{4206c1ec-ee44-4e32-80e3-c4937e436bf3}</ProjectGuid>
+    <RootNamespace>overcutted_3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,12 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SFML\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\SFML\SFML-2.5.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;flac.lib;freetype.lib;gdi32.lib;ogg.lib;openal32.lib;opengl32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -140,14 +105,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SFML\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\SFML\SFML-2.5.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-s.lib;sfml-window-s.lib;sfml-audio-s.lib;sfml-system-s.lib;sfml-network-s.lib;flac.lib;freetype.lib;gdi32.lib;ogg.lib;openal32.lib;opengl32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -179,6 +144,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
