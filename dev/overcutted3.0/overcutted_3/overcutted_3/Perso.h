@@ -1,7 +1,7 @@
 #pragma once
-#include "Planche.h"
+#include "Entite.h"
 
-class Perso
+class Perso:public Entite
 {
 private:
 	Map *map; //les tuiles et les outils et stock

@@ -1,6 +1,6 @@
 #pragma once
-#include "Entite.h"
-#include "Aliments.h"
+#include "Deplacable.h"
+
 class Asiette : public Deplacable
 {
 private:

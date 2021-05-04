@@ -1,5 +1,6 @@
 #pragma once
-class Poisson
+#include "Aliments.h"
+class Poisson:public Aliment
 {
 private:
 
