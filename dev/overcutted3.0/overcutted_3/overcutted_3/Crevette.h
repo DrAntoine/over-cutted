@@ -5,9 +5,6 @@ class Crevette : public Aliment
 private:
 
 public:
-	Crevette() : Aliment()
-	{
-		this->Texture... crevette.png
-	}
+	Crevette();
 };
 

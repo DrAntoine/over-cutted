@@ -10,8 +10,8 @@ protected:
 	sf::Sprite mysprite;
 	sf::Texture mytexture;
 public:
-	draw(window *w)
-		w->draw(Sprite);
+	//draw(window *w)
+		//w->draw(Sprite);
 
 };
 

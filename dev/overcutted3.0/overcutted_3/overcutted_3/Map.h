@@ -3,30 +3,36 @@
 //#include<string>
 #include<SFML/Graphics.hpp>
 #include "Tuile.h"
-#include "Planche.h"
+
 class Map
 {
 private:
-	std::vector<*Tuile> tuiles;
+	std::vector<Tuile*> tuiles;
+    int tabmap[16][16] =
+    {
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {2,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,0},
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    };
 public:
 	
-	sf::Vector2i ou_suis_je(sf::Vector2f Position) // réponse tuile 0,4
+	sf::Vector2i ou_suis_je(sf::Vector2f Position); // réponse tuile 0,4
 
-	void drawmap()
-
-	{
-		0 1 2 3 3
-			0 1 2 3 3
-			0 1 2 3 3
-
-			for
-				for
-					switch (numero)
-						case 0 : tuiles.push_back(new Tuile());
-						case 1: tuiles.push_back(new Planche());
+	void drawmap();
 
 
-
-	}
 };
 

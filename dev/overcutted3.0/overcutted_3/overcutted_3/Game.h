@@ -1,4 +1,9 @@
 #pragma once
+#include "SFML/Graphics.hpp"
+#include "Map.h"
+#include "Perso.h"
+#include "Deplacable.h"
+
 
 class Game
 {
@@ -11,7 +16,7 @@ public:
 
 
 
-	draw(window *w, clock)
+	 draw(window *w, clock)
 	{
 		map.draw(w);
 		for (elements) elements[i].draw(w)
