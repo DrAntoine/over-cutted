@@ -3,7 +3,6 @@
 class Poisson:public Aliment
 {
 private:
-
 	Poisson();
 public:
 

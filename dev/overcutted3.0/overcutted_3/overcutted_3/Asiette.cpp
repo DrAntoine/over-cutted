@@ -13,7 +13,7 @@ void Asiette::checkAliment()
 {
     bool check(Aliment aliment);
     {
-        for (contenu;)
+        for (each vector)
         {
             if (vector.contenu.type == aliment.)
             {
