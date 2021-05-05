@@ -1,27 +1,29 @@
 #include "Asiette.h"
 Asiette::Asiette()
 {
-
+    this->mytexture.loadFromFile("textures/assiette.png");
 }
 
 void Asiette::deposer(Aliment* x)
 {
-	contenu.push_back(x);
+    if (checkAliment(x))
+    {
+        m_contenu.push_back(x);
+    }
+
 }
 
-void Asiette::checkAliment()
+bool Asiette::checkAliment(Aliment* aAjouter)
 {
-    bool check(Aliment aliment);
+    Type typeDeA_Ajouter=aAjouter->getType();
     {
-        for (each vector)
+        for (int i = 0 ;i<m_contenu.size();i++)
         {
-            if (vector.contenu.type == aliment.)
+            if (m_contenu[i]->getType() == typeDeA_Ajouter)
             {
                 return false;
             }
             return true;
         }
-
-
     }
 }

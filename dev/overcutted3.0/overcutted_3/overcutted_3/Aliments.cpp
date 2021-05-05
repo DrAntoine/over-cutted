@@ -11,3 +11,8 @@ void Aliment::setCoupe()
 {
 	m_etat = Etat::couper;
 }
+
+Type Aliment::getType()
+{
+	return m_type;
+}

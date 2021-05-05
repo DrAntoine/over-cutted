@@ -19,5 +19,7 @@ public:
 	void setCoupe();
 	//void setCuit();
 	//void melange();
+
+	Type getType();
 };
 

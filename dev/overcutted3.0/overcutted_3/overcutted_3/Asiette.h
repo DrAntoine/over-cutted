@@ -6,12 +6,12 @@
 class Asiette : public Deplacable
 {
 private:
-	std::vector<Aliment*> contenu;
+	std::vector<Aliment*> m_contenu;
 	
 public:
 	Asiette();
 	void deposer(Aliment* x);
-	void checkAliment();
+	bool checkAliment(Aliment* aAjouter);
 
 
 };
