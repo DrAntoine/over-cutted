@@ -148,7 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Aliments.cpp" />
-    <ClCompile Include="Asiette.cpp" />
+    <ClCompile Include="Assiette.cpp" />
+    <ClCompile Include="Casserole.cpp" />
     <ClCompile Include="Crevette.cpp" />
     <ClCompile Include="Deplacable.cpp" />
     <ClCompile Include="Entite.cpp" />
@@ -168,7 +169,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aliments.h" />
-    <ClInclude Include="Asiette.h" />
+    <ClInclude Include="Assiette.h" />
+    <ClInclude Include="Casserole.h" />
     <ClInclude Include="Crevette.h" />
     <ClInclude Include="Deplacable.h" />
     <ClInclude Include="Entite.h" />

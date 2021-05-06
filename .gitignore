@@ -1,4 +1,9 @@
 
+#fichier de conf visual studio
+*.vcxproj
+*.filters
+
+
 # ======================================================
 # C++ .gitignore
 # ======================================================
@@ -402,9 +407,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-
-#fichier de conf visual studio
-*.vcxproj
 dev/overcutted3.0/overcutted_3/overcutted_3/overcutted_3.vcxproj
-*.vcxproj
-*.vcxproj
+dev/overcutted3.0/overcutted_3/overcutted_3/overcutted_3.vcxproj.filters
