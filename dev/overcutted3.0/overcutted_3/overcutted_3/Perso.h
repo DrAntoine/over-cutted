@@ -35,7 +35,7 @@ public:
 	*/
 
 	void prendre_deposer(int* outil);
-	void utiliser(int *outil);//sur planche
+	void utiliser(int *outil);//sur planche,mettre la clock
 	//void destocker(int *tuile);//dans stock
 	//void déposer(int *deplacable);//sur plan de travail
 	//void prendre(int *deplacable);//sur plan de travail

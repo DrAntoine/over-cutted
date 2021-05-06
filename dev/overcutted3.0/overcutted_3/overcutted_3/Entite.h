@@ -1,6 +1,6 @@
 #include<SFML/Graphics.hpp>
 #include<iostream>
-
+#include<vector>
 
 enum class AlimentEtat { intacte, couper, cuit };
 enum class AlimentType { none, poisson, crevette };
