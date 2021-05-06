@@ -8,6 +8,7 @@ int main()
     shape.setFillColor(sf::Color::Green);
 
 	Game game;
+    
 
     while (window.isOpen())
     {

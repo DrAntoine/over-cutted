@@ -2,15 +2,12 @@
 
 #include "Deplacable.h"
 
-
-enum class Etat { intacte, couper,cuit};
-enum class Type {none,poisson,crevette};
 class Aliment : public Deplacable
 {
 
 protected:
-	Etat m_etat;
-	Type m_type;
+	AlimentEtat m_etat;
+	AlimentType m_type;
 	bool m_coupable;
 	//bool m_cuisable;
 
@@ -20,6 +17,6 @@ public:
 	//void setCuit();
 	//void melange();
 
-	Type getType();
+	AlimentType getType();
 };
 

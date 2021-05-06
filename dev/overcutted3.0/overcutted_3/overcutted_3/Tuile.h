@@ -3,15 +3,19 @@
 #include "Entite.h"
 
 
-enum class TypeObjet { Sol, Plan_Travail, Planche_decoupe, Stock, Poubelle, Ouverture_Salle };
-
 class Tuile : public Entite
 {
 public:
-	TypeObjet getTypeObjet();
+	TuileType getTypeTuile();
 protected:
-	bool libre; //deposer
-	TypeObjet m_type;
+	/* hérité de entite
+	sf::Vector2f taille;
+	sf::Vector2f Position;
+	sf::Sprite mysprite;
+	sf::Texture mytexture;
+	*/
+	bool m_libre; //deposer
+	TuileType m_type;
 
 };
 

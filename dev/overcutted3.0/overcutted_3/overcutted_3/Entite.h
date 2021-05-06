@@ -2,6 +2,10 @@
 #include<iostream>
 
 
+enum class AlimentEtat { intacte, couper, cuit };
+enum class AlimentType { none, poisson, crevette };
+enum class TuileType { Sol, Plan_Travail, Planche_decoupe, Stock, Poubelle, Ouverture_Salle };
+
 class Entite
 {
 protected:

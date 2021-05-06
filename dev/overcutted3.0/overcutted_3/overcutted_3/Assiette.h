@@ -3,13 +3,13 @@
 #include"Aliments.h"
 
 
-class Asiette : public Deplacable
+class Assiette : public Deplacable
 {
 private:
 	std::vector<Aliment*> m_contenu;
 	
 public:
-	Asiette();
+	Assiette();
 	void deposer(Aliment* x);
 	bool checkAliment(Aliment* aAjouter);
 

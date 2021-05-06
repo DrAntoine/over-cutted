@@ -4,10 +4,20 @@
 class Stock : public Tuile
 {
 private:
-	int type_aliment //0 poisson, 1 crevette
+	AlimentType m_typeAlimentAFournir;
+	/* hérité de entite
+	sf::Vector2f taille;
+	sf::Vector2f Position;
+	sf::Sprite mysprite;
+	sf::Texture mytexture;
+	herité de outil
+	bool m_libre; //deposer
+	TypeObjet m_type;*/
 
 public:
-	Stock(int quoi) { type_aliment = quoi; }
+	Stock(AlimentType typeAlimentAFournir);
+	Aliment* CreerNouvelAliment();
+	/*Stock(int quoi) { type_aliment = quoi; }
 
 	*Aliment void destocker()
 	{
@@ -18,7 +28,7 @@ public:
 			Aliment->setPosition....
 
 			Return a;
-	}
+	}*/
 
 };
 

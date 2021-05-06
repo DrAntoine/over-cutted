@@ -1,10 +1,10 @@
-#include "Asiette.h"
-Asiette::Asiette()
+#include "Assiette.h"
+Assiette::Assiette()
 {
     this->mytexture.loadFromFile("textures/assiette.png");
 }
 
-void Asiette::deposer(Aliment* x)
+void Assiette::deposer(Aliment* x)
 {
     if (checkAliment(x))
     {
@@ -13,7 +13,7 @@ void Asiette::deposer(Aliment* x)
 
 }
 
-bool Asiette::checkAliment(Aliment* aAjouter)
+bool Assiette::checkAliment(Aliment* aAjouter)
 {
     Type typeDeA_Ajouter=aAjouter->getType();
     {
