@@ -6,10 +6,9 @@ class PlanTravail : public Tuile
 {
 private:
 	/* hérité de entite
-	sf::Vector2f taille;
-	sf::Vector2f Position;
-	sf::Sprite mysprite;
-	sf::Texture mytexture;
+	sf::Vector2f m_taille;
+	sf::Vector2f m_position;
+	sf::Sprite m_sprite;
 	herité de outil
 	bool m_libre; 
 	TypeObjet m_type;*/

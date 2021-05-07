@@ -11,8 +11,8 @@ enum class Perso_Action { move_down, move_up, move_left, move_right, interact, i
 class Perso:public Entite
 {
 private:
-	Map *map; //les tuiles et les outils et stock
-	std::vector<Deplacable*> *elements;
+	Map *m_map; //les tuiles et les outils et stock
+	std::vector<Deplacable*> *m_elements;
 	int px, py;
 	sf::Vector2f previous;
 	Deplacable *en_mains;
@@ -23,7 +23,7 @@ private:
 	int speed;
 	//propre au personnage
 public:
-	Perso(*elements,*map);
+	Perso(Map* map, std::vector<Deplacable*>* elements); //HELP MEEEE
 	void move();
 	void action();
 	void animation();
@@ -50,8 +50,6 @@ public:
 		Aliment* a = Stock->destocker();
 		elements->push_back(a);
 	}*/
-public:
-
 	/*
 	void action()
 	{

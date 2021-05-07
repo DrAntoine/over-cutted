@@ -1,9 +1,13 @@
 #include "Perso.h"
 
-Perso::Perso(*elements,*map)
+Perso::Perso(Map *map, std::vector<Deplacable*>* elements)
 {
 	speed = 42;
+	m_elements = elements;
+	m_map = map;
+
 }
+
 void Perso::move()
 {
 	if (sf::Event::EventType::KeyPressed)

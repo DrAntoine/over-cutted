@@ -16,6 +16,6 @@ protected:
 	*/
 	bool m_libre; //deposer
 	TuileType m_type;
-
+	bool m_marchable;
 };
 
