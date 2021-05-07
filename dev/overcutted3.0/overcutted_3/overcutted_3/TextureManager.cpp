@@ -8,8 +8,26 @@ TextureManager::TextureManager(std::string PersoPath, std::string OutilsPath, st
 	m_imageSize = imageSize;
 }
 
-sf::Sprite TextureManager::getTexture(TextureType type, sf::Vector2u positionInFile)
+sf::Sprite TextureManager::getTexture(TextureType m_type, sf::Vector2u positionInFile)
 {
-	//il se passe des trucs
-	//return le_sprite
+	if (m_type == TextureType::Aliments)
+	{
+		m_sprite.setTexture(m_textAliments);
+		m_sprite.setTextureRect(sf::IntRect(positionInFile.x, positionInFile.y, positionInFile.x + 50, positionInFile.y + 50));
+
+	}
+	if (m_type == TextureType::Outils)
+	{
+		m_sprite.setTexture(m_textOutils);
+		m_sprite.setTextureRect(sf::IntRect(positionInFile.x, positionInFile.y, positionInFile.x + 50, positionInFile.y + 50));
+
+	}
+	if (m_type == TextureType::Personnage)
+	{
+		m_sprite.setTexture(m_textPerso);
+		m_sprite.setTextureRect(sf::IntRect(positionInFile.x, positionInFile.y, positionInFile.x + 50, positionInFile.y + 50));
+
+	}
+	
+	return m_sprite;
 }

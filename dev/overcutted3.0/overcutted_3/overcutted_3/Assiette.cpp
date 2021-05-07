@@ -1,7 +1,7 @@
 #include "Assiette.h"
 Assiette::Assiette()
 {
-    this->mytexture.loadFromFile("textures/assiette.png");
+    //m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
 }
 
 void Assiette::deposer(Aliment* x)

@@ -2,7 +2,7 @@
 
 Poisson::Poisson()
 {
-	this->mytexture.loadFromFile("textures/poisson.png");
+	//m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
 	m_type = AlimentType::poisson;
 	m_coupable = true;
 }
