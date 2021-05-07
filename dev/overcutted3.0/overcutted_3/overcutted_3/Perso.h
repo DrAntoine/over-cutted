@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "Entite.h"
 #include "Deplacable.h"
 #include "Aliments.h"
@@ -16,9 +17,10 @@ private:
 	sf::Vector2f previous;
 	Deplacable *en_mains;
 	bool a_un_truc_en_main;
-	Perso_Action current_action;
+	Perso_Action m_current_action;
+	sf::Event m_eventPerso;
 	//sf::Clock clockPerso;
-	bool moveleft, moveright, moveup, movedown;
+	//bool moveleft, moveright, moveup, movedown;
 	int speed;
 	//propre au personnage
 public:

@@ -15,7 +15,7 @@ void Assiette::deposer(Aliment* x)
 
 bool Assiette::checkAliment(Aliment* aAjouter)
 {
-    Type typeDeA_Ajouter=aAjouter->getType();
+    AlimentType typeDeA_Ajouter=aAjouter->getType();
     {
         for (int i = 0 ;i<m_contenu.size();i++)
         {
