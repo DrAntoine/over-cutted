@@ -12,6 +12,7 @@ enum class TuileType { Sol, Plan_Travail, Planche_decoupe, Stock, Poubelle, Ouve
 class Entite
 {
 protected:
+	TextureManager *m_textureManager
 	sf::Vector2f taille;
 	sf::Vector2f Position;
 	sf::Sprite mysprite;
