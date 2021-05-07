@@ -17,9 +17,12 @@ private:
 	Deplacable *en_mains;
 	bool a_un_truc_en_main;
 	Perso_Action current_action;
+	sf::Clock clockPerso;
+	bool moveleft, moveright, moveup, movedown;
 	//propre au personnage
 public:
-	Perso(*elements, *map);
+	Perso(*elements,*map);
+	void move();
 	void action();
 	void animation();
 
