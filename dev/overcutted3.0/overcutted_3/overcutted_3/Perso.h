@@ -19,8 +19,7 @@ private:
 	bool a_un_truc_en_main;
 	Perso_Action m_current_action;
 	sf::Event m_eventPerso;
-	//sf::Clock clockPerso;
-	//bool moveleft, moveright, moveup, movedown;
+	bool m_main_libre;
 	int speed;
 	//propre au personnage
 public:

@@ -13,14 +13,14 @@ class Entite
 {
 protected:
 	TextureManager* m_textureManager;
-	sf::Vector2f taille;
-	sf::Vector2f Position;
-	sf::Sprite mysprite;
-	//sf::Texture mytexture;
+	sf::Vector2f m_taille;
+	sf::Vector2f m_position;
+	sf::Sprite m_sprite;
 public:
 	//draw(window *w)
 		//w->draw(Sprite);
-
+	void setTextureManagerAddresse(TextureManager*);
+	Entite();
 };
 
 
