@@ -1,6 +1,9 @@
-#include<SFML/Graphics.hpp>
 #include<iostream>
 #include<vector>
+
+#include<SFML/Graphics.hpp>
+
+#include "TextureManager.h"
 
 enum class AlimentEtat { intacte, couper, cuit };
 enum class AlimentType { none, poisson, crevette };
@@ -12,7 +15,7 @@ protected:
 	sf::Vector2f taille;
 	sf::Vector2f Position;
 	sf::Sprite mysprite;
-	sf::Texture mytexture;
+	//sf::Texture mytexture;
 public:
 	//draw(window *w)
 		//w->draw(Sprite);
