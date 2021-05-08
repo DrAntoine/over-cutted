@@ -14,10 +14,11 @@ private:
 	herité de outil
 	bool m_libre; // ne sera jamais à false 
 	TypeObjet m_type;*/
+	void supprimer(Deplacable*);
 
 public:
-	Poubelle();
-	void supprimer(Aliment*);
-
+	Poubelle(sf::Vector2f position);
+	void Recevoir(Deplacable*);
+	Deplacable* Donner();
 };
 

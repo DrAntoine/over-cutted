@@ -13,6 +13,7 @@ protected:
 
 public:
 	Aliment();
+	~Aliment();
 	void setCoupe();
 	//void setCuit();
 	//void melange();
