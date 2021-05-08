@@ -12,7 +12,7 @@ enum class TextureType
 class TextureManager
 {
 public:
-	TextureManager(const std::string PersoPath, const std::string OutilsPath, const std::string AlimentsPath, sf::Vector2u imageSize);
+	TextureManager(const std::string PersoPath, const std::string OutilsPath, const std::string AlimentsPath);
 	sf::Sprite getTexture(TextureType m_type, sf::Vector2u positionInFile);
 private:
 	sf::Texture m_textPerso;

@@ -6,5 +6,6 @@ private:
 
 public:
 	Poisson();
+	sf::Sprite spritePoisson();
 };
 

@@ -2,17 +2,17 @@
 
 Aliment::Aliment()
 {
-	m_etat = Etat::intacte;
-	m_type = Type::none;
+	m_etat = AlimentEtat::intacte;
+	m_type = AlimentType::none;
 	m_coupable = false;
 }
 
 void Aliment::setCoupe()
 {
-	m_etat = Etat::couper;
+	m_etat = AlimentEtat::couper;
 }
 
-Type Aliment::getType()
+AlimentType Aliment::getType()
 {
 	return m_type;
 }

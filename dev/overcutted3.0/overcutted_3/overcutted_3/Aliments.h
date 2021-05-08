@@ -16,7 +16,7 @@ public:
 	~Aliment();
 	void setCoupe();
 	//void setCuit();
-	//void melange();
+
 
 	AlimentType getType();
 };

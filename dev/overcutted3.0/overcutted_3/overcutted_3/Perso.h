@@ -20,10 +20,12 @@ private:
 	Perso_Action m_current_action;
 	sf::Event m_eventPerso;
 	bool m_main_libre;
-	int speed;
+	int speed, positionAnimationX;
 	//propre au personnage
 public:
-	Perso(Map* map, std::vector<Deplacable*>* elements); //HELP MEEEE
+
+	Perso(*map,*elements); //HELP MEEEE
+
 	void move();
 	void action();
 	void animation();
