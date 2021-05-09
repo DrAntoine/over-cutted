@@ -94,3 +94,14 @@ void Perso::animation()
 	}
 	
 }
+void Perso::action()
+{
+	if (m_current_action == Perso_Action::interact)
+	{
+
+	}
+}
+void Perso::collision()
+{
+
+}

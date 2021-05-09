@@ -14,7 +14,7 @@ void Map::drawmap()
 			switch (tabmap[x][y])
 			{
 			case 1: 
-				tuiles.push_back(new PlanTravail());
+				tuiles.push_back(m_mapSprit->getSprite());
 			case 2: 
 				tuiles.push_back(new Planche()); 
 			case 3: 

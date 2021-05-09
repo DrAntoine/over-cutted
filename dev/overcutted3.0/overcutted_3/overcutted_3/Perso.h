@@ -24,7 +24,7 @@ private:
 	//propre au personnage
 public:
 
-	Perso(*m_map , * m_elements); //HELP MEEEE
+	Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 
 	void move();
 	void action();

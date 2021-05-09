@@ -3,10 +3,13 @@
 //#include<string>
 #include<SFML/Graphics.hpp>
 #include "Tuile.h"
+#include "TextureManager.h"
 
 class Map
 {
 private:
+    TextureManager* m_mapSprit;
+    
 	std::vector<Tuile*> tuiles;
     int tabmap[16][16] =
     {
@@ -19,8 +22,8 @@ private:
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0},
-        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0},
-        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
@@ -29,7 +32,7 @@ private:
     };
 public:
 	
-	sf::Vector2i ou_suis_je(sf::Vector2f Position); // réponse tuile 0,4
+	//sf::Vector2i ou_suis_je(sf::Vector2f Position); // réponse tuile 0,4
 
 	void drawmap();
 

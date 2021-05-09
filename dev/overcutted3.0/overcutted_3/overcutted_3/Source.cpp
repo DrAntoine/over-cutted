@@ -22,7 +22,7 @@ int main()
 			game.move(event); //appelle la fonction move(event) du joueur
 
 
-			if (SPACE) game.action(); // appelle la fonction action du joueur
+			game.action(); // appelle la fonction action du joueur
         }
 
         window.clear();
