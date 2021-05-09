@@ -9,3 +9,7 @@ TuileType Tuile::getTypeTuile()
 {
 	return m_typeTuile;
 }
+TuileType Tuile::getTypeTuile()
+{
+
+}

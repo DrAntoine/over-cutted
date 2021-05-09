@@ -18,4 +18,5 @@ sf::Sprite Poisson::spritePoisson()
 	{
 		//m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
 	}*/
+	return m_sprite;
 }
