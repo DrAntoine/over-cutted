@@ -18,7 +18,7 @@ private:
 
 public:
 	Stock(sf::Vector2u position, DeplacableType typeAlimentAFournir);
-	Aliment* CreerNouvelAliment();
+	Aliment* CreerNouvelAliment;
 	/*Stock(int quoi) { type_aliment = quoi; }
 
 	*Aliment void destocker()

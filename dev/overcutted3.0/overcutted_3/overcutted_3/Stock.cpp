@@ -4,7 +4,7 @@ Stock::Stock(sf::Vector2u position, DeplacableType typeAlimentAFournir)
 {
 	if (typeAlimentAFournir == DeplacableType::assiette)
 	{
-		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(1, 2));
+		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(2, 1));
 	}
 	if (typeAlimentAFournir == DeplacableType::poisson)
 	{
@@ -12,6 +12,6 @@ Stock::Stock(sf::Vector2u position, DeplacableType typeAlimentAFournir)
 	}
 	if (typeAlimentAFournir == DeplacableType::crevette)
 	{
-		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0, 3));
+		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(3, 1));
 	}
 }
