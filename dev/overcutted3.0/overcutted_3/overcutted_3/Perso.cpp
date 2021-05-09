@@ -9,7 +9,7 @@ Perso::Perso(Map *map, std::vector<Deplacable*>* elements)
 
 
 	m_current_action = Perso_Action::idle;
-	//m_sprite = m_textureManager->getTexture(TextureType::Personnage, position.y, position.x);
+	//m_sprite = m_textureManager->getTexture(TextureType::Personnage, spritDuPersoPosition.y, spritDuPersoPosition.x);
 	
 
 }

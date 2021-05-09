@@ -8,7 +8,7 @@
 class Map
 {
 private:
-    TextureManager* m_mapSprit;
+    
     
 	std::vector<Tuile*> tuiles;
     int tabmap[16][16] =
