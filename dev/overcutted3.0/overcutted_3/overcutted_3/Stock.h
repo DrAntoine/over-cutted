@@ -15,7 +15,7 @@ private:
 	TypeObjet m_type;*/
 
 public:
-	Stock(AlimentType typeAlimentAFournir);
+	Stock(sf::Vector2u position, AlimentType typeAlimentAFournir);
 	Aliment* CreerNouvelAliment();
 	/*Stock(int quoi) { type_aliment = quoi; }
 

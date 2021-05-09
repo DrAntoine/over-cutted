@@ -21,7 +21,6 @@ private:
 	sf::Texture m_textAliments;
 	
 	sf::Sprite m_sprite;
-	
 
 	sf::Vector2u m_imageSize;
 };
