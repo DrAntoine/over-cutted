@@ -6,5 +6,6 @@ private:
 
 public:
 	Crevette();
+	sf::Sprite spriteCrevette();
 };
 

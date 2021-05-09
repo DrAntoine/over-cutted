@@ -15,3 +15,4 @@ Stock::Stock(sf::Vector2u position, DeplacableType typeAlimentAFournir)
 		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(3, 1));
 	}
 }
+
