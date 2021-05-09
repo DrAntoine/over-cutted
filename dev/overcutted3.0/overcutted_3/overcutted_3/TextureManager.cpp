@@ -5,7 +5,7 @@ TextureManager::TextureManager(std::string PersoPath, std::string OutilsPath, st
 	m_textAliments.loadFromFile(AlimentPath);
 	m_textOutils.loadFromFile(OutilsPath);
 	m_textPerso.loadFromFile(PersoPath);
-	m_imageSize = (50, 50);
+	m_imageSize = sf::Vector2u(50, 50);
 }
 
 void TextureManager::getTexture(TextureType m_type, sf::Vector2u positionInFile)
