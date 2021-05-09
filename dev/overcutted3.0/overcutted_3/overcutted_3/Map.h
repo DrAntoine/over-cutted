@@ -3,13 +3,18 @@
 //#include<string>
 #include<SFML/Graphics.hpp>
 #include "Tuile.h"
-#include "TextureManager.h"
+#include "Entite.h"
+#include"PlanTravail.h"
+#include "Planche.h"
+#include "OuvertureSalle.h"
+#include "Poubelle.h"
+#include "Stock.h"
+#include"Sol.h"
+
 
 class Map
 {
 private:
-    
-    
 	std::vector<Tuile*> tuiles;
     int tabmap[16][16] =
     {
