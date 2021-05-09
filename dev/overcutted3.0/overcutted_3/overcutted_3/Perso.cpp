@@ -7,8 +7,10 @@ Perso::Perso(Map *map, std::vector<Deplacable*>* elements)
 	m_elements = elements;
 	m_map = map;
 
+	positionAnimationX = 0;
+
 	m_current_action = Perso_Action::idle;
-	//m_sprite = m_textureManager->getTexture(TextureType::Personnage, spritDuPersoPosition.y, spritDuPersoPosition.x);
+	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX, 0));
 }
 
 void Perso::action()
@@ -75,19 +77,19 @@ void Perso::animation()
 	}
 	if (m_current_action == Perso_Action::move_down)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Personnage,position.y,position.x);
+		m_sprite = m_textureManager->getTexture(TextureType::Personnage,sf::Vector2u(positionAnimationX,0));
 	}
 	if (m_current_action == Perso_Action::move_up)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Personnage,position.y);
+		m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,3));
 	}
 	if (m_current_action == Perso_Action::move_left)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Personnage,position.y);
+		m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,1));
 	}
 	if (m_current_action == Perso_Action::move_right)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Personnage,position.y);
+		m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,2));
 	}
 	
 }
