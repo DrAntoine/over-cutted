@@ -24,7 +24,7 @@ private:
 	//propre au personnage
 public:
 
-	Perso(*map,*elements); //HELP MEEEE
+	Perso(*m_map , * m_elements); //HELP MEEEE
 
 	void move();
 	void action();

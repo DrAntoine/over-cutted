@@ -33,6 +33,9 @@ void Perso::move()
 			case sf::Keyboard::Down:
 				m_current_action = Perso_Action::move_down;
 				break;
+			case sf::Keyboard::E:
+				m_current_action = Perso_Action::interact;
+				break;
 			default:
 				break;
 		}
@@ -51,6 +54,9 @@ void Perso::move()
 			m_current_action = Perso_Action::idle;
 			break;
 		case sf::Keyboard::Down:
+			m_current_action = Perso_Action::idle;
+			break;
+		case sf::Keyboard::E:
 			m_current_action = Perso_Action::idle;
 			break;
 		default:

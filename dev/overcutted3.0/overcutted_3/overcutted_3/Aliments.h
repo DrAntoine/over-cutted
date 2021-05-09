@@ -13,7 +13,7 @@ protected:
 
 public:
 	Aliment();
-	~Aliment();
+	//~Aliment();
 	void setCoupe();
 	//void setCuit();
 
