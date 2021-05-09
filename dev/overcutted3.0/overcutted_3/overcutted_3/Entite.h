@@ -6,7 +6,7 @@
 #include "TextureManager.h"
 
 enum class AlimentEtat { intacte, couper, cuit };
-enum class AlimentType { none, poisson, crevette };
+enum class DeplacableType { none, poisson, crevette, assiette };
 enum class TuileType { Sol, Plan_Travail, Planche_decoupe, Stock, Poubelle, Ouverture_Salle };
 
 class Entite

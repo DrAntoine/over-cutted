@@ -1,6 +1,7 @@
 #include "Assiette.h"
 Assiette::Assiette()
 {
+    m_type = DeplacableType::assiette;
     //m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
 }
 
@@ -15,7 +16,7 @@ void Assiette::deposer(Aliment* x)
 
 bool Assiette::checkAliment(Aliment* aAjouter)
 {
-    AlimentType typeDeA_Ajouter=aAjouter->getType();
+    DeplacableType typeDeA_Ajouter=aAjouter->getType();
     {
         for (int i = 0 ;i<m_contenu.size();i++)
         {
