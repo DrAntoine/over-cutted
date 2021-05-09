@@ -8,3 +8,8 @@ DeplacableType Deplacable::getType()
 {
 	return m_type;
 }
+
+void Deplacable::setposition(sf::Vector2f newPostion)
+{
+	m_position = newPostion;
+}

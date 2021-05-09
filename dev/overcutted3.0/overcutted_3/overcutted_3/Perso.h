@@ -26,7 +26,6 @@ public:
 
 	Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 
-	void move();
 	void action();
 	void animation();
 

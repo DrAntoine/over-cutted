@@ -8,7 +8,7 @@ TextureManager::TextureManager(std::string PersoPath, std::string OutilsPath, st
 	m_imageSize = sf::Vector2u(50, 50);
 }
 
-void TextureManager::getTexture(TextureType m_type, sf::Vector2u positionInFile)
+sf::Sprite TextureManager::getTexture(TextureType m_type, sf::Vector2u positionInFile)
 {
 	if (m_type == TextureType::Aliments)
 	{
@@ -27,9 +27,5 @@ void TextureManager::getTexture(TextureType m_type, sf::Vector2u positionInFile)
 		m_sprite.setTexture(m_textPerso);
 		m_sprite.setTextureRect(sf::IntRect(positionInFile.x, positionInFile.y, positionInFile.x + m_imageSize.x, positionInFile.y + m_imageSize.y));
 	}
-}
-
-sf::Sprite TextureManager::getSprite()
-{
 	return m_sprite;
 }

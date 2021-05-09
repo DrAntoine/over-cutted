@@ -19,8 +19,11 @@ protected:
 public:
 	//draw(window *w)
 		//w->draw(Sprite);
-	void setTextureManagerAddresse(TextureManager*);
 	Entite();
+	virtual void draw(sf::RenderWindow* app);
+	void update();
+	void setTextureManagerAddresse(TextureManager*);
+
 };
 
 

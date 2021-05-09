@@ -7,10 +7,9 @@ protected:
 
 public:
 	Deplacable();
-	DeplacableType getType()
-	//void prendre();
-	//void déposer();
-	//void position();
+	DeplacableType getType();
+	void setposition(sf::Vector2f newPostion);
+
 
 };
 

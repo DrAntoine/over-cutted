@@ -13,8 +13,9 @@ void Game::draw(sf::RenderWindow* app)//window* w, m_gameClock
 		perso.draw(w, clock);
 		*/
 }
-void Game::init_clock()
+void Game::update(sf::Time tempsEcoule)
 {
 
 }
+
 

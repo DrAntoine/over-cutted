@@ -13,6 +13,6 @@ private:
 	bool m_libre; 
 	TypeObjet m_type;*/
 public:
-	PlanTravail(sf::Vector2f position);
+	PlanTravail(sf::Vector2u position);
 };
 

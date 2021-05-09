@@ -14,7 +14,7 @@ protected:
 	sf::Sprite mysprite;
 	sf::Texture mytexture;
 	*/
-	sf::Vector2u positionMap;
+	sf::Vector2u m_positionMap;
 	bool m_libre; //deposer
 	TuileType m_type;
 	bool m_marchable;

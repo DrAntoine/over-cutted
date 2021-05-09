@@ -12,3 +12,11 @@ void Entite::setTextureManagerAddresse(TextureManager* textureManagerAddr)
 {
 	m_textureManager = textureManagerAddr;
 }
+void Entite::draw(sf::RenderWindow* app)
+{
+	app->draw(m_sprite);
+}
+void Entite::update()
+{
+
+}
