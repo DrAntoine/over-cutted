@@ -6,6 +6,7 @@
 class Tuile : public Entite
 {
 public:
+	Tuile();
 	TuileType getTypeTuile();
 protected:
 	/* hérité de entite
