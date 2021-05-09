@@ -1,8 +1,6 @@
 #include<iostream>
 #include<vector>
-
 #include<SFML/Graphics.hpp>
-
 #include "TextureManager.h"
 
 enum class AlimentEtat { intacte, couper, cuit };
