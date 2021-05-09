@@ -1,6 +1,6 @@
-#pragma once
-#include <SFML/Graphics.hpp>
+//#ifndef entite
 #include "Entite.h"
+//#endif // !entite
 
 
 class Tuile : public Entite
@@ -9,15 +9,9 @@ public:
 	Tuile();
 	TuileType getTypeTuile();
 protected:
-	/* hérité de entite
-	sf::Vector2f taille;
-	sf::Vector2f Position;
-	sf::Sprite mysprite;
-	sf::Texture mytexture;
-	*/
 	sf::Vector2u m_positionMap;
 	bool m_libre; //deposer
-	TuileType m_type;
+	TuileType m_typeTuile;
 	bool m_marchable;
 };
 

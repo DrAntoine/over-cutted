@@ -1,4 +1,7 @@
+#ifndef sfml
 #include <SFML/Graphics.hpp>
+#endif // !sfml
+
 #include "Game.h"
 
 int main()
@@ -22,7 +25,7 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
          game.action(event); // appelle la fonction action du joueur
-         game.update();
+         game.update(tempsEcoule);
         }
 
         window.clear();

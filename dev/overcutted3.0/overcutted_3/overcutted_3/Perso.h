@@ -1,14 +1,18 @@
-#pragma once
-#include <SFML/Graphics.hpp>
-#include "Entite.h"
-#include "Deplacable.h"
 #include "Aliments.h"
+
+
+#include "Entite.h"
+
+
+#ifndef map
 #include "Map.h"
+#endif // !map
+
 #include "stock.h"
 
 enum class Perso_Action { move_down, move_up, move_left, move_right, interact, idle };
 
-class Perso:public Entite
+class Perso : public Entite
 {
 private:
 	Map *m_map; //les tuiles et les outils et stock
@@ -26,7 +30,7 @@ public:
 
 	Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 
-	void action();
+	void action(sf::Time dureeIteration);
 	void animation();
 
 

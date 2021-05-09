@@ -13,7 +13,7 @@ Perso::Perso(Map *map, std::vector<Deplacable*>* elements)
 	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX, 0));
 }
 
-void Perso::action()
+void Perso::action(sf::Time dureeIteration)
 {
 	if (sf::Event::EventType::KeyPressed)
 	{
@@ -62,10 +62,10 @@ void Perso::action()
 			break;
 		}
 	}
-	if (m_current_action==Perso_Action::move_left) m_sprite.move(dureeItération.asSecondes() * -speed,0);
-	if (m_current_action == Perso_Action::move_right) m_sprite.move(dureeItération.asSecondes() * speed,0);
-	if (m_current_action == Perso_Action::move_up) m_sprite.move(0,dureeItération.asSecondes() * -speed);
-	if (m_current_action == Perso_Action::move_down) m_sprite.move(0,dureeItération.asSecondes() * speed);
+	if (m_current_action==Perso_Action::move_left) m_sprite.move(dureeIteration.asSeconds() * -speed,0);
+	if (m_current_action == Perso_Action::move_right) m_sprite.move(dureeIteration.asSeconds() * speed,0);
+	if (m_current_action == Perso_Action::move_up) m_sprite.move(0, dureeIteration.asSeconds() * -speed);
+	if (m_current_action == Perso_Action::move_down) m_sprite.move(0, dureeIteration.asSeconds() * speed);
 }
 
 void Perso::animation()
@@ -93,13 +93,13 @@ void Perso::animation()
 	}
 	
 }
-void Perso::action()
-{
-	if (m_current_action == Perso_Action::interact)
-	{
-
-	}
-}
+//void Perso::action()
+//{
+//	if (m_current_action == Perso_Action::interact)
+//	{
+//
+//	}
+//}
 void Perso::collision()
 {
 

@@ -1,6 +1,9 @@
 #pragma once
+//#ifndef entite
 #include "Entite.h"
-class Deplacable:public Entite
+//#endif // !entite
+
+class Deplacable : public Entite
 {
 protected:
 	DeplacableType m_type;

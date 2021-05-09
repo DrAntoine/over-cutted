@@ -1,4 +1,14 @@
+#ifndef map
 #include "Map.h"
+#endif // !map
+#ifndef entite
+#include "Entite.h"
+#endif // !entite
+
+#ifndef sfml
+#include <SFML/Graphics.hpp>
+#endif // !sfml
+
 Map::Map()
 {
 
@@ -11,7 +21,7 @@ void Map::drawmap()
 		for (int x = 0; x < 16 ;x++)
 		{
 
-			switch (tabmap[x][y])
+			/*switch (tabmap[x][y])
 			{
 			case 0:
 				tuiles.push_back(new Sol(sf::Vector2u(x, y)));
@@ -40,7 +50,7 @@ void Map::drawmap()
 			case 8:
 				tuiles.push_back(new OuvertureSalle(sf::Vector2u(x, y)));
 				break;
-			}
+			}*/
 		}
 	}
 

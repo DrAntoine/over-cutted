@@ -1,16 +1,16 @@
 #pragma once
-#include "Tuile.h"
+//#include "Tuile.h"
 #include "Aliments.h"
 
 class Stock : public Tuile
 {
 private:
 	DeplacableType m_typeAlimentAFournir;
-	/* hérité de entite
-	sf::Vector2f taille;
-	sf::Vector2f Position;
-	sf::Sprite mysprite;
-	sf::Texture mytexture;
+	//hérité de entite
+	//sf::Vector2f taille;
+	//sf::Vector2f Position;
+	sf::Sprite m_sprite;
+	/*sf::Texture mytexture;
 	herité de outil
 	bool m_libre; //deposer
 	TypeObjet m_type;*/

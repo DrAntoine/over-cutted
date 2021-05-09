@@ -1,17 +1,24 @@
 #pragma once
 #include<iostream>
 //#include<string>
-#include<SFML/Graphics.hpp>
-#include "Tuile.h"
-#include "Entite.h"
-#include"PlanTravail.h"
+//#ifndef sfml
+//#include <SFML/Graphics.hpp>
+//#endif // !sfml
+
+//#include "Tuile.h"
+
+//#ifndef entite
+//#include "Entite.h"
+//#endif // !entite
+
+/*#include"PlanTravail.h"
 #include "Planche.h"
 #include "OuvertureSalle.h"
 #include "Poubelle.h"
 #include "Stock.h"
-#include"Sol.h"
+#include"Sol.h"*/
 
-
+/**/
 
 class Map
 {
@@ -39,7 +46,7 @@ private:
 public:
 	
 	//sf::Vector2i ou_suis_je(sf::Vector2f Position); // réponse tuile 0,4
-
+    Map();
 	void drawmap();
 
 

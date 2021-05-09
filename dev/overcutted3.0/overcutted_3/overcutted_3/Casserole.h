@@ -1,4 +1,5 @@
 #pragma once
+#include "Outil.h"
 class Casserole : public Outil
 {
 private:

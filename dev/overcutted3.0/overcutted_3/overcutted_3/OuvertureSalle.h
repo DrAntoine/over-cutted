@@ -1,5 +1,5 @@
 #pragma once
-#include "Tuile.h"
+#include "Outil.h"
 #include "Recette.h"
 
 class OuvertureSalle : public Tuile

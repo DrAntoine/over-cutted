@@ -1,9 +1,15 @@
 #pragma once
-#include "SFML/Graphics.hpp"
+#ifndef sfml
+#include <SFML/Graphics.hpp>
+#endif // !sfml
+
+#ifndef map
 #include "Map.h"
+#endif // !map
+
 #include "Perso.h"
-#include "Deplacable.h"
-#include "Entite.h"
+//#include "Deplacable.h"
+//#include "Entite.h"
 
 
 
@@ -18,6 +24,7 @@ private:
 	
 public:
 	Game();
+	void action(sf::Event);
 	void draw(sf::RenderWindow* app);//window* w, m_gameClock
 	void update(sf::Time tempsEcoule);
 };
