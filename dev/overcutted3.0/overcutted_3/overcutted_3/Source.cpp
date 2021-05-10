@@ -11,7 +11,7 @@ int main()
     sf::Clock horloge;
     sf::Time tempsEcoule;
 
-	Game game;
+	Game game(&window);
     
 
     while (window.isOpen())

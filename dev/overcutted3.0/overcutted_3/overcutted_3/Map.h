@@ -39,11 +39,13 @@ private:
         {1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     };
+    sf::RenderWindow* m_ptrApp;
 public:
 	
 	//sf::Vector2i ou_suis_je(sf::Vector2f Position); // réponse tuile 0,4
-    Map();
-	void drawmap();
+    Map(sf::RenderWindow*);
+	void initmap();
+    void drawmap();
 
 
 };
