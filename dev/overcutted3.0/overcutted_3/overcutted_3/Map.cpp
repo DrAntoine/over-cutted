@@ -1,5 +1,9 @@
 #include "Map.h"
 
+Map::Map()
+{
+	m_ptrApp = nullptr;
+}
 Map::Map(sf::RenderWindow* appPtr )
 {
 	m_ptrApp = appPtr;// pointeur vers la fenetre

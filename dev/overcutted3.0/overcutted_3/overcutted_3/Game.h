@@ -18,7 +18,8 @@ private:
 	// perso pour le deplacement, outil pour la gestion du temps de préparation etc
 	
 public:
-	Game(sf::RenderWindow);
+	Game();
+	Game(sf::RenderWindow*);
 	void action(sf::Event);
 	void draw();//window* w, m_gameClock
 	void update(sf::Time tempsEcoule);

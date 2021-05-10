@@ -43,6 +43,7 @@ private:
 public:
 	
 	//sf::Vector2i ou_suis_je(sf::Vector2f Position); // réponse tuile 0,4
+    Map();
     Map(sf::RenderWindow*);
 	void initmap();
     void drawmap();
