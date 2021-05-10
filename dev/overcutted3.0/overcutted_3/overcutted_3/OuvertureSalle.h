@@ -6,9 +6,9 @@ class OuvertureSalle : public Tuile
 {
 private:
 	std::vector<Recette*> recettes;
-	bool stateOuvSal;
+	//bool stateOuvSal; // A quoi il sert ? 
 public:
-	OuvertureSalle();
+	OuvertureSalle(sf::Vector2u positionCarte);
 	//void validation();
 	//void supprimer();
 

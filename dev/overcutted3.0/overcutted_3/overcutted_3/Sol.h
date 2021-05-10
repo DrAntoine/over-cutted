@@ -4,6 +4,6 @@
 
 class Sol:public Tuile
 {
-	Sol(sf::Vector2f position);
+	Sol(sf::Vector2u positionCarte);
 };
 

@@ -16,7 +16,7 @@ private:
 	void supprimer(Deplacable*);
 
 public:
-	Poubelle(sf::Vector2f position);
+	Poubelle(sf::Vector2u position);
 	void Recevoir(Deplacable*);
 	Deplacable* Donner();
 };

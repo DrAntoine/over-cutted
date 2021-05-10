@@ -1,8 +1,9 @@
 #include "Poisson.h"
 
-Poisson::Poisson()
+Poisson::Poisson(sf::Vector2f position)
 {
-	//m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
+	m_position = position;
+	m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0, 0));
 	m_type = DeplacableType::poisson;
 	m_coupable = true;
 }
@@ -12,11 +13,11 @@ sf::Sprite Poisson::spritePoisson()
 
 	if (m_etat == AlimentEtat::couper)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
+		m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0, 0));
 	}
-	/*if (m_etat == AlimentEtat::cuit)
+	if (m_etat == AlimentEtat::cuit)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
-	}*/
+		m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0, 0));
+	}
 	return m_sprite;
 }

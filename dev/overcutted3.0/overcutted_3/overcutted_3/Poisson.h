@@ -7,7 +7,7 @@ class Poisson:public Aliment
 private:
 
 public:
-	Poisson();
+	Poisson(sf::Vector2f position);
 	sf::Sprite spritePoisson();
 };
 

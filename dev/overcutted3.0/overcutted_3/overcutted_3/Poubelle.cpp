@@ -1,8 +1,8 @@
 #include "Poubelle.h"
 
-Poubelle::Poubelle(sf::Vector2f position)
+Poubelle::Poubelle(sf::Vector2u positionCarte)
 {
-	m_position = position;
+	m_positionMap = positionCarte;
 	m_typeTuile = TuileType::Poubelle;
 	m_marchable = false;
 	m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(5, 0)); //TODO definir la position dans le fichier.
