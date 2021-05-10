@@ -1,5 +1,9 @@
 #include "Map.h"
 
+Map::Map()
+{
+	m_ptrApp = nullptr;
+}
 Map::Map(sf::RenderWindow* appPtr )
 {
 	m_ptrApp = appPtr;// pointeur vers la fenetre
@@ -49,6 +53,8 @@ void Map::initmap()
 
 void Map::drawmap()
 {
+	tuiles.clear();
+	initmap();
 	for (int i = 0; i < tuiles.size(); i++)
 	{
 		tuiles[i]->draw(m_ptrApp);

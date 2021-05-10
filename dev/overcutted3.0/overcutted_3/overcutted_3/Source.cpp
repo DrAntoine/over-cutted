@@ -5,7 +5,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(900, 900), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     sf::Clock horloge;
@@ -28,7 +28,7 @@ int main()
         }
 
         window.clear();
-		//game.draw(&window);
+		game.draw();
         window.display();
     }
 

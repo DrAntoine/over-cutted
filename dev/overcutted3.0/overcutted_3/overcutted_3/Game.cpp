@@ -1,5 +1,9 @@
 #include "Game.h"
 
+Game::Game()
+{
+	m_pointeurFenetre = nullptr;
+}
 Game::Game(sf::RenderWindow* app)
 {
 	m_pointeurFenetre = app;

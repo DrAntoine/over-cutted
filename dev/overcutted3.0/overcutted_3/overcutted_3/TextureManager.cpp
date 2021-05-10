@@ -3,7 +3,7 @@
 TextureManager::TextureManager(std::string PersoPath, std::string OutilsPath, std::string AlimentPath)
 {
 	m_textAliments.loadFromFile(AlimentPath);
-	m_textOutils.loadFromFile(OutilsPath);
+	m_textOutils.loadFromFile("Textures/decors.png");
 	m_textPerso.loadFromFile(PersoPath);
 	m_imageSize = sf::Vector2u(50, 50);
 }
