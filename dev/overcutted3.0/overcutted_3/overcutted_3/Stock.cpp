@@ -4,7 +4,7 @@ Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std
 {
 	m_pointeurListeElement = pointeurListeElement;
 	m_positionMap = positionCarte;
-	m_position = sf::Vector2f(m_positionMap.x * m_taille.x, m_positionMap.y * m_taille.y);
+	m_position = convert_posMap_to_pos(m_positionMap);
 	m_marchable = false;
 	m_typeTuile = TuileType::Stock;
 	m_ressourceAFournir = typeAlimentAFournir;
