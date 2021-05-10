@@ -1,10 +1,10 @@
 #include "TextureManager.h"
 
-TextureManager::TextureManager(std::string PersoPath, std::string OutilsPath, std::string AlimentPath)
+TextureManager::TextureManager(/*std::string PersoPath, std::string OutilsPath, std::string AlimentPath*/)
 {
-	m_textAliments.loadFromFile(AlimentPath);
+	m_textAliments.loadFromFile("Textures/Aliments.png");
 	m_textOutils.loadFromFile("Textures/decors.png");
-	m_textPerso.loadFromFile(PersoPath);
+	m_textPerso.loadFromFile("Textures/Perso.png");
 	m_imageSize = sf::Vector2u(50, 50);
 }
 

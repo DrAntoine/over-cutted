@@ -1,5 +1,5 @@
 #include "Sol.h"
-Sol::Sol(sf::Vector2u position)
+Sol::Sol(sf::Vector2u positionCarte)
 {
 	m_typeTuile = TuileType::Sol;
 	m_marchable = true;
