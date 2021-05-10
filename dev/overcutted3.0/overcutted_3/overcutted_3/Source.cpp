@@ -28,7 +28,7 @@ int main()
         }
 
         window.clear();
-		//game.draw(&window);
+		game.draw();
         window.display();
     }
 
