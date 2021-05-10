@@ -1,6 +1,6 @@
-//#ifndef entite
+#pragma once
 #include "Entite.h"
-//#endif // !entite
+
 
 
 class Tuile : public Entite
@@ -10,7 +10,7 @@ public:
 	TuileType getTypeTuile();
 protected:
 	sf::Vector2u m_positionMap;
-	bool m_libre; //deposer
+	bool m_libre; 
 	TuileType m_typeTuile;
 	bool m_marchable;
 };

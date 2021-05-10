@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Outil.h"
 
 class Poubelle : public Outil

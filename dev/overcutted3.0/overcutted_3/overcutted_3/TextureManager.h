@@ -1,9 +1,7 @@
 #pragma once
 #include <string>
-
-#ifndef sfml
 #include <SFML/Graphics.hpp>
-#endif // !sfml
+
 
 enum class TextureType
 {

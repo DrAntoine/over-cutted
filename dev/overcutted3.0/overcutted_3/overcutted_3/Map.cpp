@@ -1,13 +1,4 @@
-#ifndef map
 #include "Map.h"
-#endif // !map
-#ifndef entite
-#include "Entite.h"
-#endif // !entite
-
-#ifndef sfml
-#include <SFML/Graphics.hpp>
-#endif // !sfml
 
 Map::Map()
 {

@@ -1,17 +1,32 @@
 #include "Perso.h"
 
+Perso::Perso()
+{
+	m_elements = nullptr;
+	m_map = nullptr;
+	speed = 10;
+	m_position = sf::Vector2f(10, 10);
+	px = 10;
+	py = 10;
+	m_current_action = Perso_Action::idle;
+	m_main_libre = true;
+	positionAnimationX = 0;
+	en_mains = nullptr; //a vérifier
+};
+
+/*
 Perso::Perso(Map *map, std::vector<Deplacable*>* elements)
 {
 	speed = 42;
 
-	m_elements = elements;
-	m_map = map;
+	//m_elements = elements;
+	//m_map = map;
 
 	positionAnimationX = 0;
 
 	m_current_action = Perso_Action::idle;
 	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX, 0));
-}
+}*/
 
 void Perso::action(sf::Time dureeIteration)
 {

@@ -1,12 +1,11 @@
-#ifndef sfml
+#pragma once
 #include <SFML/Graphics.hpp>
-#endif // !sfml
 
 #include "Game.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     sf::Clock horloge;
@@ -24,12 +23,12 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-         game.action(event); // appelle la fonction action du joueur
-         game.update(tempsEcoule);
+         //game.action(event); // appelle la fonction action du joueur
+         //game.update(tempsEcoule);
         }
 
         window.clear();
-		game.draw(&window);
+		//game.draw(&window);
         window.display();
     }
 

@@ -1,10 +1,7 @@
+#pragma once
 #include<iostream>
 #include<vector>
-
-#ifndef sfml
 #include <SFML/Graphics.hpp>
-#endif // !sfml
-
 #include "TextureManager.h"
 
 class Entite
@@ -19,9 +16,8 @@ public:
 	virtual void draw(sf::RenderWindow* app);
 	virtual void update();
 	void setTextureManagerAddresse(TextureManager*);
-
 };
 
 enum class AlimentEtat { intacte, couper, cuit };
 enum class DeplacableType { none, poisson, crevette, assiette };
-enum class TuileType { Sol, Plan_Travail, Planche_decoupe, Stock, Poubelle, Ouverture_Salle };
+enum class TuileType { None, Sol, Plan_Travail, Planche_decoupe, Stock, Poubelle, Ouverture_Salle };

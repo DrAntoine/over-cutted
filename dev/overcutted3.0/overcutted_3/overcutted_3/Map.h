@@ -1,22 +1,18 @@
 #pragma once
 #include<iostream>
-//#include<string>
-//#ifndef sfml
-//#include <SFML/Graphics.hpp>
-//#endif // !sfml
+#include<string>
+#include <SFML/Graphics.hpp>
 
 //#include "Tuile.h"
 
-//#ifndef entite
 //#include "Entite.h"
-//#endif // !entite
 
-/*#include"PlanTravail.h"
+#include"PlanTravail.h"
 #include "Planche.h"
 #include "OuvertureSalle.h"
 #include "Poubelle.h"
 #include "Stock.h"
-#include"Sol.h"*/
+#include"Sol.h"
 
 /**/
 

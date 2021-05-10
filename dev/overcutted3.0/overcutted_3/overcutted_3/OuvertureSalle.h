@@ -9,8 +9,8 @@ private:
 	bool stateOuvSal;
 public:
 	OuvertureSalle();
-	void validation();
-	void supprimer();
+	//void validation();
+	//void supprimer();
 
 };
 

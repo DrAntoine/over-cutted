@@ -1,7 +1,7 @@
 #pragma once
-//#ifndef entite
+
 #include "Entite.h"
-//#endif // !entite
+
 
 class Deplacable : public Entite
 {
@@ -12,7 +12,5 @@ public:
 	Deplacable();
 	DeplacableType getType();
 	void setposition(sf::Vector2f newPostion);
-
-
 };
 

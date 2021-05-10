@@ -1,7 +1,7 @@
 #pragma once
-#ifndef sfml
+
 #include <SFML/Graphics.hpp>
-#endif // !sfml
+
 
 class Recette
 {

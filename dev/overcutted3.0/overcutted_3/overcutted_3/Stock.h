@@ -1,11 +1,12 @@
 #pragma once
-//#include "Tuile.h"
-#include "Aliments.h"
+#include "Tuile.h"
+//#include "Aliments.h"
+//#include "Entite.h"
 
 class Stock : public Tuile
 {
 private:
-	DeplacableType m_typeAlimentAFournir;
+	/*DeplacableType m_typeAlimentAFournir;
 	//hérité de entite
 	//sf::Vector2f taille;
 	//sf::Vector2f Position;
@@ -13,11 +14,11 @@ private:
 	/*sf::Texture mytexture;
 	herité de outil
 	bool m_libre; //deposer
-	TypeObjet m_type;*/
-	DeplacableType m_ressourceAFournir;
+	TypeObjet m_type;
+	DeplacableType m_ressourceAFournir;*/
 
 public:
-	Stock(sf::Vector2u position, DeplacableType typeAlimentAFournir);
+	/*Stock(sf::Vector2u position, DeplacableType typeAlimentAFournir);
 	Aliment* CreerNouvelAliment;
 	/*Stock(int quoi) { type_aliment = quoi; }
 

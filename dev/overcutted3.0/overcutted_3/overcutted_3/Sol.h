@@ -1,5 +1,5 @@
 #pragma once
-//#include"Tuile.h"
+#include"Tuile.h"
 
 
 class Sol:public Tuile

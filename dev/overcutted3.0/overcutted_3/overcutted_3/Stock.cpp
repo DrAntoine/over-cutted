@@ -1,5 +1,5 @@
 #include "Stock.h"
-
+/*
 Stock::Stock(sf::Vector2u position, DeplacableType typeAlimentAFournir)
 {
 	if (typeAlimentAFournir == DeplacableType::assiette)
@@ -16,3 +16,4 @@ Stock::Stock(sf::Vector2u position, DeplacableType typeAlimentAFournir)
 	}
 }
 
+*/
