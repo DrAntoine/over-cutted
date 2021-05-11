@@ -29,7 +29,7 @@ private:
 	//propre au personnage
 public:
 
-	Perso(); //HELP MEEEE
+	Perso(TextureManager*); //HELP MEEEE
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 
 	void action(sf::Time dureeIteration);

@@ -9,7 +9,7 @@ protected:
 	DeplacableType m_type;
 
 public:
-	Deplacable();
+	Deplacable(TextureManager*);
 	DeplacableType getType();
 	void setposition(sf::Vector2f newPostion);
 };

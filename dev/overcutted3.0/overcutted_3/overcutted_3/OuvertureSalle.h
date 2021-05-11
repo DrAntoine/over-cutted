@@ -2,13 +2,13 @@
 #include "Outil.h"
 #include "Recette.h"
 
-class OuvertureSalle : public Tuile
+class OuvertureSalle : public Outil
 {
 private:
 	std::vector<Recette*> recettes;
 	//bool stateOuvSal; // A quoi il sert ? 
 public:
-	OuvertureSalle(sf::Vector2u positionCarte);
+	OuvertureSalle(sf::Vector2u , TextureManager*);
 	//void validation();
 	//void supprimer();
 

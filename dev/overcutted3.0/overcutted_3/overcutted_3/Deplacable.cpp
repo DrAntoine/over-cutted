@@ -1,8 +1,10 @@
 #include "Deplacable.h"
 
-Deplacable::Deplacable()
+Deplacable::Deplacable(TextureManager* pointeurText) : Entite(pointeurText)
 {
+	std::cout << "Constructeur Deplacable" << std::endl;
 	m_type = DeplacableType::none;
+	std::cout << "Deplacable OK" << std::endl;
 }
 DeplacableType Deplacable::getType()
 {

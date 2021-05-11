@@ -9,7 +9,7 @@ private:
 	std::vector<Aliment*> m_contenu;
 	
 public:
-	Assiette();
+	Assiette(sf::Vector2f, TextureManager*);
 	void deposer(Aliment* x);
 	bool checkAliment(Aliment* aAjouter);
 

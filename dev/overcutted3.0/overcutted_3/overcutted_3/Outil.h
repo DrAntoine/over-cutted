@@ -8,7 +8,7 @@ protected:
 	Deplacable* m_currentAliment;
 	bool m_libre; //false si aliment/true si vide
 public:
-	Outil();
+	Outil(TextureManager*);
 	//Retourne l'état de m_libre. A consulter avant d'utiliser Recevoir(Aliment*) ou Donner();
 	bool Est_libre();
 

@@ -6,7 +6,7 @@
 class Tuile : public Entite
 {
 public:
-	Tuile();
+	Tuile(TextureManager*);
 	TuileType getTypeTuile();
 protected:
 	sf::Vector2f convert_posMap_to_pos(sf::Vector2u m_positionMap);

@@ -5,11 +5,13 @@
 
 int main()
 {
+    std::cout << "Source" << std::endl;
     sf::RenderWindow window(sf::VideoMode(900, 900), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    //sf::CircleShape shape(100.f);
+    //shape.setFillColor(sf::Color::Green);
     sf::Clock horloge;
     sf::Time tempsEcoule;
+
 
 	Game game(&window);
     
@@ -31,6 +33,6 @@ int main()
 		game.draw();
         window.display();
     }
-
+    std::cout << "Source Ok" << std::endl;
     return 0;
 }

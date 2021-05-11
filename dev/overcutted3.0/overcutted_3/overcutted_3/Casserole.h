@@ -14,7 +14,7 @@ private:
 	bool m_libre;
 	TypeObjet m_type;*/
 public:
-	Casserole();
+	Casserole(TextureManager*);
 	/*
 	virtual void utiliser(std::vector<Aliment *> aliments)
 	{

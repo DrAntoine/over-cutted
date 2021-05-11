@@ -11,7 +11,7 @@ protected:
 	//bool m_cuisable;
 
 public:
-	Aliment();
+	Aliment(TextureManager*);
 	//~Aliment();
 	void setCoupe();
 	//void setCuit();
