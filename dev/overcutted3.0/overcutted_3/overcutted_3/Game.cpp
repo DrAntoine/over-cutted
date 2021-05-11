@@ -12,7 +12,7 @@ Game::Game(sf::RenderWindow* app)
 	std::cout << "Constructeur Game (RenderWindow*)" << std::endl;
 	m_pointeurFenetre = app;
 	m_perso = new Perso(&m_textureManager);
-	m_map = new Map(m_pointeurFenetre, &m_textureManager);
+	m_map = new Map(m_pointeurFenetre, &m_textureManager, &m_elements);
 	//m_map = &map;
 	std::cout << "Game OK" << std::endl;
 }

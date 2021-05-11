@@ -6,11 +6,12 @@ Map::Map()
 	m_ptrApp = nullptr;
 	std::cout << "Map OK" << std::endl;
 }
-Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText )
+Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText, std::vector<Deplacable*>* ListeElements)
 {
 	std::cout << "Constructeur Map (RenderWindow*, TextureManager*" << std::endl;
 	m_texturePointeur = pointeurText;
 	m_ptrApp = appPtr;// pointeur vers la fenetre
+	m_element = ListeElements;
 	initmap();
 	std::cout << "Map OK" << std::endl;
 }
@@ -37,13 +38,13 @@ void Map::initmap()
 				tuiles.push_back(new Poubelle(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			case 4: 
-				//tuiles.push_back(new Stock(sf::Vector2u(x, y), DeplacableType::crevette)); //passer le pointeur vers la liste de déplacable et le texture manager
+				tuiles.push_back(new Stock(sf::Vector2u(x, y), DeplacableType::crevette, m_element, m_texturePointeur)); //passer le pointeur vers la liste de déplacable et le texture manager
 				break;
 			case 5:
-				//tuiles.push_back(new Stock(sf::Vector2u(x, y), DeplacableType::poisson)); //passer le pointeur vers la liste de déplacable et le texture manager
+				tuiles.push_back(new Stock(sf::Vector2u(x, y), DeplacableType::poisson, m_element, m_texturePointeur)); //passer le pointeur vers la liste de déplacable et le texture manager
 				break;
 			case 6:
-				//tuiles.push_back(new Stock(sf::Vector2u(x, y),DeplacableType::assiette)); //passer le pointeur vers la liste de déplacable et le texture manager
+				tuiles.push_back(new Stock(sf::Vector2u(x, y),DeplacableType::assiette, m_element, m_texturePointeur)); //passer le pointeur vers la liste de déplacable et le texture manager
 				break;
 			case 7:
 				tuiles.push_back(new Poubelle(sf::Vector2u(x, y), m_texturePointeur));//2 fois poubelle?
@@ -51,6 +52,8 @@ void Map::initmap()
 			case 8:
 				tuiles.push_back(new OuvertureSalle(sf::Vector2u(x, y), m_texturePointeur));
 				break;
+			case 9:
+				tuiles.push_back(new Mur(sf::Vector2u(x, y), m_texturePointeur));
 			}
 		}
 	}

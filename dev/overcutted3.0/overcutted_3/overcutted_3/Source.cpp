@@ -7,8 +7,6 @@ int main()
 {
     std::cout << "Source" << std::endl;
     sf::RenderWindow window(sf::VideoMode(900, 900), "SFML works!");
-    //sf::CircleShape shape(100.f);
-    //shape.setFillColor(sf::Color::Green);
     sf::Clock horloge;
     sf::Time tempsEcoule;
 

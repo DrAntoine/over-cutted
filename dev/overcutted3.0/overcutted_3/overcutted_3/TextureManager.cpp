@@ -12,7 +12,7 @@ TextureManager::TextureManager()
 
 sf::Sprite TextureManager::getTexture(TextureType m_type, sf::Vector2u positionInFile)
 {
-	std::cout << "ok";
+	//std::cout << "ok";
 	if (m_type == TextureType::Aliments)
 	{
 		m_sprite.setTexture(m_textAliments);

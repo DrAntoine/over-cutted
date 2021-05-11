@@ -25,6 +25,7 @@ Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std
 		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0, 0));
 		break;
 	}
+	m_sprite.setPosition(m_position);
 	std::cout << "Stock OK" << std::endl;
 }
 
