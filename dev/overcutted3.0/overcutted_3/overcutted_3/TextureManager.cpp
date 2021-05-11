@@ -22,7 +22,7 @@ sf::Sprite TextureManager::getTexture(TextureType m_type, sf::Vector2u positionI
 	if (m_type == TextureType::Outils)
 	{
 		m_sprite.setTexture(m_textOutils);
-		m_sprite.setTextureRect(sf::IntRect(positionInFile.x, positionInFile.y,  m_imageSize.x, m_imageSize.y));
+		m_sprite.setTextureRect(sf::IntRect(positionInFile.x*50, positionInFile.y*50,  m_imageSize.x, m_imageSize.y));
 
 	}
 	if (m_type == TextureType::Personnage)

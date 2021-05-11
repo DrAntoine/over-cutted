@@ -22,7 +22,7 @@ void Map::initmap()
 		for (int x = 0; x < 16 ;x++)
 		{
 
-			switch (tabmap[x][y])
+			switch (tabmap[y][x])
 			{
 			case 0:
 				tuiles.push_back(new Sol(sf::Vector2u(x, y), m_texturePointeur));
@@ -46,7 +46,7 @@ void Map::initmap()
 				//tuiles.push_back(new Stock(sf::Vector2u(x, y),DeplacableType::assiette)); //passer le pointeur vers la liste de déplacable et le texture manager
 				break;
 			case 7:
-				tuiles.push_back(new Poubelle(sf::Vector2u(x, y), m_texturePointeur));
+				tuiles.push_back(new Poubelle(sf::Vector2u(x, y), m_texturePointeur));//2 fois poubelle?
 				break;
 			case 8:
 				tuiles.push_back(new OuvertureSalle(sf::Vector2u(x, y), m_texturePointeur));

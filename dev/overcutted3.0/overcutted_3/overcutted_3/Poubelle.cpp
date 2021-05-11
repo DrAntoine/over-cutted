@@ -7,7 +7,8 @@ Poubelle::Poubelle(sf::Vector2u positionCarte, TextureManager* pointeurTexture) 
 	m_position = convert_posMap_to_pos(m_positionMap);
 	m_typeTuile = TuileType::Poubelle;
 	m_marchable = false;
-	m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(5, 0)); //TODO definir la position dans le fichier.
+	m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(5, 0));
+	m_sprite.setPosition(m_position);
 	std::cout << "Poubelle OK" << std::endl;
 }
 
