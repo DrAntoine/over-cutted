@@ -3,8 +3,10 @@
 
 Assiette::Assiette()
 {
+    std::cout << "Constructeur Assiette" << std::endl;
     m_type = DeplacableType::assiette;
     //m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
+    std::cout << "Assiette OK" << std::endl;
 }
 
 void Assiette::deposer(Aliment* x)

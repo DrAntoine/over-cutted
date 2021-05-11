@@ -12,10 +12,10 @@ protected:
 	sf::Vector2f m_position;
 	sf::Sprite m_sprite;
 public:
-	Entite();
+	Entite(/*TextureManager**/);
 	virtual void draw(sf::RenderWindow* app);
 	virtual void update();
-	void setTextureManagerAddresse(TextureManager*);
+	//void setTextureManagerAddresse(TextureManager*);
 };
 
 enum class AlimentEtat { intacte, couper, cuit };

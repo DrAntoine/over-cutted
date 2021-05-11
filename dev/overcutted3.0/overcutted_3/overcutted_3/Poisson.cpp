@@ -2,10 +2,12 @@
 
 Poisson::Poisson(sf::Vector2f position)
 {
+	std::cout << "Constructeur Poisson (position)" << std::endl;
 	m_position = position;
 	m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0, 0));
 	m_type = DeplacableType::poisson;
 	m_coupable = true;
+	std::cout << "Poisson OK" << std::endl;
 }
 
 sf::Sprite Poisson::spritePoisson()

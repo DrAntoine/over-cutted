@@ -2,7 +2,9 @@
 
 Deplacable::Deplacable()
 {
+	std::cout << "Constructeur Deplacable" << std::endl;
 	m_type = DeplacableType::none;
+	std::cout << "Deplacable OK" << std::endl;
 }
 DeplacableType Deplacable::getType()
 {

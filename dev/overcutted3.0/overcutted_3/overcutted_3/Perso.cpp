@@ -2,6 +2,7 @@
 
 Perso::Perso()
 {
+	std::cout << "Constructeur Perso" << std::endl;
 	m_elements = nullptr;
 	m_map = nullptr;
 	speed = 10;
@@ -12,6 +13,7 @@ Perso::Perso()
 	m_main_libre = true;
 	positionAnimationX = 0;
 	en_mains = nullptr; //a vérifier
+	std::cout << "Perso OK" << std::endl;
 };
 
 /*

@@ -6,6 +6,6 @@ class Sol:public Tuile
 {
 private:
 public:
-	Sol(sf::Vector2u position);
+	Sol(sf::Vector2u position, TextureManager* pointeurText);
 };
 

@@ -2,11 +2,17 @@
 
 Map::Map()
 {
+	std::cout << "Constructeur Map (par defaut)" << std::endl;
 	m_ptrApp = nullptr;
+	std::cout << "Map OK" << std::endl;
 }
-Map::Map(sf::RenderWindow* appPtr )
+Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText )
 {
+	std::cout << "Constructeur Map (RenderWindow*, TextureManager*" << std::endl;
+	m_texturePointeur = pointeurText;
 	m_ptrApp = appPtr;// pointeur vers la fenetre
+	initmap();
+	std::cout << "Map OK" << std::endl;
 }
 
 void Map::initmap()
@@ -19,7 +25,7 @@ void Map::initmap()
 			switch (tabmap[x][y])
 			{
 			case 0:
-				tuiles.push_back(new Sol(sf::Vector2u(x, y)));
+				tuiles.push_back(new Sol(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			case 1: 
 				tuiles.push_back(new PlanTravail(sf::Vector2u(x, y)));
@@ -53,8 +59,8 @@ void Map::initmap()
 
 void Map::drawmap()
 {
-	tuiles.clear();
-	initmap();
+	//tuiles.clear();
+	//initmap();
 	for (unsigned int i = 0; i < tuiles.size(); i++)
 	{
 		tuiles[i]->draw(m_ptrApp);
