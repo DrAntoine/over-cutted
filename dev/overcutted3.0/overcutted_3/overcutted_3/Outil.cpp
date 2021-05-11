@@ -1,6 +1,6 @@
 #include "Outil.h"
 
-Outil::Outil()
+Outil::Outil(TextureManager* pointeurTexture) : Tuile(pointeurTexture)
 {
 	std::cout << "Constructeur Outil" << std::endl;
 	m_currentAliment = nullptr;

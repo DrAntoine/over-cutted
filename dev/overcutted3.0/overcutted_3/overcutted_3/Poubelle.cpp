@@ -1,6 +1,6 @@
 #include "Poubelle.h"
 
-Poubelle::Poubelle(sf::Vector2u positionCarte)
+Poubelle::Poubelle(sf::Vector2u positionCarte, TextureManager* pointeurTexture) : Outil(pointeurTexture)
 {
 	std::cout << "Constructeur Poubelle (positionCarte)" << std::endl;
 	m_positionMap = positionCarte;

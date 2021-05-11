@@ -1,6 +1,6 @@
 #include "Aliments.h"
 
-Aliment::Aliment()
+Aliment::Aliment(TextureManager* pointeurTexture) : Deplacable(pointeurTexture)
 {
 	std::cout << "Constructeur Aliments" << std::endl;
 	m_etat = AlimentEtat::intacte;

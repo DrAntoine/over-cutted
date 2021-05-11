@@ -1,5 +1,5 @@
 #include "Tuile.h"
-Tuile::Tuile() : Entite()
+Tuile::Tuile(TextureManager* pointeurText) : Entite(pointeurText)
 {
 	std::cout << "Constructeur Tuile" << std::endl;
 	m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0, 0));

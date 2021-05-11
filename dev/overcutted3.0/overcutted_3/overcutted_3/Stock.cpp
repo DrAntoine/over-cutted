@@ -1,6 +1,6 @@
 #include "Stock.h"
 
-Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std::vector<Deplacable*>* pointeurListeElement)
+Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std::vector<Deplacable*>* pointeurListeElement, TextureManager* pointeurTexture) : Outil(pointeurTexture)
 {
 	std::cout << "Constructeur Stock (positionCarte, typeAlimentAFournir, std::vector<Deplacable*>*" << std::endl;
 	m_pointeurListeElement = pointeurListeElement;
@@ -37,11 +37,13 @@ void Stock::Interaction()
 		case DeplacableType::none:
 			break;
 		case DeplacableType::poisson:
-			m_pointeurListeElement->push_back(new Poisson(m_position));
+			m_pointeurListeElement->push_back(new Poisson(m_position, m_textureManager));
 			break;
 		case DeplacableType::crevette:
+			m_pointeurListeElement->push_back(new Crevette(m_position, m_textureManager));
 			break;
 		case DeplacableType::assiette:
+			m_pointeurListeElement->push_back(new Assiette(m_position, m_textureManager));
 			break;
 		default:
 			break;

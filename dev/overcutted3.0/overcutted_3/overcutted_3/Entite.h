@@ -12,7 +12,7 @@ protected:
 	sf::Vector2f m_position;
 	sf::Sprite m_sprite;
 public:
-	Entite(/*TextureManager**/);
+	Entite(TextureManager*);
 	virtual void draw(sf::RenderWindow* app);
 	virtual void update();
 	//void setTextureManagerAddresse(TextureManager*);

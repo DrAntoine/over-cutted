@@ -1,6 +1,6 @@
 #include "Perso.h"
 
-Perso::Perso()
+Perso::Perso(TextureManager* pointeurTexture) : Entite(pointeurTexture)
 {
 	std::cout << "Constructeur Perso" << std::endl;
 	m_elements = nullptr;

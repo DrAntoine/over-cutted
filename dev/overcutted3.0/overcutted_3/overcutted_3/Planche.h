@@ -21,5 +21,5 @@ private:
 		if(anim terminee) aliment[0]->setCoupe();
 	}*/
 public:
-	Planche(sf::Vector2u position);
+	Planche(sf::Vector2u position, TextureManager*);
 };

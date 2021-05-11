@@ -30,7 +30,7 @@ int main()
         }
 
         window.clear();
-		//game.draw();
+		game.draw();
         window.display();
     }
     std::cout << "Source Ok" << std::endl;

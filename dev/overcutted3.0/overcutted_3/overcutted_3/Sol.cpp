@@ -1,8 +1,8 @@
 #include "Sol.h"
-Sol::Sol(sf::Vector2u positionCarte, TextureManager* pointeurText)
+Sol::Sol(sf::Vector2u positionCarte, TextureManager* pointeurText): Tuile(pointeurText)
 {
 	std::cout << "Constructeur Sol (positionCarte, TextureManager*" << std::endl;
-	m_textureManager = pointeurText;
+	//m_textureManager = pointeurText;
 	m_typeTuile = TuileType::Sol;
 	m_marchable = true;
 	m_positionMap = positionCarte;

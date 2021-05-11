@@ -11,16 +11,20 @@ Game::Game(sf::RenderWindow* app)
 {
 	std::cout << "Constructeur Game (RenderWindow*)" << std::endl;
 	m_pointeurFenetre = app;
-	//Perso m_perso(&m_map, &m_elements);
-	Perso m_perso();
-	TextureManager m_textureManager();
-	Map map(m_pointeurFenetre, &m_textureManager);
-	m_map = &map;
+	m_perso = new Perso(&m_textureManager);
+	m_map = new Map(m_pointeurFenetre, &m_textureManager);
+	//m_map = &map;
 	std::cout << "Game OK" << std::endl;
+}
+Game::~Game()
+{
+	delete m_perso;
+	delete m_map;
 }
 
 void Game::draw()//window* w, m_gameClock
 {
+	m_map->drawmap();
 	//app->draw();
 	//m_map.drawmap();
 	//for (elements) elements[i].draw(w)

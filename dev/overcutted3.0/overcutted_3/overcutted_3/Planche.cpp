@@ -1,6 +1,6 @@
 #include "Planche.h"
 
-Planche::Planche(sf::Vector2u position)
+Planche::Planche(sf::Vector2u position, TextureManager* pointeurTexture) : Outil(pointeurTexture)
 {
 	std::cout << "Constructeur Planche (position)" << std::endl;
 	m_positionMap = position;

@@ -1,11 +1,12 @@
 #include "Assiette.h"
 
 
-Assiette::Assiette()
+Assiette::Assiette(sf::Vector2f position,  TextureManager* pointeurTexture) : Deplacable(pointeurTexture)
 {
     std::cout << "Constructeur Assiette" << std::endl;
     m_type = DeplacableType::assiette;
-    //m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
+    m_position = position;
+    m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0,0));
     std::cout << "Assiette OK" << std::endl;
 }
 

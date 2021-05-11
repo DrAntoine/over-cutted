@@ -28,28 +28,28 @@ void Map::initmap()
 				tuiles.push_back(new Sol(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			case 1: 
-				tuiles.push_back(new PlanTravail(sf::Vector2u(x, y)));
+				tuiles.push_back(new PlanTravail(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			case 2: 
-				tuiles.push_back(new Planche(sf::Vector2u(x, y)));
+				tuiles.push_back(new Planche(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			case 3: 
-				tuiles.push_back(new Poubelle(sf::Vector2u(x, y)));
+				tuiles.push_back(new Poubelle(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			case 4: 
-				//tuiles.push_back(new Stock(sf::Vector2u(x, y), DeplacableType::crevette));
+				//tuiles.push_back(new Stock(sf::Vector2u(x, y), DeplacableType::crevette)); //passer le pointeur vers la liste de déplacable et le texture manager
 				break;
 			case 5:
-				//tuiles.push_back(new Stock(sf::Vector2u(x, y), DeplacableType::poisson));
+				//tuiles.push_back(new Stock(sf::Vector2u(x, y), DeplacableType::poisson)); //passer le pointeur vers la liste de déplacable et le texture manager
 				break;
 			case 6:
-				//tuiles.push_back(new Stock(sf::Vector2u(x, y),DeplacableType::assiette));
+				//tuiles.push_back(new Stock(sf::Vector2u(x, y),DeplacableType::assiette)); //passer le pointeur vers la liste de déplacable et le texture manager
 				break;
 			case 7:
-				tuiles.push_back(new Poubelle(sf::Vector2u(x, y)));
+				tuiles.push_back(new Poubelle(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			case 8:
-				tuiles.push_back(new OuvertureSalle(sf::Vector2u(x, y)));
+				tuiles.push_back(new OuvertureSalle(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			}
 		}

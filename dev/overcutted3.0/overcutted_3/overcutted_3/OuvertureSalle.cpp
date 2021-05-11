@@ -1,5 +1,6 @@
 #include "OuvertureSalle.h"
-OuvertureSalle::OuvertureSalle(sf::Vector2u positioncarte)
+
+OuvertureSalle::OuvertureSalle(sf::Vector2u positioncarte, TextureManager* pointeurTexture) : Outil(pointeurTexture)
 {
 	std::cout << "Constructeur OuvertureSalle (positioncarte)" << std::endl;
 	m_positionMap = positioncarte;

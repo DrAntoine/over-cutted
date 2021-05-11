@@ -13,7 +13,7 @@ class Game
 private:
 	TextureManager m_textureManager;
 	std::vector<Deplacable*> m_elements; 
-	Perso m_perso;
+	Perso* m_perso;
 	sf::RenderWindow* m_pointeurFenetre;
 	Map* m_map; //les tuiles (+ les outils et stock)
 
@@ -22,6 +22,7 @@ private:
 	
 public:
 	Game();
+	~Game();
 	Game(sf::RenderWindow*);
 	void action(sf::Event);
 	void draw();//window* w, m_gameClock

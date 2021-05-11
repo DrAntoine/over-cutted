@@ -1,7 +1,7 @@
 #pragma once
-#include "Tuile.h"
+#include "Outil.h"
 
-class PlanTravail : public Tuile
+class PlanTravail : public Outil
 
 {
 private:
@@ -13,6 +13,6 @@ private:
 	bool m_libre; 
 	TypeObjet m_type;*/
 public:
-	PlanTravail(sf::Vector2u position);
+	PlanTravail(sf::Vector2u, TextureManager*);
 };
 
