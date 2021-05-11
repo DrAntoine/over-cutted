@@ -92,19 +92,19 @@ void Perso::animation()
 	}
 	if (m_current_action == Perso_Action::move_down)
 	{
-		m_sprite = m_textureManager->getTexture(TextureType::Personnage,sf::Vector2u(positionAnimationX,0));
+		//m_sprite = m_textureManager->getTexture(TextureType::Personnage,sf::Vector2u(positionAnimationX,0));
 	}
 	if (m_current_action == Perso_Action::move_up)
 	{
-		m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,3));
+		//m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,3));
 	}
 	if (m_current_action == Perso_Action::move_left)
 	{
-		m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,1));
+		//m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,1));
 	}
 	if (m_current_action == Perso_Action::move_right)
 	{
-		m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,2));
+		//m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,2));
 	}
 	
 }

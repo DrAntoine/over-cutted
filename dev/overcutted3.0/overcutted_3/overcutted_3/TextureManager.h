@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <SFML/Graphics.hpp>
-
+#include <iostream>
 
 enum class TextureType
 {
@@ -14,7 +14,7 @@ class TextureManager
 {
 public:
 	TextureManager(/*const std::string PersoPath, const std::string OutilsPath, const std::string AlimentsPath*/);
-	sf::Sprite getTexture(TextureType m_type, sf::Vector2u positionInFile);
+	sf::Sprite getTexture(TextureType m_type, sf::Vector2u positionInFile, sf::Vector2u size);
 
 private:
 	sf::Texture m_textPerso;

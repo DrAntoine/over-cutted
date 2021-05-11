@@ -6,7 +6,8 @@ Poubelle::Poubelle(sf::Vector2u positionCarte)
 	m_position = convert_posMap_to_pos(m_positionMap);
 	m_typeTuile = TuileType::Poubelle;
 	m_marchable = false;
-	m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(5, 0)); //TODO definir la position dans le fichier.
+	m_sprite.setPosition(m_position);
+	m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(5, 0), sf::Vector2u(m_position)); //TODO definir la position dans le fichier.
 }
 
 void Poubelle::supprimer(Deplacable* alimentASupprimer)

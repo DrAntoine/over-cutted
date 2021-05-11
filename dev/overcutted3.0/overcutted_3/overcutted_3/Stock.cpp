@@ -8,22 +8,24 @@ Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std
 	m_marchable = false;
 	m_typeTuile = TuileType::Stock;
 	m_ressourceAFournir = typeAlimentAFournir;
+	//m_sprite.setPosition(m_position);
 
 	switch (typeAlimentAFournir)
 	{
 	case DeplacableType::poisson:
-		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(1, 1));
+		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(1, 1),sf::Vector2u(m_position));
 		break;
 	case DeplacableType::crevette:
-		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0, 1));
+		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0, 1), sf::Vector2u(m_position));
 		break;
 	case DeplacableType::assiette:
-		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(2, 1));
+		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(2, 1), sf::Vector2u(m_position));
 		break;
 	default:
-		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0, 0));
+		m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0, 0), sf::Vector2u(m_position));
 		break;
 	}
+	m_sprite.setPosition(m_position);
 }
 
 void Stock::Interaction()
