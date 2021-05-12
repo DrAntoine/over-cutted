@@ -1,6 +1,6 @@
 #include "Perso.h"
 
-Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTexture,sf::Vector2u initPosition, sf::Event* eventPointeur, Perso_conf config) : Entite(pointeurTexture)
+Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTexture,sf::Vector2u initPosition, Perso_conf config, sf::Event* eventPointeur) : Entite(pointeurTexture)
 {
 	std::cout << "Constructeur Perso" << std::endl;
 	m_ptrApp = m_pointeurFenetre;
@@ -15,7 +15,7 @@ Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTextur
 	m_main_libre = true;
 	Perso_Sens_regard m_regard = Perso_Sens_regard::bas;
 	positionAnimationX = 0;
-	en_mains = nullptr; //a vérifier
+	en_mains = nullptr; //a verifier
 	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX, 0));
 	m_sprite.setPosition(m_position);
 	m_eventPerso = eventPointeur;
@@ -37,165 +37,199 @@ Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTextur
 	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX, 0));
 }*/
 
-void Perso::action(sf::Time dureeIteration)
+void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 {
 	switch (m_config)
-	{
-	case Perso_conf::zqsdae:
-		if (m_eventPerso->KeyPressed)
 		{
-			switch (m_eventPerso->key.code)
+		case Perso_conf::zqsdae:
+			if(m_eventPerso.type == sf::Event::EventType::KeyPressed)
 			{
-			case sf::Keyboard::Z: //Marche Haut
-				m_current_action = Perso_Action::move_up;
-				std::cout << "up ok";
-				break;
-			case sf::Keyboard::S: //Marche Bas
-				m_current_action = Perso_Action::move_down;
-				break;
-			case sf::Keyboard::Q: //Marche Gauche
-				m_current_action = Perso_Action::move_left;
-				std::cout << "left ok";
-				break;
-			case sf::Keyboard::D: //Marche Droite
-				m_current_action = Perso_Action::move_right;
-				break;
-			case sf::Keyboard::A: //Prendre/Deposer
-				m_current_action = Perso_Action::TakeDrop;
-				break;
-			case sf::Keyboard::E: //Interaction
-				m_current_action = Perso_Action::interact;
-				break;
+				switch (m_eventPerso.key.code)
+				{
+				case sf::Keyboard::Z: //Marche Haut
+					std::cout << "Touche Z pressee" << std::endl;
+					m_current_action = Perso_Action::move_up;
+					break;
+				case sf::Keyboard::S: //Marche Bas
+					std::cout << "Touche S pressee" << std::endl;
+					m_current_action = Perso_Action::move_down;
+					break;
+				case sf::Keyboard::Q: //Marche Gauche
+					std::cout << "Touche Q pressee" << std::endl;
+					m_current_action = Perso_Action::move_left;
+					break;
+				case sf::Keyboard::D: //Marche Droite
+					std::cout << "Touche D pressee" << std::endl;
+					m_current_action = Perso_Action::move_right;
+					break;
+				case sf::Keyboard::A: //Prendre/Deposer
+					std::cout << "Touche A pressee" << std::endl;
+					m_current_action = Perso_Action::TakeDrop;
+					break;
+				case sf::Keyboard::E: //Interaction
+					std::cout << "Touche E pressee" << std::endl;
+					m_current_action = Perso_Action::interact;
+					break;
+				}
 			}
-		}
-		else if (m_eventPerso->KeyReleased)
-		{
-			switch (m_eventPerso->key.code)
+			if (m_eventPerso.type == sf::Event::EventType::KeyReleased)
 			{
-			case sf::Keyboard::Z: //Marche Haut
-				m_current_action = Perso_Action::idle;
-				std::cout << "bli";
-				break;
-			case sf::Keyboard::S: //Marche Bas
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::Q: //Marche Gauche
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::D: //Marche Droite
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::A: //Prendre/Deposer
-				m_current_action = Perso_Action::TakeDrop;
-				break;
-			case sf::Keyboard::E: //Interaction
-				m_current_action = Perso_Action::interact;
-				break;
+				switch (m_eventPerso.key.code)
+				{
+				case sf::Keyboard::Z: //Marche Haut
+					std::cout << "Touche Z relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::S: //Marche Bas
+					std::cout << "Touche S relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::Q: //Marche Gauche
+					std::cout << "Touche Q relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::D: //Marche Droite
+					std::cout << "Touche D relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::A: //Prendre/Deposer
+					std::cout << "Touche A relachee" << std::endl;
+					m_current_action = Perso_Action::TakeDrop;
+					break;
+				case sf::Keyboard::E: //Interaction
+					std::cout << "Touche E relachee" << std::endl;
+					m_current_action = Perso_Action::interact;
+					break;
+				}
 			}
-		}
-		break;
-	case Perso_conf::ijkluo:
-		if (m_eventPerso->KeyPressed)
-		{
-			switch (m_eventPerso->key.code)
+			break;
+		case Perso_conf::ijkluo:
+			if (m_eventPerso.KeyPressed)
 			{
-			case sf::Keyboard::I: //Marche Haut
-				m_current_action = Perso_Action::move_up;
-				break;
-			case sf::Keyboard::K: //Marche Bas
-				m_current_action = Perso_Action::move_down;
-				break;
-			case sf::Keyboard::J: //Marche Gauche
-				m_current_action = Perso_Action::move_left;
-				break;
-			case sf::Keyboard::L: //Marche Droite
-				m_current_action = Perso_Action::move_right;
-				break;
-			case sf::Keyboard::U: //Prendre/Deposer
-				m_current_action = Perso_Action::TakeDrop;
-				break;
-			case sf::Keyboard::O: //Interaction
-				m_current_action = Perso_Action::interact;
-				break;
+				switch (m_eventPerso.key.code)
+				{
+				case sf::Keyboard::I: //Marche Haut
+					std::cout << "Touche I pressee" << std::endl;
+					m_current_action = Perso_Action::move_up;
+					break;
+				case sf::Keyboard::K: //Marche Bas
+					std::cout << "Touche K pressee" << std::endl;
+					m_current_action = Perso_Action::move_down;
+					break;
+				case sf::Keyboard::J: //Marche Gauche
+					std::cout << "Touche J pressee" << std::endl;
+					m_current_action = Perso_Action::move_left;
+					break;
+				case sf::Keyboard::L: //Marche Droite
+					std::cout << "Touche L pressee" << std::endl;
+					m_current_action = Perso_Action::move_right;
+					break;
+				case sf::Keyboard::U: //Prendre/Deposer
+					std::cout << "Touche U pressee" << std::endl;
+					m_current_action = Perso_Action::TakeDrop;
+					break;
+				case sf::Keyboard::O: //Interaction
+					std::cout << "Touche O pressee" << std::endl;
+					m_current_action = Perso_Action::interact;
+					break;
+				}
 			}
-		}
-		else if (m_eventPerso->KeyReleased)
-		{
-			switch (m_eventPerso->key.code)
+			else if (m_eventPerso.KeyReleased)
 			{
-			case sf::Keyboard::I: //Marche Haut
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::K: //Marche Bas
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::J: //Marche Gauche
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::L: //Marche Droite
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::U: //Prendre/Deposer
-				m_current_action = Perso_Action::TakeDrop;
-				break;
-			case sf::Keyboard::O: //Interaction
-				m_current_action = Perso_Action::interact;
-				break;
+				switch (m_eventPerso.key.code)
+				{
+				case sf::Keyboard::I: //Marche Haut
+					std::cout << "Touche I relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::K: //Marche Bas
+					std::cout << "Touche K relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::J: //Marche Gauche
+					std::cout << "Touche J relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::L: //Marche Droite
+					std::cout << "Touche L relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::U: //Prendre/Deposer
+					std::cout << "Touche U relachee" << std::endl;
+					m_current_action = Perso_Action::TakeDrop;
+					break;
+				case sf::Keyboard::O: //Interaction
+					std::cout << "Touche O relachee" << std::endl;
+					m_current_action = Perso_Action::interact;
+					break;
+				}
 			}
-		}
-		break;
-	case Perso_conf::arrowsMajCtrl:
-		if (m_eventPerso->KeyPressed)
-		{
-			switch (m_eventPerso->key.code)
+			break;
+		case Perso_conf::arrowsMajCtrl:
+			if (m_eventPerso.KeyPressed)
 			{
-			case sf::Keyboard::Up: //Marche Haut
-				m_current_action = Perso_Action::move_up;
-				break;
-			case sf::Keyboard::Down: //Marche Bas
-				m_current_action = Perso_Action::move_down;
-				break;
-			case sf::Keyboard::Left: //Marche Gauche
-				m_current_action = Perso_Action::move_left;
-				break;
-			case sf::Keyboard::Right: //Marche Droite
-				m_current_action = Perso_Action::move_right;
-				break;
-			case sf::Keyboard::RControl: //Prendre/Deposer
-				m_current_action = Perso_Action::TakeDrop;
-				break;
-			case sf::Keyboard::RShift: //Interaction
-				m_current_action = Perso_Action::interact;
-				break;
+				switch (m_eventPerso.key.code)
+				{
+				case sf::Keyboard::Up: //Marche Haut
+					std::cout << "Touche ->Up pressee" << std::endl;
+					m_current_action = Perso_Action::move_up;
+					break;
+				case sf::Keyboard::Down: //Marche Bas
+					std::cout << "Touche ->Down pressee" << std::endl;
+					m_current_action = Perso_Action::move_down;
+					break;
+				case sf::Keyboard::Left: //Marche Gauche
+					std::cout << "Touche <- pressee" << std::endl;
+					m_current_action = Perso_Action::move_left;
+					break;
+				case sf::Keyboard::Right: //Marche Droite
+					std::cout << "Touche -> pressee" << std::endl;
+					m_current_action = Perso_Action::move_right;
+					break;
+				case sf::Keyboard::RControl: //Prendre/Deposer
+					std::cout << "Touche RCtrl pressee" << std::endl;
+					m_current_action = Perso_Action::TakeDrop;
+					break;
+				case sf::Keyboard::RShift: //Interaction
+					std::cout << "Touche RMaj pressee" << std::endl;
+					m_current_action = Perso_Action::interact;
+					break;
+				}
 			}
-		}
-		else if (m_eventPerso->KeyReleased)
-		{
-			switch (m_eventPerso->key.code)
+			else if (m_eventPerso.KeyReleased)
 			{
-			case sf::Keyboard::Up: //Marche Haut
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::Down: //Marche Bas
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::Left: //Marche Gauche
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::Right: //Marche Droite
-				m_current_action = Perso_Action::idle;
-				break;
-			case sf::Keyboard::RControl: //Prendre/Deposer
-				m_current_action = Perso_Action::TakeDrop;
-				break;
-			case sf::Keyboard::RShift: //Interaction
-				m_current_action = Perso_Action::interact;
-				break;
+				switch (m_eventPerso.key.code)
+				{
+				case sf::Keyboard::Up: //Marche Haut
+					std::cout << "Touche ->Up relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::Down: //Marche Bas
+					std::cout << "Touche ->Down relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::Left: //Marche Gauche
+					std::cout << "Touche <- relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::Right: //Marche Droite
+					std::cout << "Touche -> relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::RControl: //Prendre/Deposer
+					std::cout << "Touche RCtrl relachee" << std::endl;
+					m_current_action = Perso_Action::TakeDrop;
+					break;
+				case sf::Keyboard::RShift: //Interaction
+					std::cout << "Touche RMaj relachee" << std::endl;
+					m_current_action = Perso_Action::interact;
+					break;
+				}
 			}
-		}
-		break;
-	default:
-		break;
+			break;
+		default:
+			break;
+		
 	}
 
 	if (m_current_action == Perso_Action::move_left)
@@ -227,7 +261,10 @@ void Perso::action(sf::Time dureeIteration)
 		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ speed);
 		m_position.y += speed;
 	}
-	if (m_current_action != Perso_Action::idle)
+	if (m_current_action == Perso_Action::move_down 
+		|| m_current_action == Perso_Action::move_up 
+		|| m_current_action == Perso_Action::move_left 
+		|| m_current_action == Perso_Action::move_right)
 	{
 		animation();
 	}

@@ -26,7 +26,7 @@ public:
 	Game();
 	~Game();
 	Game(sf::RenderWindow*, sf::Event*);
-	//void action(sf::Event);
+	void action(sf::Time, sf::Event);
 	void draw();//window* w, m_gameClock
 	void update(sf::Time tempsEcoule);
 };

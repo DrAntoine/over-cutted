@@ -23,8 +23,8 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-         //game.action(event); // appelle la fonction action du joueur
-         game.update(tempsEcoule);
+            game.action(tempsEcoule, event); // appelle la fonction action du joueur
+         //game.update(tempsEcoule);
         }
 
         window.clear();
