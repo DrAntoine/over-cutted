@@ -4,7 +4,8 @@
 #include "Map.h"
 #include "Stock.h"
 
-enum class Perso_Action { move_down, move_up, move_left, move_right, interact, idle };
+enum class Perso_Action { move_down, move_up, move_left, move_right, interact, idle, TakeDrop };
+enum class Perso_Sens_regard { bas = 0, gauche = 1, droite = 2, haut = 3 };
 
 class Perso : public Entite
 {
@@ -15,14 +16,17 @@ private:
 	// ===================================
 	int px, py; // Ca correspond à quoi ? 
 	// ===================================
-
-	sf::Vector2f previous;
+	
+	sf::Vector2u m_initPosition;
+	sf::Vector2f previousPosition;
 	Deplacable *en_mains;
 	Perso_Action m_current_action;
 	sf::Sprite* ptrsprite;
 	
 	// ===================================
-	sf::Event m_eventPerso; // à remettre
+	sf::Event* m_eventPerso;
+	Perso_conf m_config;
+	Perso_Sens_regard m_regard;
 	// ===================================
 	
 	bool m_main_libre;
@@ -30,7 +34,7 @@ private:
 	//propre au personnage
 	sf::RenderWindow* m_ptrApp;
 public:
-	Perso(sf::RenderWindow*,TextureManager*); //HELP MEEEE
+	Perso(sf::RenderWindow*, TextureManager*, sf::Vector2u, sf::Event*, Perso_conf); //HELP MEEEE
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 	void drawperso();
 	void action(sf::Time dureeIteration);

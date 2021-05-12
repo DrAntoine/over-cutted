@@ -10,15 +10,15 @@ int main()
     sf::Clock horloge;
     sf::Time tempsEcoule;
 
-
-	Game game(&window);
+    sf::Event event;
+	Game game(&window, &event);
     
 
     while (window.isOpen())
     {
 	   
         tempsEcoule = horloge.restart();
-        sf::Event event;
+        
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
