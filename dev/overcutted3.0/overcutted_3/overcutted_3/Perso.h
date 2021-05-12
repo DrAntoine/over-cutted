@@ -19,6 +19,7 @@ private:
 	sf::Vector2f previous;
 	Deplacable *en_mains;
 	Perso_Action m_current_action;
+	sf::Sprite* ptrsprite;
 	
 	// ===================================
 	sf::Event m_eventPerso; // à remettre
@@ -27,11 +28,11 @@ private:
 	bool m_main_libre;
 	int speed, positionAnimationX;
 	//propre au personnage
+	sf::RenderWindow* m_ptrApp;
 public:
-
-	Perso(TextureManager*); //HELP MEEEE
+	Perso(sf::RenderWindow*,TextureManager*); //HELP MEEEE
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
-
+	void drawperso();
 	void action(sf::Time dureeIteration);
 	void animation();
 

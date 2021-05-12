@@ -67,7 +67,7 @@ public:
 	
 	//sf::Vector2i ou_suis_je(sf::Vector2f Position); // réponse tuile 0,4
     Map();
-    Map(sf::RenderWindow* , TextureManager*, std::vector<Deplacable*>*);
+    Map(sf::RenderWindow*, TextureManager*, std::vector<Deplacable*>*);
 	void initmap();
     void drawmap();
 };

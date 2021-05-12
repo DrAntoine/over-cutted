@@ -1,8 +1,9 @@
 #include "Perso.h"
 
-Perso::Perso(TextureManager* pointeurTexture) : Entite(pointeurTexture)
+Perso::Perso(sf::RenderWindow* m_pointeurFenetre,TextureManager* pointeurTexture) : Entite(pointeurTexture)
 {
 	std::cout << "Constructeur Perso" << std::endl;
+	m_ptrApp = m_pointeurFenetre;
 	m_elements = nullptr;
 	m_map = nullptr;
 	speed = 10;
@@ -14,10 +15,11 @@ Perso::Perso(TextureManager* pointeurTexture) : Entite(pointeurTexture)
 	positionAnimationX = 0;
 	en_mains = nullptr; //a vérifier
 	std::cout << "Perso OK" << std::endl;
+	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX, 0));
 };
 
-/*
-Perso::Perso(Map *map, std::vector<Deplacable*>* elements)
+
+/*Perso::Perso(Map *map, std::vector<Deplacable*>* elements)
 {
 	speed = 42;
 
@@ -94,19 +96,19 @@ void Perso::animation()
 	}
 	if (m_current_action == Perso_Action::move_down)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Personnage,sf::Vector2u(positionAnimationX,0));
+		m_sprite = m_textureManager->getTexture(TextureType::Personnage,sf::Vector2u(positionAnimationX,0));
 	}
 	if (m_current_action == Perso_Action::move_up)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,3));
+		m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,3));
 	}
 	if (m_current_action == Perso_Action::move_left)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,1));
+		m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,1));
 	}
 	if (m_current_action == Perso_Action::move_right)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,2));
+		m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX,2));
 	}
 	
 }
@@ -117,6 +119,10 @@ void Perso::animation()
 //
 //	}
 //}
+void Perso::drawperso()
+{
+	m_sprite->draw(m_ptrApp);
+}
 void Perso::collision()
 {
 
