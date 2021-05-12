@@ -1,6 +1,6 @@
 #include "Perso.h"
 
-Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTexture, sf::Vector2u initPosition, sf::Event* eventPointeur, Perso_conf config) : Entite(pointeurTexture)
+Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTexture,sf::Vector2u initPosition, sf::Event* eventPointeur, Perso_conf config) : Entite(pointeurTexture)
 {
 	std::cout << "Constructeur Perso" << std::endl;
 	m_ptrApp = m_pointeurFenetre;
@@ -48,12 +48,14 @@ void Perso::action(sf::Time dureeIteration)
 			{
 			case sf::Keyboard::Z: //Marche Haut
 				m_current_action = Perso_Action::move_up;
+				std::cout << "up ok";
 				break;
 			case sf::Keyboard::S: //Marche Bas
 				m_current_action = Perso_Action::move_down;
 				break;
 			case sf::Keyboard::Q: //Marche Gauche
 				m_current_action = Perso_Action::move_left;
+				std::cout << "left ok";
 				break;
 			case sf::Keyboard::D: //Marche Droite
 				m_current_action = Perso_Action::move_right;
@@ -72,6 +74,7 @@ void Perso::action(sf::Time dureeIteration)
 			{
 			case sf::Keyboard::Z: //Marche Haut
 				m_current_action = Perso_Action::idle;
+				std::cout << "bli";
 				break;
 			case sf::Keyboard::S: //Marche Bas
 				m_current_action = Perso_Action::idle;
@@ -198,22 +201,31 @@ void Perso::action(sf::Time dureeIteration)
 	if (m_current_action == Perso_Action::move_left)
 	{
 		m_regard = Perso_Sens_regard::gauche;
-		m_sprite.move(dureeIteration.asSeconds() * -speed, 0);
+		sf::Vector2f test = m_sprite.getPosition();
+		m_position.x -= speed;
+		//m_sprite.move(/*dureeIteration.asSeconds() * */-speed, 0);
+		std::cout << test.x << " " << test.y << std::endl;
+		
 	}
 	if (m_current_action == Perso_Action::move_right)
 	{
 		m_regard = Perso_Sens_regard::droite;
-		m_sprite.move(dureeIteration.asSeconds() * speed, 0);
+		//m_sprite.move(/*dureeIteration.asSeconds()* */ speed, 0);
+		m_position.x += speed;
+		
 	}
 	if (m_current_action == Perso_Action::move_up)
 	{
 		m_regard = Perso_Sens_regard::haut;
-		m_sprite.move(0, dureeIteration.asSeconds() * -speed);
+		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ -speed);
+		m_position.y -= speed;
+		
 	}
 	if (m_current_action == Perso_Action::move_down)
 	{
 		m_regard = Perso_Sens_regard::bas;
-		m_sprite.move(0, dureeIteration.asSeconds() * speed);
+		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ speed);
+		m_position.y += speed;
 	}
 	if (m_current_action != Perso_Action::idle)
 	{

@@ -11,7 +11,8 @@ Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur)
 {
 	std::cout << "Constructeur Game (RenderWindow*)" << std::endl;
 	m_pointeurFenetre = app;
-	m_perso = new Perso(m_pointeurFenetre, &m_textureManager, sf::Vector2u(4,4), m_event, Perso_conf::zqsdae);
+	m_event = m_EventPointeur;
+	m_perso = new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(4,4), m_event, Perso_conf::zqsdae);
 	m_map = new Map(m_pointeurFenetre, &m_textureManager, &m_elements);
 	//m_map = &map;
 	std::cout << "Game OK" << std::endl;
@@ -34,7 +35,8 @@ void Game::draw()//window* w, m_gameClock
 }
 void Game::update(sf::Time tempsEcoule)
 {
-
+	timeTest = tempsEcoule;
+	m_perso->action(timeTest);
 }
 
 
