@@ -14,9 +14,9 @@ Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTextur
 	m_current_action = Perso_Action::idle;
 	m_main_libre = true;
 	Perso_Sens_regard m_regard = Perso_Sens_regard::bas;
-	positionAnimationX = 0;
 	en_mains = nullptr; //a verifier
-	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX, 0));
+	positionAnimaion =sf::Vector2u (0,0);
+	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimaion));
 	m_sprite.setPosition(m_position);
 	m_eventPerso = eventPointeur;
 	m_config = config;
@@ -267,34 +267,35 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 		|| m_current_action == Perso_Action::move_right)
 	{
 		animation();
+		m_sprite.setPosition(m_position);
 	}
 }
 
 void Perso::animation()
 {
-	positionAnimationX++;
-	if (positionAnimationX > 3)
+	positionAnimaion.x++;
+	if (positionAnimaion.x > 2)
 	{
-		positionAnimationX = 0;
+		positionAnimaion.x = 0;
 	}
-	unsigned int posY = 0;
+	//unsigned int posY = 0;
 	switch (m_regard)
 	{
 	case Perso_Sens_regard::bas:
-		posY = 0;
+		positionAnimaion.y = 0;
 		break;
 	case Perso_Sens_regard::gauche:
-		posY = 1;
+		positionAnimaion.y = 1;
 		break;
 	case Perso_Sens_regard::droite:
-		posY = 2;
+		positionAnimaion.y = 2;
 		break;
 	case Perso_Sens_regard::haut:
-		posY = 3;
+		positionAnimaion.y = 3;
 		break;
 	}
-	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX, posY));
-	m_sprite.setPosition(m_position);
+	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimaion));
+
 }
 //void Perso::action()
 //{

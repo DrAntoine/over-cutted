@@ -7,6 +7,7 @@ int main()
 {
     std::cout << "Source" << std::endl;
     sf::RenderWindow window(sf::VideoMode(900, 900), "SFML works!");
+    window.setFramerateLimit(60);
     sf::Clock horloge;
     sf::Time tempsEcoule;
 

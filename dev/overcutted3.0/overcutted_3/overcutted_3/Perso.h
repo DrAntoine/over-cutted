@@ -30,7 +30,8 @@ private:
 	// ===================================
 	
 	bool m_main_libre;
-	int speed, positionAnimationX;
+	int speed;
+	sf::Vector2u positionAnimaion;
 	//propre au personnage
 	sf::RenderWindow* m_ptrApp;
 public:
