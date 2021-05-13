@@ -14,6 +14,7 @@ public:
 	bool getInteragissable();
 	void DeposerSurTuile(Deplacable*);
 	Deplacable* PrendreSurTuile();
+	void Interact();
 	sf::Vector2u getMapPos();
 protected:
 	sf::Vector2u m_positionMap;

@@ -240,7 +240,9 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	}
 	if (m_current_action == Perso_Action::TakeDrop)
 	{
+		std::cout << "Action : Prendre/Deposer" << std::endl;
 		prendre_deposer();
+		m_current_action = Perso_Action::idle;
 	}
 	
 	if (m_current_action == Perso_Action::move_down 
@@ -248,6 +250,36 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 		|| m_current_action == Perso_Action::move_left 
 		|| m_current_action == Perso_Action::move_right)
 	{
+		std::string nomTuile = "";
+		switch (getFrontTile()->getTypeTuile())
+		{
+		case TuileType::Sol:
+			nomTuile = "Sol";
+			break;
+		case TuileType::Stock:
+			nomTuile = "Stock";
+			break;
+		case TuileType::Poubelle:
+			nomTuile = "Poubelle";
+			break;
+		case TuileType::Plan_Travail:
+			nomTuile = "Plan travail";
+			break;
+		case TuileType::Ouverture_Salle:
+			nomTuile = "Ouverture Salle";
+			break;
+		case TuileType::Mur:
+			nomTuile = "Mur";
+			break;
+		case TuileType::Planche_decoupe:
+			nomTuile = "Planche";
+			break;
+		default:
+			nomTuile = "Nan";
+			break;
+		}
+
+		std::cout << "Tuile en face " << nomTuile <<" (" << getFrontTile()->getMapPos().x<< "; "<< getFrontTile()->getMapPos().y <<")" <<std::endl;
 		animation();
 		m_sprite.setPosition(m_position);
 		if (!m_main_libre) m_objet_en_mains->setposition(m_position);
@@ -288,6 +320,11 @@ void Perso::prendre_deposer()
 	{
 		if (!frontTile->getLibre()) // si l'objet contient quelquechose
 		{
+			/*if (frontTile->getTypeTuile() == TuileType::Stock)
+			{
+				Stock* stock = getFrontTile();
+				m_objet_en_mains = stock->PrendreSurTuile();
+			}*/
 			m_objet_en_mains = frontTile->PrendreSurTuile();
 			m_main_libre = false;
 			m_objet_en_mains->setposition(m_position);

@@ -13,6 +13,7 @@ private:
 
 public:
 	Stock(sf::Vector2u , DeplacableType ,std::vector<Deplacable*>* , TextureManager*);
+	Deplacable* PrendreSurTuile();
 	/*void Interaction();
 	void Poser(Deplacable*);
 	Deplacable* Reprendre();*/

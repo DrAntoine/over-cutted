@@ -8,6 +8,8 @@ Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std
 	m_position = convert_posMap_to_pos(m_positionMap);
 	m_marchable = false;
 	m_typeTuile = TuileType::Stock;
+	m_libre = false;
+	m_deposable = false;
 	m_ressourceAFournir = typeAlimentAFournir;
 
 	switch (typeAlimentAFournir)
@@ -29,26 +31,26 @@ Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std
 	std::cout << "Stock OK" << std::endl;
 }
 
-void Stock::Interaction()
+Deplacable* Stock::PrendreSurTuile()
 {
-	if (m_libre)
+	std::cout << "stock prendre" << std::endl;
+	Deplacable* objet = nullptr;
+	std::cout << "Creation nouveau Deplacable" << std::endl;
+	switch (m_ressourceAFournir)
 	{
-		switch (m_ressourceAFournir)
-		{
-		case DeplacableType::none:
-			break;
-		case DeplacableType::poisson:
-			m_pointeurListeElement->push_back(new Poisson(m_position, m_textureManager));
-			break;
-		case DeplacableType::crevette:
-			m_pointeurListeElement->push_back(new Crevette(m_position, m_textureManager));
-			break;
-		case DeplacableType::assiette:
-			m_pointeurListeElement->push_back(new Assiette(m_position, m_textureManager));
-			break;
-		default:
-			break;
-		}
+	case DeplacableType::none:
+		break;
+	case DeplacableType::poisson:
+		objet = new Poisson(m_position, m_textureManager);
+		break;
+	case DeplacableType::crevette:
+		objet = new Crevette(m_position, m_textureManager);
+		break;
+	case DeplacableType::assiette:
+		objet = new Assiette(m_position, m_textureManager);
+		break;
 	}
+	m_pointeurListeElement->push_back(objet);
+	return objet;
 }
 
