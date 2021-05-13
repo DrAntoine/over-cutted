@@ -1,41 +1,26 @@
 #include "Perso.h"
 
-Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTexture,sf::Vector2u initPosition, Perso_conf config, sf::Event* eventPointeur) : Entite(pointeurTexture)
+Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTexture,sf::Vector2u initPosition, Perso_conf config, sf::Vector2f tileSize) : Entite(pointeurTexture)
 {
 	std::cout << "Constructeur Perso" << std::endl;
-	m_ptrApp = m_pointeurFenetre;
-	m_elements = nullptr;
-	m_map = nullptr;
-	speed = 10;
-	blockSize = 50;
-	m_initPosition = initPosition;
-	m_position = convert_posMap_to_pos(m_initPosition);
+	m_ptrApp = m_pointeurFenetre;	//pointeur vers la fenetre
+	m_elements = nullptr;			// pointeur vers la liste des deplacable
+	m_map = nullptr;				// pointeur vers la carte
+	en_mains = nullptr;				// pointeur vers UN element deplacable que le perso à en mains
+	m_tileSize = tileSize;			// Taille d'une tuile en px
+	speed = 5 * m_tileSize.x;		// Vitesse du perso en tuile/seconde
+	m_initPosition = initPosition;	// position de départ du personnage
+	m_position = convert_posMap_to_pos(m_initPosition);	// convertion de la position sur la carte vers la fenetre: coord.tuile -> coord.px
 	previousPosition = m_position;
 	m_current_action = Perso_Action::idle;
 	m_main_libre = true;
 	Perso_Sens_regard m_regard = Perso_Sens_regard::bas;
-	en_mains = nullptr; //a verifier
-	positionAnimaion =sf::Vector2u (0,0);
+	positionAnimaion = sf::Vector2u (0,0);
 	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimaion));
 	m_sprite.setPosition(m_position);
-	m_eventPerso = eventPointeur;
 	m_config = config;
 	std::cout << "Perso OK" << std::endl;
 };
-
-
-/*Perso::Perso(Map *map, std::vector<Deplacable*>* elements)
-{
-	speed = 42;
-
-	//m_elements = elements;
-	//m_map = map;
-
-	positionAnimationX = 0;
-
-	m_current_action = Perso_Action::idle;
-	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimationX, 0));
-}*/
 
 void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 {
@@ -104,7 +89,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 			}
 			break;
 		case Perso_conf::ijkluo:
-			if (m_eventPerso.KeyPressed)
+			if (m_eventPerso.type == sf::Event::EventType::KeyPressed)
 			{
 				switch (m_eventPerso.key.code)
 				{
@@ -134,7 +119,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 					break;
 				}
 			}
-			else if (m_eventPerso.KeyReleased)
+			else if (m_eventPerso.type == sf::Event::EventType::KeyReleased)
 			{
 				switch (m_eventPerso.key.code)
 				{
@@ -166,7 +151,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 			}
 			break;
 		case Perso_conf::arrowsMajCtrl:
-			if (m_eventPerso.KeyPressed)
+			if (m_eventPerso.type == sf::Event::EventType::KeyPressed)
 			{
 				switch (m_eventPerso.key.code)
 				{
@@ -196,7 +181,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 					break;
 				}
 			}
-			else if (m_eventPerso.KeyReleased)
+			else if (m_eventPerso.type == sf::Event::EventType::KeyReleased)
 			{
 				switch (m_eventPerso.key.code)
 				{
@@ -236,17 +221,14 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	{
 		m_regard = Perso_Sens_regard::gauche;
 		previousPosition.x = m_position.x;
-		m_position.x -= speed;
-		//m_sprite.move(/*dureeIteration.asSeconds() * */-speed, 0);
-
-		
+		m_position.x -= dureeIteration.asSeconds() * speed;
 	}
 	if (m_current_action == Perso_Action::move_right)
 	{
 		m_regard = Perso_Sens_regard::droite;
 		previousPosition.x = m_position.x;
 		//m_sprite.move(/*dureeIteration.asSeconds()* */ speed, 0);
-		m_position.x += speed;
+		m_position.x += dureeIteration.asSeconds() * speed;
 		
 	}
 	if (m_current_action == Perso_Action::move_up)
@@ -254,7 +236,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 		m_regard = Perso_Sens_regard::haut;
 		previousPosition.y = m_position.y;
 		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ -speed);
-		m_position.y -= speed;
+		m_position.y -= dureeIteration.asSeconds() * speed;
 		
 	}
 	if (m_current_action == Perso_Action::move_down)
@@ -262,7 +244,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 		m_regard = Perso_Sens_regard::bas;
 		previousPosition.y = m_position.y;
 		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ speed);
-		m_position.y += speed;
+		m_position.y += dureeIteration.asSeconds() * speed;
 	}
 	
 	if (m_current_action == Perso_Action::move_down 

@@ -22,7 +22,7 @@ private:
 	sf::Sprite* ptrsprite;
 	
 	// ===================================
-	sf::Event* m_eventPerso;
+	sf::Vector2f m_tileSize;
 	Perso_conf m_config;
 	Perso_Sens_regard m_regard;
 	// ===================================
@@ -33,7 +33,7 @@ private:
 	//propre au personnage
 	sf::RenderWindow* m_ptrApp;
 public:
-	Perso(sf::RenderWindow*, TextureManager*, sf::Vector2u, Perso_conf, sf::Event*); //HELP MEEEE
+	Perso(sf::RenderWindow*, TextureManager*, sf::Vector2u, Perso_conf, sf::Vector2f); //HELP MEEEE
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 	//void drawperso();
 	void action(sf::Time, sf::Event);

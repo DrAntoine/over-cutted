@@ -5,6 +5,7 @@ Game::Game()
 {
 	std::cout << "Constructeur Game (Par defaut)" << std::endl;
 	m_pointeurFenetre = nullptr;
+	m_tileSize = sf::Vector2f(50, 50);
 	std::cout << "Game OK" << std::endl;
 }
 Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur)
@@ -12,7 +13,8 @@ Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur)
 	std::cout << "Constructeur Game (RenderWindow*)" << std::endl;
 	m_pointeurFenetre = app;
 	m_event = m_EventPointeur;
-	m_perso = new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(4,4), Perso_conf::zqsdae, m_EventPointeur);
+	m_tileSize = sf::Vector2f(50, 50);
+	m_perso = new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(4,4), Perso_conf::zqsdae, m_tileSize);
 	m_map = new Map(m_pointeurFenetre, &m_textureManager, &m_elements);
 	//m_map = &map;
 	std::cout << "Game OK" << std::endl;
