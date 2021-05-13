@@ -11,3 +11,20 @@ PlanTravail::PlanTravail(sf::Vector2u position, TextureManager* pointeurTexture)
 	m_sprite.setPosition(m_position);
 	std::cout << "PlanTravail OK" << std::endl;
 }
+void PlanTravail::DeposerSurTuile(Deplacable* ptrObjet)
+{
+	m_objetSurTuile = ptrObjet;
+	m_libre = false;
+	m_objetSurTuile->setposition(m_position);
+}
+//void PlanTravail::PrendreSurTuile(Deplacable* ptrObjet)
+//{
+	//m_objetSurTuile = nullptr;
+	//m_libre = true;
+	//m_objetSurTuile->setposition(m_position);
+//}
+
+bool PlanTravail::getLibre()
+{
+	return m_libre;
+}

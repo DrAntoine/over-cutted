@@ -20,6 +20,7 @@ void Planche::DeposerSurTuile(Deplacable* ptrObjet)
 	m_objetSurTuile->setposition(m_position);
 }
 
+
 bool Planche::getLibre()
 {
 	return m_libre;

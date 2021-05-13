@@ -14,5 +14,8 @@ private:
 	TypeObjet m_type;*/
 public:
 	PlanTravail(sf::Vector2u, TextureManager*);
+	void DeposerSurTuile(Deplacable*);
+	//void PrendreSurTuile(Deplacable*);
+	bool getLibre();
 };
 

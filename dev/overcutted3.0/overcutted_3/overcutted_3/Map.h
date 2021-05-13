@@ -44,6 +44,7 @@ private:
     std::vector<Poubelle*> m_poubelles;
     std::vector<Stock*> m_stocks;
     std::vector<Planche*> m_planches;
+    std::vector<PlanTravail*> m_PlanTravail;
     std::vector<OuvertureSalle*> m_ouvertureSalle;
 public:
     //Map();
@@ -56,6 +57,7 @@ public:
     Stock* getStock(sf::Vector2u);
     Poubelle* getPoubelle(sf::Vector2u);
     Planche* getPlanche(sf::Vector2u);
+    PlanTravail* getPlanTravail(sf::Vector2u);
     OuvertureSalle* getOuvertureSalle(sf::Vector2u);
 };
 

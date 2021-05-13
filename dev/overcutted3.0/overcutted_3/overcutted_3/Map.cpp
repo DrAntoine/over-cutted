@@ -51,10 +51,21 @@ Planche* Map::getPlanche(sf::Vector2u position)
 		}
 	}
 }
+PlanTravail* Map::getPlanTravail(sf::Vector2u position)
+{
+	for (int i = 0; i < m_PlanTravail.size(); i++)
+	{
+		if (m_PlanTravail[i]->getMapPos() == position)
+		{
+			return m_PlanTravail[i];
+		}
+	}
+}
 
 void Map::initmap()
 {
 	Planche* planche = nullptr;
+	PlanTravail* plantravail = nullptr;
 	Poubelle* poubelle = nullptr;
 	Stock* stock = nullptr;
 	OuvertureSalle* ouverture = nullptr;
@@ -69,7 +80,9 @@ void Map::initmap()
 				tuiles.push_back(new Sol(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			case 1: 
-				tuiles.push_back(new PlanTravail(sf::Vector2u(x, y), m_texturePointeur));
+				plantravail=new PlanTravail(sf::Vector2u(x, y), m_texturePointeur);
+				tuiles.push_back(plantravail);
+				m_PlanTravail.push_back(plantravail);
 				break;
 			case 2: 
 				planche = new Planche(sf::Vector2u(x, y), m_texturePointeur);

@@ -356,6 +356,16 @@ void Perso::prendre_deposer()
 				m_objet_en_mains->setposition(m_position);
 			}
 		}
+		if (frontTileType == TuileType::Plan_Travail)
+		{
+			PlanTravail* plantravail = m_map->getPlanTravail(getFrontTile()->getMapPos());
+			if (!plantravail->getLibre())
+			{
+				m_objet_en_mains = plantravail->PrendreSurTuile();
+				m_main_libre = false;
+				m_objet_en_mains->setposition(m_position);
+			}
+		}
 	}
 	else // si le perso à un truc en main
 	{
@@ -365,6 +375,16 @@ void Perso::prendre_deposer()
 			if (planche->getLibre())
 			{
 				planche->DeposerSurTuile(m_objet_en_mains);
+				m_objet_en_mains = nullptr;
+				m_main_libre = true;
+			}
+		}
+		if (frontTileType == TuileType::Plan_Travail)
+		{
+			PlanTravail* plantavail = m_map->getPlanTravail(getFrontTile()->getMapPos());
+			if (plantavail->getLibre())
+			{
+				plantavail->DeposerSurTuile(m_objet_en_mains);
 				m_objet_en_mains = nullptr;
 				m_main_libre = true;
 			}
