@@ -27,7 +27,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	if (couldown_actif)
 	{
 		couldown_takeDown += dureeIteration.asSeconds();
-		if (couldown_takeDown >= sf::seconds(0.5).asSeconds())
+		if (couldown_takeDown >= sf::seconds(0.25).asSeconds())
 		{
 			couldown_takeDown = 0;
 			couldown_actif = false;
