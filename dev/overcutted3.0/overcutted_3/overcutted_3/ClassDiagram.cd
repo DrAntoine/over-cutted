@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
   <Class Name="Game" Collapsed="true">
-    <Position X="25.5" Y="0.5" Width="1.5" />
+    <Position X="27.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAABCAAAQAAAAAAAAIACAAECAiAAAAAAAAAAAAEECI=</HashCode>
       <FileName>Game.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Perso" Collapsed="true">
     <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QIQghCAABAAEAAQAEAIAIIAgAJAASQABIAAEAAAIAAI=</HashCode>
       <FileName>Perso.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entite" Collapsed="true">
-    <Position X="11.75" Y="0.5" Width="1.5" />
+    <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAIAAAAACAAAAAAAAIAAAAgAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>EAAIAAAAACAAAAAAAAIAAAAgAAAAAAAAAAAIAAAEEAA=</HashCode>
       <FileName>Entite.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -29,38 +29,171 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Stock" Collapsed="true">
-    <Position X="23" Y="3.25" Width="1.5" />
+    <Position X="23" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACACAAAAAAAgAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Stock.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tuile" Collapsed="true">
-    <Position X="16.25" Y="1.75" Width="1.5" />
+    <Position X="17.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAACCQAAAAAAAAAAAAAAAAAAAAAAAAhAA=</HashCode>
+      <HashCode>AAAABAAAAAIAACiRCAAAAAAIIAAAgBABAAAAiAAAhAA=</HashCode>
       <FileName>Tuile.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="TuileType" Collapsed="true">
-    <Position X="27.25" Y="3.5" Width="1.5" />
+  <Class Name="Aliment" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAIAAAAAAAQAAAgAAAAQAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAIAAgAAAAAAAAAAIAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Aliments.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assiette" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAQAIAACAAAAAA=</HashCode>
+      <FileName>Assiette.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Casserole" Collapsed="true">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Casserole.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Crevette" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Crevette.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Map" Collapsed="true">
+    <Position X="29.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAYBAQAAAAECAJAAAAAAAAAgQAgAAIAUACEAQ=</HashCode>
+      <FileName>Map.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mur" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Outil" Collapsed="true">
+    <Position X="17.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAIAAAAAAAAgAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Outil.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OuvertureSalle" Collapsed="true">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OuvertureSalle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Planche" Collapsed="true">
+    <Position X="16.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Planche.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlanTravail" Collapsed="true">
+    <Position X="18.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PlanTravail.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Poisson" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Poisson.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Poubelle" Collapsed="true">
+    <Position X="20.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAQAIAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Poubelle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recette" Collapsed="true">
+    <Position X="31.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAACAAAAAAIAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Recette.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sol" Collapsed="true">
+    <Position X="25.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sol.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureManager" Collapsed="true">
+    <Position X="27.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAABAAAAAAgAAAAAAAAAAAIAAAEBAg=</HashCode>
+      <FileName>TextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="TuileType" Collapsed="true">
+    <Position X="27.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAEAAAIAAAAAAAQAAAgAAAAQAAABAAAAEAAAA=</HashCode>
       <FileName>Entite.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="DeplacableType" Collapsed="true">
-    <Position X="27.25" Y="2.75" Width="1.5" />
+    <Position X="29.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gQAAAAAAAAAAAAAAIACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entite.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="AlimentEtat" Collapsed="true">
-    <Position X="25.5" Y="2.75" Width="1.5" />
+    <Position X="27.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAEA=</HashCode>
       <FileName>Entite.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Perso_conf" Collapsed="true">
+    <Position X="27.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entite.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Perso_Action" Collapsed="true">
+    <Position X="31.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAIAQAQAAAABQAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Perso.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Perso_Sens_regard" Collapsed="true">
+    <Position X="29.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAIAAAAACCAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Perso.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TextureType" Collapsed="true">
+    <Position X="31.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAQAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TextureManager.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
