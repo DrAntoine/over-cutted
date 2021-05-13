@@ -14,9 +14,8 @@ Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur)
 	m_pointeurFenetre = app;
 	m_event = m_EventPointeur;
 	m_tileSize = sf::Vector2f(50, 50);
-	m_perso = new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(4,4), Perso_conf::zqsdae, m_tileSize);
 	m_map = new Map(m_pointeurFenetre, &m_textureManager, &m_elements);
-	//m_map = &map;
+	m_perso = new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(4,4), Perso_conf::zqsdae, m_tileSize, m_map);
 	std::cout << "Game OK" << std::endl;
 }
 Game::~Game()

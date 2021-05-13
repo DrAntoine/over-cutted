@@ -68,6 +68,7 @@ public:
 	//sf::Vector2i ou_suis_je(sf::Vector2f Position); // réponse tuile 0,4
     Map();
     Map(sf::RenderWindow*, TextureManager*, std::vector<Deplacable*>*);
+    std::vector<Tuile*> getMapTile();
 	void initmap();
     void drawmap();
     int getTabMapValue(int y, int x);

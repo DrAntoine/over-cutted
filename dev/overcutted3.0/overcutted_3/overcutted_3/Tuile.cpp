@@ -15,4 +15,14 @@ TuileType Tuile::getTypeTuile()
 	return m_typeTuile;
 }
 
+bool Tuile::getMarchable()
+{
+	return m_marchable;
+}
+
+sf::Vector2u Tuile::getMapPos()
+{
+	return m_positionMap;
+}
+
 

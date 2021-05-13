@@ -33,7 +33,7 @@ private:
 	//propre au personnage
 	sf::RenderWindow* m_ptrApp;
 public:
-	Perso(sf::RenderWindow*, TextureManager*, sf::Vector2u, Perso_conf, sf::Vector2f); //HELP MEEEE
+	Perso(sf::RenderWindow*, TextureManager*, sf::Vector2u, Perso_conf, sf::Vector2f, Map*); //HELP MEEEE
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 	//void drawperso();
 	void action(sf::Time, sf::Event);
@@ -41,7 +41,7 @@ public:
 
 
 	//interaction avec la map
-	void collision();
+	bool collision();
 
 	////action
 	///*

@@ -1,17 +1,17 @@
 #include "Perso.h"
 
-Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTexture,sf::Vector2u initPosition, Perso_conf config, sf::Vector2f tileSize) : Entite(pointeurTexture)
+Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTexture,sf::Vector2u initPosition, Perso_conf config, sf::Vector2f tileSize, Map* map) : Entite(pointeurTexture)
 {
 	std::cout << "Constructeur Perso" << std::endl;
 	m_ptrApp = m_pointeurFenetre;	//pointeur vers la fenetre
 	m_elements = nullptr;			// pointeur vers la liste des deplacable
-	m_map = nullptr;				// pointeur vers la carte
+	m_map = map;				// pointeur vers la carte
 	en_mains = nullptr;				// pointeur vers UN element deplacable que le perso à en mains
 	m_tileSize = tileSize;			// Taille d'une tuile en px
 	speed = 5 * m_tileSize.x;		// Vitesse du perso en tuile/seconde
 	m_initPosition = initPosition;	// position de départ du personnage
 	m_position = convert_posMap_to_pos(m_initPosition);	// convertion de la position sur la carte vers la fenetre: coord.tuile -> coord.px
-	previousPosition = m_position;
+	//previousPosition = m_position;
 	m_current_action = Perso_Action::idle;
 	m_main_libre = true;
 	Perso_Sens_regard m_regard = Perso_Sens_regard::bas;
@@ -220,31 +220,31 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	if (m_current_action == Perso_Action::move_left)
 	{
 		m_regard = Perso_Sens_regard::gauche;
-		previousPosition.x = m_position.x;
-		m_position.x -= dureeIteration.asSeconds() * speed;
+		//previousPosition.x = m_position.x;
+		if (!collision()) m_position.x -= dureeIteration.asSeconds() * speed;
 	}
 	if (m_current_action == Perso_Action::move_right)
 	{
 		m_regard = Perso_Sens_regard::droite;
-		previousPosition.x = m_position.x;
+		//previousPosition.x = m_position.x;
 		//m_sprite.move(/*dureeIteration.asSeconds()* */ speed, 0);
-		m_position.x += dureeIteration.asSeconds() * speed;
+		if (!collision())	m_position.x += dureeIteration.asSeconds() * speed;
 		
 	}
 	if (m_current_action == Perso_Action::move_up)
 	{
 		m_regard = Perso_Sens_regard::haut;
-		previousPosition.y = m_position.y;
+		//previousPosition.y = m_position.y;
 		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ -speed);
-		m_position.y -= dureeIteration.asSeconds() * speed;
+		if (!collision()) m_position.y -= dureeIteration.asSeconds() * speed;
 		
 	}
 	if (m_current_action == Perso_Action::move_down)
 	{
 		m_regard = Perso_Sens_regard::bas;
-		previousPosition.y = m_position.y;
+		//previousPosition.y = m_position.y;
 		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ speed);
-		m_position.y += dureeIteration.asSeconds() * speed;
+		if (!collision()) m_position.y += dureeIteration.asSeconds() * speed;
 	}
 	
 	if (m_current_action == Perso_Action::move_down 
@@ -253,8 +253,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 		|| m_current_action == Perso_Action::move_right)
 	{
 		animation();
-		collision();
-		//m_sprite.setPosition(m_position);
+		m_sprite.setPosition(m_position);
 	}
 }
 
@@ -286,26 +285,45 @@ void Perso::animation()
 }
 
 
-void Perso::collision()
+bool Perso::collision()
 {
-	for (int y = 0; y < 16; y++)
+	sf::Vector2u positionMap((unsigned int)((m_position.x + (m_tileSize.x/2)) / m_tileSize.x), (unsigned int)((m_position.y + (m_tileSize.y / 2)) / m_tileSize.y));
+	sf::Vector2u nextTuile(0, 0);
+	switch (m_regard)
 	{
-		for (int x = 0; x < 16; x++)
+	case Perso_Sens_regard::bas:
+		nextTuile.x = positionMap.x;
+		nextTuile.y = positionMap.y + 1;
+		break;
+	case Perso_Sens_regard::gauche:
+		nextTuile.x = positionMap.x - 1;
+		nextTuile.y = positionMap.y;
+		break;
+	case Perso_Sens_regard::droite:
+		nextTuile.x = positionMap.x+1;
+		nextTuile.y = positionMap.y;
+		break;
+	case Perso_Sens_regard::haut:
+		nextTuile.x = positionMap.x;
+		nextTuile.y = positionMap.y - 1;
+		break;
+	}
+	std::vector<Tuile*> localMap = m_map->getMapTile();
+	int mapSize = localMap.size();
+	for (int i = 0; i < mapSize; i++)
+	{
+		if (localMap[i]->getMapPos() == nextTuile)
 		{
-			int top = y * blockSize;
-			int bottom = (y * blockSize) + blockSize;
-			int left = x * blockSize;
-			int right = (x * blockSize) + blockSize;
-			if (map.getTabMapValue(y, x) != 0 && m_position.x + blockSize >= left
-				&& m_position.x <= right
-				&& m_position.y + blockSize >= top
-				&& m_position.y <= bottom)
-			{
-
-				m_position.x = previousPosition.x;
-				m_position.y = previousPosition.y;
+			if (localMap[i]->getMarchable()) return false;
+			else
+			{	
+				std::cout << "Collision en " << nextTuile.x << "; " << nextTuile.y << std::endl;
+				return true;
 			}
 		}
+		else
+		{
+			continue;
+		}
 	}
-	m_sprite.setPosition(m_position);
 }

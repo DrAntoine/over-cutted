@@ -16,6 +16,11 @@ Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText, std::vector<Dep
 	std::cout << "Map OK" << std::endl;
 }
 
+std::vector<Tuile*> Map::getMapTile()
+{
+	return tuiles;
+}
+
 void Map::initmap()
 {
 	for (int y = 0; y < 16; y++)
@@ -74,3 +79,4 @@ int Map::getTabMapValue(int y, int x)
 {
 	return this->tabmap[y][x];
 }
+
