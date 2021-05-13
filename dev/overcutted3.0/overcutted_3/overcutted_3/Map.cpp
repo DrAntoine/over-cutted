@@ -1,11 +1,12 @@
 #include "Map.h"
 
-Map::Map()
-{
-	std::cout << "Constructeur Map (par defaut)" << std::endl;
-	m_ptrApp = nullptr;
-	std::cout << "Map OK" << std::endl;
-}
+//Map::Map()
+//{
+//	std::cout << "Constructeur Map (par defaut)" << std::endl;
+//	m_ptrApp = nullptr;
+//	std::cout << "Map OK" << std::endl;
+//}
+
 Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText, std::vector<Deplacable*>* ListeElements)
 {
 	std::cout << "Constructeur Map (RenderWindow*, TextureManager*" << std::endl;
@@ -14,6 +15,14 @@ Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText, std::vector<Dep
 	m_element = ListeElements;
 	initmap();
 	std::cout << "Map OK" << std::endl;
+}
+
+Map::~Map()
+{
+	for (int i = tuiles.size() - 1; i > -1; i--)
+	{
+		delete tuiles[i];
+	}
 }
 
 std::vector<Tuile*> Map::getMapTile()

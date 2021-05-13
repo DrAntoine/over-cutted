@@ -13,8 +13,8 @@ private:
 
 public:
 	Stock(sf::Vector2u , DeplacableType ,std::vector<Deplacable*>* , TextureManager*);
-	void Interaction();
+	/*void Interaction();
 	void Poser(Deplacable*);
-	Deplacable* Reprendre();
+	Deplacable* Reprendre();*/
 };
 

@@ -7,6 +7,7 @@ Tuile::Tuile(TextureManager* pointeurText) : Entite(pointeurText)
 	m_libre = true;
 	m_marchable = true;
 	m_typeTuile = TuileType::None;
+	m_objetSurTuile = nullptr;
 	std::cout << "Tuile OK" << std::endl;
 }
 
@@ -18,6 +19,36 @@ TuileType Tuile::getTypeTuile()
 bool Tuile::getMarchable()
 {
 	return m_marchable;
+}
+
+bool Tuile::getLibre()
+{
+	return m_libre;
+}
+
+bool Tuile::getDeposable()
+{
+	return m_deposable;
+}
+
+bool Tuile::getInteragissable()
+{
+	return m_interagissable;
+}
+
+void Tuile::DeposerSurTuile(Deplacable* ptrObjet)
+{
+	m_objetSurTuile = ptrObjet;
+	m_libre = false;
+	m_objetSurTuile->setposition(m_position);
+}
+
+Deplacable* Tuile::PrendreSurTuile()
+{
+	Deplacable* objetADonner = m_objetSurTuile;
+	m_objetSurTuile = nullptr;
+	m_libre = true;
+	return objetADonner;
 }
 
 sf::Vector2u Tuile::getMapPos()

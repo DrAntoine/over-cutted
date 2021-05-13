@@ -11,13 +11,12 @@ class Perso : public Entite
 {
 private:
 	Map* m_map; //les tuiles et les outils et stock
-	Map map;
 	std::vector<Deplacable*> *m_elements;
 	// ===================================
 	
 	sf::Vector2u m_initPosition;
 	sf::Vector2f previousPosition;
-	Deplacable *en_mains;
+	Deplacable *m_objet_en_mains;
 	Perso_Action m_current_action;
 	sf::Sprite* ptrsprite;
 	
