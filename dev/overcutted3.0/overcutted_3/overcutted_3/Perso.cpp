@@ -287,23 +287,27 @@ void Perso::animation()
 
 bool Perso::collision()
 {
-	sf::Vector2u positionMap((unsigned int)((m_position.x + (m_tileSize.x/2)) / m_tileSize.x), (unsigned int)((m_position.y + (m_tileSize.y / 2)) / m_tileSize.y));
+	sf::Vector2u positionMap(0, 0);
 	sf::Vector2u nextTuile(0, 0);
 	switch (m_regard)
 	{
 	case Perso_Sens_regard::bas:
+		positionMap = sf::Vector2u((unsigned int)((m_position.x + (m_tileSize.x / 2)) / m_tileSize.x), (unsigned int)((m_position.y) / m_tileSize.y));
 		nextTuile.x = positionMap.x;
 		nextTuile.y = positionMap.y + 1;
 		break;
 	case Perso_Sens_regard::gauche:
+		positionMap = sf::Vector2u((unsigned int)((m_position.x + (m_tileSize.x)) / m_tileSize.x), (unsigned int)((m_position.y + (m_tileSize.y / 2)) / m_tileSize.y));
 		nextTuile.x = positionMap.x - 1;
 		nextTuile.y = positionMap.y;
 		break;
 	case Perso_Sens_regard::droite:
+		positionMap = sf::Vector2u((unsigned int)((m_position.x) / m_tileSize.x), (unsigned int)((m_position.y + (m_tileSize.y / 2)) / m_tileSize.y));
 		nextTuile.x = positionMap.x+1;
 		nextTuile.y = positionMap.y;
 		break;
 	case Perso_Sens_regard::haut:
+		positionMap = sf::Vector2u((unsigned int)((m_position.x + (m_tileSize.x / 2)) / m_tileSize.x), (unsigned int)((m_position.y + m_tileSize.y) / m_tileSize.y));
 		nextTuile.x = positionMap.x;
 		nextTuile.y = positionMap.y - 1;
 		break;
