@@ -70,5 +70,6 @@ public:
     Map(sf::RenderWindow*, TextureManager*, std::vector<Deplacable*>*);
 	void initmap();
     void drawmap();
+    int getTabMapValue(int y, int x);
 };
 

@@ -69,3 +69,8 @@ void Map::drawmap()
 		tuiles[i]->draw(m_ptrApp);
 	}
 }
+
+int Map::getTabMapValue(int y, int x)
+{
+	return this->tabmap[y][x];
+}

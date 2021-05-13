@@ -11,10 +11,8 @@ class Perso : public Entite
 {
 private:
 	Map* m_map; //les tuiles et les outils et stock
+	Map map;
 	std::vector<Deplacable*> *m_elements;
-
-	// ===================================
-	int px, py; // Ca correspond à quoi ? 
 	// ===================================
 	
 	sf::Vector2u m_initPosition;
@@ -30,7 +28,7 @@ private:
 	// ===================================
 	
 	bool m_main_libre;
-	int speed;
+	int speed, blockSize;
 	sf::Vector2u positionAnimaion;
 	//propre au personnage
 	sf::RenderWindow* m_ptrApp;

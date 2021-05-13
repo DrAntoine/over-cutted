@@ -7,10 +7,10 @@ Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTextur
 	m_elements = nullptr;
 	m_map = nullptr;
 	speed = 10;
+	blockSize = 50;
 	m_initPosition = initPosition;
 	m_position = convert_posMap_to_pos(m_initPosition);
-	px = 10;
-	py = 10;
+	previousPosition = m_position;
 	m_current_action = Perso_Action::idle;
 	m_main_libre = true;
 	Perso_Sens_regard m_regard = Perso_Sens_regard::bas;
@@ -235,15 +235,16 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	if (m_current_action == Perso_Action::move_left)
 	{
 		m_regard = Perso_Sens_regard::gauche;
-		sf::Vector2f test = m_sprite.getPosition();
+		previousPosition.x = m_position.x;
 		m_position.x -= speed;
 		//m_sprite.move(/*dureeIteration.asSeconds() * */-speed, 0);
-		std::cout << test.x << " " << test.y << std::endl;
+
 		
 	}
 	if (m_current_action == Perso_Action::move_right)
 	{
 		m_regard = Perso_Sens_regard::droite;
+		previousPosition.x = m_position.x;
 		//m_sprite.move(/*dureeIteration.asSeconds()* */ speed, 0);
 		m_position.x += speed;
 		
@@ -251,6 +252,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	if (m_current_action == Perso_Action::move_up)
 	{
 		m_regard = Perso_Sens_regard::haut;
+		previousPosition.y = m_position.y;
 		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ -speed);
 		m_position.y -= speed;
 		
@@ -258,16 +260,19 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	if (m_current_action == Perso_Action::move_down)
 	{
 		m_regard = Perso_Sens_regard::bas;
+		previousPosition.y = m_position.y;
 		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ speed);
 		m_position.y += speed;
 	}
+	
 	if (m_current_action == Perso_Action::move_down 
 		|| m_current_action == Perso_Action::move_up 
 		|| m_current_action == Perso_Action::move_left 
 		|| m_current_action == Perso_Action::move_right)
 	{
 		animation();
-		m_sprite.setPosition(m_position);
+		collision();
+		//m_sprite.setPosition(m_position);
 	}
 }
 
@@ -297,15 +302,28 @@ void Perso::animation()
 	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimaion));
 
 }
-//void Perso::action()
-//{
-//	if (m_current_action == Perso_Action::interact)
-//	{
-//
-//	}
-//}
+
 
 void Perso::collision()
 {
+	for (int y = 0; y < 16; y++)
+	{
+		for (int x = 0; x < 16; x++)
+		{
+			int top = y * blockSize;
+			int bottom = (y * blockSize) + blockSize;
+			int left = x * blockSize;
+			int right = (x * blockSize) + blockSize;
+			if (map.getTabMapValue(y, x) != 0 && m_position.x + blockSize >= left
+				&& m_position.x <= right
+				&& m_position.y + blockSize >= top
+				&& m_position.y <= bottom)
+			{
 
+				m_position.x = previousPosition.x;
+				m_position.y = previousPosition.y;
+			}
+		}
+	}
+	m_sprite.setPosition(m_position);
 }
