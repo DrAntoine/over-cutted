@@ -25,6 +25,7 @@ private:
 	sf::Vector2f m_tileSize;
 	Perso_conf m_config;
 	Perso_Sens_regard m_regard;
+	Tuile* getFrontTile();
 	// ===================================
 	
 	bool m_main_libre;
@@ -50,8 +51,8 @@ public:
 	//Quand la fonction utiliser est appelée elle consulte si l'objet est utilisable (item dessus et action pas encore réalisée)
 	//*/
 
-	void prendre_deposer(int* outil);
-	void utiliser(int *outil);//sur planche,mettre la clock
+	void prendre_deposer();
+	void utiliser();//sur planche,mettre la clock
 	//void destocker(int *tuile);//dans stock
 	//void déposer(int *deplacable);//sur plan de travail
 	//void prendre(int *deplacable);//sur plan de travail

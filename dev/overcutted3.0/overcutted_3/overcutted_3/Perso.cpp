@@ -246,6 +246,10 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 		//m_sprite.move(0, /*dureeIteration.asSeconds() **/ speed);
 		if (!collision()) m_position.y += dureeIteration.asSeconds() * speed;
 	}
+	if (m_current_action == Perso_Action::TakeDrop)
+	{
+
+	}
 	
 	if (m_current_action == Perso_Action::move_down 
 		|| m_current_action == Perso_Action::move_up 
@@ -287,6 +291,18 @@ void Perso::animation()
 
 bool Perso::collision()
 {
+	Tuile* frontTuile = getFrontTile();
+	if (frontTuile->getMarchable()) return false;
+	else
+	{
+		std::cout << "Collision en " << frontTuile->getMapPos().x << "; " << frontTuile->getMapPos().y << std::endl;
+		return true;
+	}
+}
+
+
+Tuile* Perso::getFrontTile()
+{
 	sf::Vector2u positionMap(0, 0);
 	sf::Vector2u nextTuile(0, 0);
 	switch (m_regard)
@@ -303,7 +319,7 @@ bool Perso::collision()
 		break;
 	case Perso_Sens_regard::droite:
 		positionMap = sf::Vector2u((unsigned int)((m_position.x) / m_tileSize.x), (unsigned int)((m_position.y + (m_tileSize.y / 2)) / m_tileSize.y));
-		nextTuile.x = positionMap.x+1;
+		nextTuile.x = positionMap.x + 1;
 		nextTuile.y = positionMap.y;
 		break;
 	case Perso_Sens_regard::haut:
@@ -318,12 +334,7 @@ bool Perso::collision()
 	{
 		if (localMap[i]->getMapPos() == nextTuile)
 		{
-			if (localMap[i]->getMarchable()) return false;
-			else
-			{	
-				std::cout << "Collision en " << nextTuile.x << "; " << nextTuile.y << std::endl;
-				return true;
-			}
+			return localMap[i];
 		}
 		else
 		{
