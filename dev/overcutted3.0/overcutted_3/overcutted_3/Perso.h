@@ -25,6 +25,7 @@ private:
 	Perso_conf m_config;
 	Perso_Sens_regard m_regard;
 	Tuile* getFrontTile();
+	Stock* getStockTile(sf::Vector2u);
 	// ===================================
 	
 	bool m_main_libre;
@@ -32,6 +33,8 @@ private:
 	sf::Vector2u positionAnimaion;
 	//propre au personnage
 	sf::RenderWindow* m_ptrApp;
+	float couldown_takeDown;
+	bool couldown_actif;
 public:
 	Perso(sf::RenderWindow*, TextureManager*, sf::Vector2u, Perso_conf, sf::Vector2f, Map*); //HELP MEEEE
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
@@ -55,6 +58,6 @@ public:
 	//void destocker(int *tuile);//dans stock
 	//void déposer(int *deplacable);//sur plan de travail
 	//void prendre(int *deplacable);//sur plan de travail
-
+	void draw(sf::RenderWindow*);
 };
 

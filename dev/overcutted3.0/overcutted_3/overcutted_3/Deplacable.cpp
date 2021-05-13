@@ -14,4 +14,5 @@ DeplacableType Deplacable::getType()
 void Deplacable::setposition(sf::Vector2f newPostion)
 {
 	m_position = newPostion;
+	m_sprite.setPosition(m_position);
 }

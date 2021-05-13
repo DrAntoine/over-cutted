@@ -4,7 +4,7 @@ Crevette::Crevette(sf::Vector2f position, TextureManager* pointeurTexture) : Ali
 {
 	std::cout << "Constructeur Crevette" << std::endl;
 	m_position = position;
-	m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0,0));
+	m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0,0));
 	m_type = DeplacableType::crevette;
 	m_coupable = true;
 	std::cout << "Crevette OK" << std::endl;

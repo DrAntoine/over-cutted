@@ -18,11 +18,22 @@ Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTextur
 	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimaion));
 	m_sprite.setPosition(m_position);
 	m_config = config;
+	couldown_takeDown = 0;
 	std::cout << "Perso OK" << std::endl;
 };
 
 void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 {
+	if (couldown_actif)
+	{
+		couldown_takeDown += dureeIteration.asSeconds();
+		if (couldown_takeDown >= sf::seconds(0.5).asSeconds())
+		{
+			couldown_takeDown = 0;
+			couldown_actif = false;
+		}
+	}
+#pragma region config
 	switch (m_config)
 		{
 		case Perso_conf::zqsdae:
@@ -215,7 +226,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 			break;
 		
 	}
-
+#pragma endregion config
 	if (m_current_action == Perso_Action::move_left)
 	{
 		m_regard = Perso_Sens_regard::gauche;
@@ -241,7 +252,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	if (m_current_action == Perso_Action::TakeDrop)
 	{
 		std::cout << "Action : Prendre/Deposer" << std::endl;
-		prendre_deposer();
+		if(!couldown_actif)	prendre_deposer();
 		m_current_action = Perso_Action::idle;
 	}
 	
@@ -286,6 +297,15 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	}
 }
 
+void Perso::draw(sf::RenderWindow* ptrFenetre)
+{
+	ptrFenetre->draw(m_sprite);
+	if (!m_main_libre)
+	{
+		m_objet_en_mains->draw(ptrFenetre);
+	}
+}
+
 void Perso::animation()
 {
 	positionAnimaion.x++;
@@ -315,28 +335,39 @@ void Perso::animation()
 
 void Perso::prendre_deposer()
 {
-	Tuile* frontTile = getFrontTile();
+	couldown_actif = true;
+	TuileType frontTileType = getFrontTile()->getTypeTuile();
 	if (m_main_libre) // si le perso à les mains libres
 	{
-		if (!frontTile->getLibre()) // si l'objet contient quelquechose
+		if (frontTileType == TuileType::Stock)
 		{
-			/*if (frontTile->getTypeTuile() == TuileType::Stock)
-			{
-				Stock* stock = getFrontTile();
-				m_objet_en_mains = stock->PrendreSurTuile();
-			}*/
-			m_objet_en_mains = frontTile->PrendreSurTuile();
+			Stock* stock = m_map->getStock(getFrontTile()->getMapPos());
+			m_objet_en_mains = stock->PrendreSurTuile();
 			m_main_libre = false;
 			m_objet_en_mains->setposition(m_position);
+		}
+		if (frontTileType == TuileType::Planche_decoupe)
+		{
+			Planche* planche = m_map->getPlanche(getFrontTile()->getMapPos());
+			if (!planche->getLibre())
+			{
+				m_objet_en_mains = planche->PrendreSurTuile();
+				m_main_libre = false;
+				m_objet_en_mains->setposition(m_position);
+			}
 		}
 	}
 	else // si le perso à un truc en main
 	{
-		if (frontTile->getLibre() || frontTile->getDeposable()) // si la tuile est libre et que l'on peut deposer quelquechose dessus
+		if (frontTileType == TuileType::Planche_decoupe)
 		{
-			frontTile->DeposerSurTuile(m_objet_en_mains);
-			m_objet_en_mains = nullptr;
-			m_main_libre = true;
+			Planche* planche = m_map->getPlanche(getFrontTile()->getMapPos());
+			if (planche->getLibre())
+			{
+				planche->DeposerSurTuile(m_objet_en_mains);
+				m_objet_en_mains = nullptr;
+				m_main_libre = true;
+			}
 		}
 	}
 }
@@ -394,4 +425,9 @@ Tuile* Perso::getFrontTile()
 			continue;
 		}
 	}
+}
+
+Stock* Perso::getStockTile(sf::Vector2u)
+{
+	return nullptr;
 }

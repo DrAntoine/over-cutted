@@ -36,12 +36,12 @@ bool Tuile::getInteragissable()
 	return m_interagissable;
 }
 
-void Tuile::DeposerSurTuile(Deplacable* ptrObjet)
-{
-	m_objetSurTuile = ptrObjet;
-	m_libre = false;
-	m_objetSurTuile->setposition(m_position);
-}
+//void Tuile::DeposerSurTuile(Deplacable* ptrObjet)
+//{
+//	m_objetSurTuile = ptrObjet;
+//	m_libre = false;
+//	m_objetSurTuile->setposition(m_position);
+//}
 
 Deplacable* Tuile::PrendreSurTuile()
 {
