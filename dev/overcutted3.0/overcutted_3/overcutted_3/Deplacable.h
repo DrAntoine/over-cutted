@@ -14,7 +14,7 @@ protected:
 public:
 	int getId();
 	Deplacable(TextureManager*);
-	~Deplacable();
+	virtual ~Deplacable();
 	DeplacableType getType();
 	void setposition(sf::Vector2f newPostion);
 };

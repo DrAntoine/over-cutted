@@ -32,7 +32,7 @@ std::vector<Tuile*> Map::getMapTile()
 
 Stock* Map::getStock(sf::Vector2u position)
 {
-	for (int i = 0; i < m_stocks.size(); i++)
+	for (unsigned int i = 0; i < m_stocks.size(); i++)
 	{
 		if (m_stocks[i]->getMapPos() == position)
 		{
@@ -43,7 +43,7 @@ Stock* Map::getStock(sf::Vector2u position)
 
 Poubelle* Map::getPoubelle(sf::Vector2u position)
 {
-	for (int i = 0; i < m_poubelles.size(); i++)
+	for (unsigned int i = 0; i < m_poubelles.size(); i++)
 	{
 		if (m_poubelles[i]->getMapPos() == position)
 		{
@@ -54,7 +54,7 @@ Poubelle* Map::getPoubelle(sf::Vector2u position)
 
 Planche* Map::getPlanche(sf::Vector2u position)
 {
-	for (int i = 0; i < m_planches.size(); i++)
+	for (unsigned int i = 0; i < m_planches.size(); i++)
 	{
 		if (m_planches[i]->getMapPos() == position)
 		{
@@ -64,7 +64,7 @@ Planche* Map::getPlanche(sf::Vector2u position)
 }
 PlanTravail* Map::getPlanTravail(sf::Vector2u position)
 {
-	for (int i = 0; i < m_PlanTravail.size(); i++)
+	for (unsigned int i = 0; i < m_PlanTravail.size(); i++)
 	{
 		if (m_PlanTravail[i]->getMapPos() == position)
 		{
@@ -85,11 +85,11 @@ PlanTravail* Map::getPlanTravail(sf::Vector2u position)
 
 void Map::updateM_element(std::vector<Deplacable*>* pointeurListeElement)
 {
-	for (int i = 0; i < m_poubelles.size(); i++)
+	for (unsigned int i = 0; i < m_poubelles.size(); i++)
 	{
 		m_poubelles[i]->UpdatePointeurM_Element(pointeurListeElement);
 	}
-	for (int j = 0; j < m_stocks.size(); j++)
+	for (unsigned int j = 0; j < m_stocks.size(); j++)
 	{
 		m_stocks[j]->UpdatePointeurM_Element(pointeurListeElement);
 	}

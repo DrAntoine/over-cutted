@@ -308,10 +308,10 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 void Perso::draw(sf::RenderWindow* ptrFenetre)
 {
 	ptrFenetre->draw(m_sprite);
-	if (!m_main_libre)
+	/*if (!m_main_libre)
 	{
 		m_objet_en_mains->draw(ptrFenetre);
-	}
+	}*/
 }
 
 void Perso::animation()
@@ -405,17 +405,6 @@ void Perso::prendre_deposer()
 				plantravail->DeposerSurTuile(m_objet_en_mains);
 				m_objet_en_mains = nullptr;
 				m_main_libre = true;
-			}
-		}
-		if (frontTileType == TuileType::Poubelle)
-		{
-			Poubelle* poubelle = m_map->getPoubelle(getFrontTile()->getMapPos());
-			if (poubelle->getLibre())
-			{
-				poubelle->DeposerSurTuile(m_objet_en_mains);
-				m_objet_en_mains = nullptr;
-				m_main_libre = true;
-				//poubelle->supprimer();
 			}
 		}
 		if (frontTileType == TuileType::Poubelle)

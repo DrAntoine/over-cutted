@@ -26,8 +26,20 @@ Poubelle::~Poubelle()
 
 void Poubelle::DeposerSurTuile(Deplacable* objet)
 {
-	delete objet;
+	Deplacable* nullpointeur = nullptr;
+	Deplacable* objetADelete = nullptr;
+	for (unsigned int i = 0; i < m_element->size(); i++)
+	{
+		if (m_element->at(i)->getId() == objet->getId())
+		{
+			objetADelete = m_element->at(i);
+			m_element->at(i) = nullpointeur;
+		}
+	}
 
+	// =============================================== 
+	delete objetADelete; //entite semble toujours là		HELPPPPPPPP		HELPPPPPPPP		HELPPPPPPPP		HELPPPPPPPP
+	// =============================================== 
 }
 
 Deplacable* Poubelle::PrendreSurTuile()

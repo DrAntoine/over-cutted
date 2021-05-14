@@ -42,7 +42,7 @@ void Recette::CreationRecettes()
 void Recette::drawRecette(sf::RenderWindow* ptrWindow)
 {
     m_ptrwindow = ptrWindow;
-    for (int i = 0; i < m_Recettes.size(); i++)
+    for (unsigned int i = 0; i < m_Recettes.size(); i++)
     {
         m_Recettes[i]->draw(m_ptrwindow);
     }
