@@ -8,6 +8,10 @@ Outil::Outil(TextureManager* pointeurTexture) : Tuile(pointeurTexture)
 	std::cout << "Outil OK" << std::endl;
 }
 
+Outil::~Outil()
+{
+}
+
 bool Outil::Est_libre()
 {
 	return m_libre;

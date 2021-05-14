@@ -3,6 +3,7 @@
 #include "Deplacable.h"
 #include "Map.h"
 #include "Stock.h"
+#include "Poubelle.h"
 
 enum class Perso_Action { move_down, move_up, move_left, move_right, interact, idle, TakeDrop };
 enum class Perso_Sens_regard { bas = 0, gauche = 1, droite = 2, haut = 3 };
@@ -36,7 +37,8 @@ private:
 	float couldown_takeDown;
 	bool couldown_actif;
 public:
-	Perso(sf::RenderWindow*, TextureManager*, sf::Vector2u, Perso_conf, sf::Vector2f, Map*); //HELP MEEEE
+	Perso(sf::RenderWindow*, TextureManager*, sf::Vector2u, Perso_conf, sf::Vector2f, Map*);
+	virtual ~Perso();
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 	//void drawperso();
 	void action(sf::Time, sf::Event);
@@ -55,9 +57,6 @@ public:
 
 	void prendre_deposer();
 	void utiliser();//sur planche,mettre la clock
-	//void destocker(int *tuile);//dans stock
-	//void déposer(int *deplacable);//sur plan de travail
-	//void prendre(int *deplacable);//sur plan de travail
 	void draw(sf::RenderWindow*);
 };
 

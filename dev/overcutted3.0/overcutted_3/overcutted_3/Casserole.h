@@ -15,15 +15,7 @@ private:
 	TypeObjet m_type;*/
 public:
 	Casserole(TextureManager*);
-	/*
-	virtual void utiliser(std::vector<Aliment *> aliments)
-	{
-		//anim...
-		if (anim terminee)
-		{
-			for(aliments) aliment[i]->setCuit();
-		}
-	}*/
+	virtual ~Casserole();
 };
 
 

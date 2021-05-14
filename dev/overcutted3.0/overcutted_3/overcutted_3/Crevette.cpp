@@ -9,6 +9,9 @@ Crevette::Crevette(sf::Vector2f position, TextureManager* pointeurTexture) : Ali
 	m_coupable = true;
 	std::cout << "Crevette OK" << std::endl;
 }
+Crevette::~Crevette()
+{
+}
 sf::Sprite Crevette::spriteCrevette()
 {
 

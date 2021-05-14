@@ -9,6 +9,7 @@ protected:
 	bool m_libre; //false si aliment/true si vide
 public:
 	Outil(TextureManager*);
+	virtual ~Outil(); 
 	//Retourne l'état de m_libre. A consulter avant d'utiliser Recevoir(Aliment*) ou Donner();
 	bool Est_libre();
 

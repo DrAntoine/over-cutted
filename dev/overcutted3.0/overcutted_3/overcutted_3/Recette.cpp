@@ -7,3 +7,7 @@ Recette::Recette()
 	m_position = sf::Vector2f(0, 0);
 	std::cout << "Recette OK" << std::endl;
 }
+
+Recette::~Recette()
+{
+}

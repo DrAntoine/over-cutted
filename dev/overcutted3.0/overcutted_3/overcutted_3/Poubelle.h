@@ -13,11 +13,15 @@ private:
 	herité de outil
 	bool m_libre; // ne sera jamais à false 
 	TypeObjet m_type;*/
-	void supprimer(Deplacable*);
+	std::vector<Deplacable*>* m_element;
 
 public:
-	Poubelle(sf::Vector2u, TextureManager*);
-	void Recevoir(Deplacable*);
-	Deplacable* Donner();
+	Poubelle(sf::Vector2u, TextureManager*, std::vector<Deplacable*>*);
+	virtual ~Poubelle();
+	void DeposerSurTuile(Deplacable*);
+	Deplacable* PrendreSurTuile();
+	//void supprimer();
+	bool getLibre();
+	void UpdatePointeurM_Element(std::vector<Deplacable*>*);
 };
 

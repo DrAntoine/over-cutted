@@ -25,10 +25,12 @@ private:
 	
 public:
 	Game();
-	~Game();
+	virtual ~Game();
 	Game(sf::RenderWindow*, sf::Event*);
 	void action(sf::Time, sf::Event);
 	void draw();//window* w, m_gameClock
 	void update(sf::Time tempsEcoule);
+	void update_ListeDeplacable();
+	std::vector<Deplacable*> purgeVecteur(std::vector<Deplacable*>);
 };
 

@@ -10,6 +10,10 @@ TextureManager::TextureManager()
 	std::cout << "TextureManager OK" << std::endl;
 }
 
+TextureManager::~TextureManager()
+{
+}
+
 sf::Sprite TextureManager::getTexture(TextureType m_type, sf::Vector2u positionInFile)
 {
 	//std::cout << "ok";

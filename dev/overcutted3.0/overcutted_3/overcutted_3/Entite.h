@@ -14,6 +14,7 @@ protected:
 	sf::Sprite m_sprite;
 public:
 	Entite(TextureManager*);
+	virtual ~Entite();
 	virtual void draw(sf::RenderWindow* app);
 	virtual void update();
 };

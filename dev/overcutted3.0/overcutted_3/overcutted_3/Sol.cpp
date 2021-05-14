@@ -11,3 +11,7 @@ Sol::Sol(sf::Vector2u positionCarte, TextureManager* pointeurText): Tuile(pointe
 	m_sprite.setPosition(m_position);
 	std::cout << "Sol OK" << std::endl;
 }
+
+Sol::~Sol()
+{
+}

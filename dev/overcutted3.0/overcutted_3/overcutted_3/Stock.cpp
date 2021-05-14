@@ -10,6 +10,7 @@ Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std
 	m_typeTuile = TuileType::Stock;
 	m_libre = false;
 	m_deposable = false;
+	m_prenable = true;
 	m_ressourceAFournir = typeAlimentAFournir;
 
 	switch (typeAlimentAFournir)
@@ -29,6 +30,10 @@ Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std
 	}
 	m_sprite.setPosition(m_position);
 	std::cout << "Stock OK" << std::endl;
+}
+
+Stock::~Stock()
+{
 }
 
 Deplacable* Stock::PrendreSurTuile()
@@ -52,5 +57,10 @@ Deplacable* Stock::PrendreSurTuile()
 	}
 	m_pointeurListeElement->push_back(objet);
 	return objet;
+}
+
+void Stock::UpdatePointeurM_Element(std::vector<Deplacable*>* nouveau_pointeur)
+{
+	m_pointeurListeElement = nouveau_pointeur;
 }
 

@@ -10,6 +10,7 @@ private:
 	
 public:
 	Assiette(sf::Vector2f, TextureManager*);
+	virtual ~Assiette();
 	void deposer(Aliment* x);
 	bool checkAliment(Aliment* aAjouter);
 

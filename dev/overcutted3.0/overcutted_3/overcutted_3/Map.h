@@ -49,7 +49,7 @@ private:
 public:
     //Map();
     Map(sf::RenderWindow*, TextureManager*, std::vector<Deplacable*>*);
-    ~Map();
+    virtual ~Map();
 	void initmap();
     void drawmap();
     int getTabMapValue(int y, int x);
@@ -59,5 +59,6 @@ public:
     Planche* getPlanche(sf::Vector2u);
     PlanTravail* getPlanTravail(sf::Vector2u);
     OuvertureSalle* getOuvertureSalle(sf::Vector2u);
+    void updateM_element(std::vector<Deplacable*>*);
 };
 

@@ -20,14 +20,18 @@ Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTextur
 	m_config = config;
 	couldown_takeDown = 0;
 	std::cout << "Perso OK" << std::endl;
-};
+}
+Perso::~Perso()
+{
+}
+;
 
 void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 {
 	if (couldown_actif)
 	{
 		couldown_takeDown += dureeIteration.asSeconds();
-		if (couldown_takeDown >= sf::seconds(0.25).asSeconds())
+		if (couldown_takeDown >= sf::seconds(0.1).asSeconds())
 		{
 			couldown_takeDown = 0;
 			couldown_actif = false;
@@ -337,7 +341,9 @@ void Perso::prendre_deposer()
 {
 	couldown_actif = true;
 	TuileType frontTileType = getFrontTile()->getTypeTuile();
-	if (m_main_libre) // si le perso à les mains libres
+	bool deposable = getFrontTile()->getDeposable();
+	bool prenable = getFrontTile()->getPrenable();
+	if (m_main_libre  &&  prenable)//PRENDRE // si le perso à les mains libres
 	{
 		if (frontTileType == TuileType::Stock)
 		{
@@ -366,8 +372,13 @@ void Perso::prendre_deposer()
 				m_objet_en_mains->setposition(m_position);
 			}
 		}
+		if (frontTileType == TuileType::Poubelle)
+		{
+			//ne fait rien volontairement
+			//on ne peut rien reprendre dans la poubelle
+		}
 	}
-	else // si le perso à un truc en main
+	else if(deposable) //DEPOSER // si le perso à un truc en main
 	{
 		if (frontTileType == TuileType::Planche_decoupe)
 		{
@@ -381,12 +392,23 @@ void Perso::prendre_deposer()
 		}
 		if (frontTileType == TuileType::Plan_Travail)
 		{
-			PlanTravail* plantavail = m_map->getPlanTravail(getFrontTile()->getMapPos());
-			if (plantavail->getLibre())
+			PlanTravail* plantravail = m_map->getPlanTravail(getFrontTile()->getMapPos());
+			if (plantravail->getLibre())
 			{
-				plantavail->DeposerSurTuile(m_objet_en_mains);
+				plantravail->DeposerSurTuile(m_objet_en_mains);
 				m_objet_en_mains = nullptr;
 				m_main_libre = true;
+			}
+		}
+		if (frontTileType == TuileType::Poubelle)
+		{
+			Poubelle* poubelle = m_map->getPoubelle(getFrontTile()->getMapPos());
+			if (poubelle->getLibre())
+			{
+				poubelle->DeposerSurTuile(m_objet_en_mains);
+				m_objet_en_mains = nullptr;
+				m_main_libre = true;
+				//poubelle->supprimer();
 			}
 		}
 	}
