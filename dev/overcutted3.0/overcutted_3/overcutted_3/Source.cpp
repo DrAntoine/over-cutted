@@ -27,7 +27,7 @@ int main()
             game.action(tempsEcoule, event); // appelle la fonction action du joueur
          
         }
-        game.update();
+       // game.update(tempsEcoule);
         window.clear();
 		game.draw();
         window.display();

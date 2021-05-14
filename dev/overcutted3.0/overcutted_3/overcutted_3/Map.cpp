@@ -72,16 +72,16 @@ PlanTravail* Map::getPlanTravail(sf::Vector2u position)
 		}
 	}
 }
-Poubelle* Map::getPoubelle(sf::Vector2u position)
-{
-	for (int i = 0; i < m_poubelles.size(); i++)
-	{
-		if (m_poubelles[i]->getMapPos() == position)
-		{
-			return m_poubelles[i];
-		}
-	}
-}
+//poubelle* map::getpoubelle(sf::vector2u position)
+//{
+//	for (int i = 0; i < m_poubelles.size(); i++)
+//	{
+//		if (m_poubelles[i]->getmappos() == position)
+//		{
+//			return m_poubelles[i];
+//		}
+//	}
+//}
 
 void Map::updateM_element(std::vector<Deplacable*>* pointeurListeElement)
 {
