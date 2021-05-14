@@ -1,5 +1,5 @@
 #pragma once
-//#include "Outil.h"
+#include "Outil.h"
 //#include "Poisson.h"
 //#include "Crevette.h"
 //#include "Assiette.h"

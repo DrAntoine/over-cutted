@@ -2,7 +2,7 @@
 #include "Assiette.h"
 #include "Crevette.h"
 #include "Poisson.h"
-#include "Casserole.h"
+//#include "Casserole.h"
 
 class DeplacableManager
 {
@@ -20,7 +20,7 @@ public:
 	void DeleteElement(Deplacable*);
 	Deplacable* CreateElement(DeplacableType, sf::Vector2f, TextureManager* );
 	Assiette* getAssiette(int);
-	Casserole* getCasserole(int);
+	//Casserole* getCasserole(int);
 	Crevette* getCrevette(int);
 	Poisson* getPoisson(int);
 	void DrawDeplacable(sf::RenderWindow*);

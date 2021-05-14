@@ -143,6 +143,40 @@ Deplacable* DeplacableManager::CreateElement(DeplacableType type, sf::Vector2f p
     return nouvelleElement;
 }
 
+Assiette* DeplacableManager::getAssiette(int idAssiette)
+{
+	if (m_assiettes.size() > 0)
+	{
+		for (int i = 0; i < m_assiettes.size(); i++)
+		{
+			if (m_assiettes[i]->getId() == idAssiette) return m_assiettes[i];
+		}
+	}
+}
+
+Crevette* DeplacableManager::getCrevette(int idCrevette)
+{
+	if (m_crevettes.size() > 0)
+	{
+		for (int i = 0; i < m_crevettes.size(); i++)
+		{
+			if (m_crevettes[i]->getId() == idCrevette) return m_crevettes[i];
+		}
+	}
+	return nullptr;
+}
+
+Poisson* DeplacableManager::getPoisson(int idPoisson)
+{
+	if (m_poissons.size() > 0)
+	{
+		for (int i = 0; i < m_poissons.size(); i++)
+		{
+			if (m_poissons[i]->getId() == idPoisson) return m_poissons[i];
+		}
+	}
+}
+
 void DeplacableManager::DrawDeplacable(sf::RenderWindow* pointeurFenetre)
 {
 	unsigned int m_elementSize = m_elementsDeplacable.size();
