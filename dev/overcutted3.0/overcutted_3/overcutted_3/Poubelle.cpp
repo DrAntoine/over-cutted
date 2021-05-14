@@ -1,10 +1,10 @@
 #include "Poubelle.h"
 
-Poubelle::Poubelle(sf::Vector2u positionCarte, TextureManager* pointeurTexture, std::vector<Deplacable*>* pointeurElement) : Outil(pointeurTexture)
+Poubelle::Poubelle(sf::Vector2u positionCarte, TextureManager* pointeurTexture, DeplacableManager* deplacableManager) : Outil(pointeurTexture)
 {
 	std::cout << "Constructeur Poubelle (positionCarte)" << std::endl;
 	m_positionMap = positionCarte;
-	m_element = pointeurElement;
+	m_deplacableManager = deplacableManager;
 	m_position = convert_posMap_to_pos(m_positionMap);
 	m_typeTuile = TuileType::Poubelle;
 	m_marchable = false;
@@ -26,20 +26,21 @@ Poubelle::~Poubelle()
 
 void Poubelle::DeposerSurTuile(Deplacable* objet)
 {
-	Deplacable* nullpointeur = nullptr;
-	Deplacable* objetADelete = nullptr;
-	for (unsigned int i = 0; i < m_element->size(); i++)
-	{
-		if (m_element->at(i)->getId() == objet->getId())
-		{
-			objetADelete = m_element->at(i);
-			m_element->at(i) = nullpointeur;
-		}
-	}
+	m_deplacableManager->DeleteElement(objet);
+	//Deplacable* nullpointeur = nullptr;
+	//Deplacable* objetADelete = nullptr;
+	//for (unsigned int i = 0; i < m_element->size(); i++)
+	//{
+	//	if (m_element->at(i)->getId() == objet->getId())
+	//	{
+	//		objetADelete = m_element->at(i);
+	//		m_element->at(i) = nullpointeur;
+	//	}
+	//}
 
-	// =============================================== 
-	delete objetADelete; //entite semble toujours là		HELPPPPPPPP		HELPPPPPPPP		HELPPPPPPPP		HELPPPPPPPP
-	// =============================================== 
+	//// =============================================== 
+	//delete objetADelete; //entite semble toujours là		HELPPPPPPPP		HELPPPPPPPP		HELPPPPPPPP		HELPPPPPPPP
+	//// =============================================== 
 }
 
 Deplacable* Poubelle::PrendreSurTuile()
@@ -53,8 +54,8 @@ bool Poubelle::getLibre()
 	return m_libre;
 }
 
-void Poubelle::UpdatePointeurM_Element(std::vector<Deplacable*>* nouveauPointeur)
-{
-	m_element = nouveauPointeur;
-}
+//void Poubelle::UpdatePointeurM_Element(std::vector<Deplacable*>* nouveauPointeur)
+//{
+//	m_element = nouveauPointeur;
+//}
 

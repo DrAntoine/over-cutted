@@ -152,6 +152,7 @@
     <ClCompile Include="Casserole.cpp" />
     <ClCompile Include="Crevette.cpp" />
     <ClCompile Include="Deplacable.cpp" />
+    <ClCompile Include="DeplacableManager.cpp" />
     <ClCompile Include="Entite.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Casserole.h" />
     <ClInclude Include="Crevette.h" />
     <ClInclude Include="Deplacable.h" />
+    <ClInclude Include="DeplacableManager.h" />
     <ClInclude Include="Entite.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />

@@ -7,12 +7,12 @@
 //	std::cout << "Map OK" << std::endl;
 //}
 
-Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText, std::vector<Deplacable*>* ListeElements)
+Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText, DeplacableManager* deplacableManager)
 {
 	std::cout << "Constructeur Map (RenderWindow*, TextureManager*, std::vector<Deplacable*>*)" << std::endl;
 	m_texturePointeur = pointeurText;
 	m_ptrApp = appPtr;// pointeur vers la fenetre
-	m_element = ListeElements;
+	m_deplacableManager = deplacableManager;
 	initmap();
 	std::cout << "Map OK" << std::endl;
 }
@@ -72,28 +72,18 @@ PlanTravail* Map::getPlanTravail(sf::Vector2u position)
 		}
 	}
 }
-//poubelle* map::getpoubelle(sf::vector2u position)
+
+//void Map::updateM_element(std::vector<Deplacable*>* pointeurListeElement)
 //{
-//	for (int i = 0; i < m_poubelles.size(); i++)
+//	for (unsigned int i = 0; i < m_poubelles.size(); i++)
 //	{
-//		if (m_poubelles[i]->getmappos() == position)
-//		{
-//			return m_poubelles[i];
-//		}
+//		m_poubelles[i]->UpdatePointeurM_Element(pointeurListeElement);
+//	}
+//	for (unsigned int j = 0; j < m_stocks.size(); j++)
+//	{
+//		m_stocks[j]->UpdatePointeurM_Element(pointeurListeElement);
 //	}
 //}
-
-void Map::updateM_element(std::vector<Deplacable*>* pointeurListeElement)
-{
-	for (unsigned int i = 0; i < m_poubelles.size(); i++)
-	{
-		m_poubelles[i]->UpdatePointeurM_Element(pointeurListeElement);
-	}
-	for (unsigned int j = 0; j < m_stocks.size(); j++)
-	{
-		m_stocks[j]->UpdatePointeurM_Element(pointeurListeElement);
-	}
-}
 
 void Map::initmap()
 {
@@ -123,22 +113,22 @@ void Map::initmap()
 				m_planches.push_back(planche);
 				break;
 			case 3: 
-				poubelle = new Poubelle(sf::Vector2u(x, y), m_texturePointeur, m_element);
+				poubelle = new Poubelle(sf::Vector2u(x, y), m_texturePointeur, m_deplacableManager);
 				tuiles.push_back(poubelle);
 				m_poubelles.push_back(poubelle);
 				break;
 			case 4: 
-				stock = new Stock(sf::Vector2u(x, y), DeplacableType::crevette, m_element, m_texturePointeur);
+				stock = new Stock(sf::Vector2u(x, y), DeplacableType::crevette, m_deplacableManager, m_texturePointeur);
 				tuiles.push_back(stock); //passer le pointeur vers la liste de déplacable et le texture manager
 				m_stocks.push_back(stock);
 				break;
 			case 5:
-				stock = new Stock(sf::Vector2u(x, y), DeplacableType::poisson, m_element, m_texturePointeur);
+				stock = new Stock(sf::Vector2u(x, y), DeplacableType::poisson, m_deplacableManager, m_texturePointeur);
 				tuiles.push_back(stock); //passer le pointeur vers la liste de déplacable et le texture manager
 				m_stocks.push_back(stock);
 				break;
 			case 6:
-				stock = new Stock(sf::Vector2u(x, y), DeplacableType::assiette, m_element, m_texturePointeur);
+				stock = new Stock(sf::Vector2u(x, y), DeplacableType::assiette, m_deplacableManager, m_texturePointeur);
 				tuiles.push_back(stock); //passer le pointeur vers la liste de déplacable et le texture manager
 				m_stocks.push_back(stock);
 				break;

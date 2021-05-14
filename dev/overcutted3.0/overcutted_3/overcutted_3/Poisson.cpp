@@ -1,6 +1,6 @@
 #include "Poisson.h"
 
-Poisson::Poisson(sf::Vector2f position, TextureManager* pointeurTexture) : Aliment(pointeurTexture)
+Poisson::Poisson(sf::Vector2f position, TextureManager* pointeurTexture, int deplacableID) : Aliment(pointeurTexture, deplacableID)
 {
 	std::cout << "Constructeur Poisson (position)" << std::endl;
 	m_position = position;

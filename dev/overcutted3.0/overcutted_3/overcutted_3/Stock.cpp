@@ -1,9 +1,9 @@
 #include "Stock.h"
 
-Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, std::vector<Deplacable*>* pointeurListeElement, TextureManager* pointeurTexture) : Outil(pointeurTexture)
+Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, DeplacableManager* deplacableManager, TextureManager* pointeurTexture) : Outil(pointeurTexture)
 {
 	std::cout << "Constructeur Stock (positionCarte, typeAlimentAFournir, std::vector<Deplacable*>*" << std::endl;
-	m_pointeurListeElement = pointeurListeElement;
+	m_deplacableManager = deplacableManager;
 	m_positionMap = positionCarte;
 	m_position = convert_posMap_to_pos(m_positionMap);
 	m_marchable = false;
@@ -39,28 +39,13 @@ Stock::~Stock()
 Deplacable* Stock::PrendreSurTuile()
 {
 	std::cout << "stock prendre" << std::endl;
-	Deplacable* objet = nullptr;
+	Deplacable* objet = m_deplacableManager->CreateElement(m_ressourceAFournir, m_position, m_textureManager);
 	std::cout << "Creation nouveau Deplacable" << std::endl;
-	switch (m_ressourceAFournir)
-	{
-	case DeplacableType::none:
-		break;
-	case DeplacableType::poisson:
-		objet = new Poisson(m_position, m_textureManager);
-		break;
-	case DeplacableType::crevette:
-		objet = new Crevette(m_position, m_textureManager);
-		break;
-	case DeplacableType::assiette:
-		objet = new Assiette(m_position, m_textureManager);
-		break;
-	}
-	m_pointeurListeElement->push_back(objet);
 	return objet;
 }
 
-void Stock::UpdatePointeurM_Element(std::vector<Deplacable*>* nouveau_pointeur)
-{
-	m_pointeurListeElement = nouveau_pointeur;
-}
+//void Stock::UpdatePointeurM_Element(std::vector<Deplacable*>* nouveau_pointeur)
+//{
+//	m_pointeurListeElement = nouveau_pointeur;
+//}
 

@@ -1,6 +1,6 @@
 #include "Crevette.h"
 
-Crevette::Crevette(sf::Vector2f position, TextureManager* pointeurTexture) : Aliment(pointeurTexture)
+Crevette::Crevette(sf::Vector2f position, TextureManager* pointeurTexture, int deplacableID) : Aliment(pointeurTexture, deplacableID)
 {
 	std::cout << "Constructeur Crevette" << std::endl;
 	m_position = position;

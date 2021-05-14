@@ -11,7 +11,7 @@ protected:
 	//bool m_cuisable;
 
 public:
-	Aliment(TextureManager*);
+	Aliment(TextureManager*, int);
 	virtual ~Aliment();
 	void setCoupe();
 	//void setCuit();

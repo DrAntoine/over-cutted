@@ -7,11 +7,11 @@ class Assiette : public Deplacable
 {
 private:
 	std::vector<Aliment*> m_contenu;
-	
+	std::vector<Deplacable*>* m_element;
 public:
-	Assiette(sf::Vector2f, TextureManager*);
+	Assiette(sf::Vector2f, TextureManager*, int);
 	virtual ~Assiette();
-	void deposer(Aliment* x);
+	void DeposerSurAssiette(Deplacable* x);
 	bool checkAliment(Aliment* aAjouter);
 
 

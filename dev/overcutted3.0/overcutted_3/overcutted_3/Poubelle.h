@@ -1,5 +1,6 @@
 #pragma once
 #include "Outil.h"
+#include "DeplacableManager.h"
 
 class Poubelle : public Outil
 {
@@ -14,15 +15,15 @@ private:
 	bool m_libre; // ne sera jamais à false 
 	TypeObjet m_type;*/
 
-	std::vector<Deplacable*>* m_element;
+	DeplacableManager* m_deplacableManager;
 
 public:
-	Poubelle(sf::Vector2u, TextureManager*, std::vector<Deplacable*>*);
+	Poubelle(sf::Vector2u, TextureManager*, DeplacableManager*);
 	virtual ~Poubelle();
 	void DeposerSurTuile(Deplacable*);
 	Deplacable* PrendreSurTuile();
 	bool getLibre();
-	void UpdatePointeurM_Element(std::vector<Deplacable*>*);
+	//void UpdatePointeurM_Element(std::vector<Deplacable*>*);
 
 };
 

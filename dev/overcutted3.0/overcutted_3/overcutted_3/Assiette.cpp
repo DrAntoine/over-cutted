@@ -1,7 +1,7 @@
 #include "Assiette.h"
 
 
-Assiette::Assiette(sf::Vector2f position,  TextureManager* pointeurTexture) : Deplacable(pointeurTexture)
+Assiette::Assiette(sf::Vector2f position, TextureManager* pointeurTexture, int deplacableID) : Deplacable(pointeurTexture, deplacableID)
 {
     std::cout << "Constructeur Assiette" << std::endl;
     m_type = DeplacableType::assiette;
@@ -14,29 +14,32 @@ Assiette::~Assiette()
 {
 }
 
-void Assiette::deposer(Aliment* x)
-{
-    if (checkAliment(x))
-    {
-        m_contenu.push_back(x);
-    }
-    else
-    {
-
-    }
-}
-
-bool Assiette::checkAliment(Aliment* aAjouter)
-{
-    DeplacableType typeDeA_Ajouter=aAjouter->getType();
-    {
-        for (unsigned int i = 0 ;i < m_contenu.size();i++)
-        {
-            if (m_contenu[i]->getType() == typeDeA_Ajouter)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-}
+//void Assiette::DeposerSurAssiette(Deplacable* x)
+//{
+//    
+//    Aliment* aliment = x;
+//
+//    if (checkAliment(x))
+//    {
+//        m_contenu.push_back(x);
+//    }
+//    else
+//    {
+//
+//    }
+//}
+//
+//bool Assiette::checkAliment(Deplacable* aAjouter)
+//{
+//    DeplacableType typeDeA_Ajouter=aAjouter->getType();
+//    {
+//        for (unsigned int i = 0 ;i < m_contenu.size();i++)
+//        {
+//            if (m_contenu[i]->getType() == typeDeA_Ajouter)
+//            {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+//}

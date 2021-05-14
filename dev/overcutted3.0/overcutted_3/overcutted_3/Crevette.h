@@ -5,7 +5,7 @@ class Crevette : public Aliment
 private:
 
 public:
-	Crevette(sf::Vector2f, TextureManager*);
+	Crevette(sf::Vector2f, TextureManager*, int);
 	virtual ~Crevette();
 	sf::Sprite spriteCrevette();
 };
