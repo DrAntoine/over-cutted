@@ -13,17 +13,23 @@ Poisson::Poisson(sf::Vector2f position, TextureManager* pointeurTexture, int dep
 Poisson::~Poisson()
 {
 }
+void Poisson::draw(sf::RenderWindow* maFenetre)
+{
+	spritePoisson();
+	m_sprite.setPosition(m_position);
+	maFenetre->draw(m_sprite);
+}
 
-sf::Sprite Poisson::spritePoisson()
+void Poisson::spritePoisson()
 {
 
+	if (m_etat == AlimentEtat::intacte)
+	{
+		m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0, 1));
+	}
 	if (m_etat == AlimentEtat::couper)
 	{
-		m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0, 0));
+		m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(1, 1));
 	}
-	if (m_etat == AlimentEtat::cuit)
-	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0, 0));
-	}
-	return m_sprite;
+
 }

@@ -9,6 +9,7 @@ private:
 public:
 	Poisson(sf::Vector2f, TextureManager*, int);
 	virtual ~Poisson();
-	sf::Sprite spritePoisson();
+	void spritePoisson();
+	void draw(sf::RenderWindow*);
 };
 

@@ -17,7 +17,7 @@ Planche::Planche(sf::Vector2u position, TextureManager* pointeurTexture, Deplaca
 	m_sprite.setPosition(m_position);
 	bool m_fini = false;
 	m_alimentSurPlanche = nullptr;
-	m_temps_animation = sf::seconds(1);
+	m_temps_animation = sf::seconds(2);
 	std::cout << "Planche OK" << std::endl;
 }
 
@@ -69,16 +69,18 @@ void Planche::interact(sf::Time temps_ecoule)
 	if (m_alimentSurPlanche != nullptr && !m_fini)
 	{
 		std::cout << "Planche en cours d'utilisation" << std::endl;
-		m_temps_ecoule += temps_ecoule;
-		if (m_temps_ecoule >= m_temps_animation)
-		{
-			m_fini = true;
-			m_interagissable = false;
-			m_prenable = true;
-			m_temps_ecoule = sf::seconds(0);
-			m_alimentSurPlanche->setCoupe();
-			std::cout << "Planche Fini" << std::endl;
-		}
+		
+			m_temps_ecoule += temps_ecoule;
+			if (m_temps_ecoule >= m_temps_animation)
+			{
+				m_fini = true;
+				m_interagissable = false;
+				m_prenable = true;
+				m_temps_ecoule = sf::seconds(0);
+				m_alimentSurPlanche->setCoupe();
+				std::cout << "Planche Fini" << std::endl;
+			}
+		
 	}
 	else
 	{
