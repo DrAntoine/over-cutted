@@ -14,7 +14,7 @@ class Game
 {
 private:
 	TextureManager m_textureManager;
-	DeplacableManager m_deplacableManager;
+	DeplacableManager* m_deplacableManager;
 	//std::vector<Deplacable*> m_elements;
 	Perso* m_perso;
 	sf::RenderWindow* m_pointeurFenetre;

@@ -11,7 +11,7 @@ private:
 	std::vector<Assiette*> m_assiettes;
 	std::vector<Poisson*> m_poissons;
 	std::vector<Crevette*> m_crevettes;
-	int NombreInstance;
+	int nombreInstance;
 	int GetInstanceID();
 	void purgeVecteur(DeplacableType);
 public:

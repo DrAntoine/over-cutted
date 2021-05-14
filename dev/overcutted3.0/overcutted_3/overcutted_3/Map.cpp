@@ -103,12 +103,12 @@ void Map::initmap()
 				tuiles.push_back(new Sol(sf::Vector2u(x, y), m_texturePointeur));
 				break;
 			case 1: 
-				plantravail=new PlanTravail(sf::Vector2u(x, y), m_texturePointeur);
+				plantravail=new PlanTravail(sf::Vector2u(x, y), m_texturePointeur, m_deplacableManager);
 				tuiles.push_back(plantravail);
 				m_PlanTravail.push_back(plantravail);
 				break;
 			case 2: 
-				planche = new Planche(sf::Vector2u(x, y), m_texturePointeur);
+				planche = new Planche(sf::Vector2u(x, y), m_texturePointeur, m_deplacableManager);
 				tuiles.push_back(planche);
 				m_planches.push_back(planche);
 				break;
@@ -133,7 +133,7 @@ void Map::initmap()
 				m_stocks.push_back(stock);
 				break;
 			case 7:
-				ouverture = new OuvertureSalle(sf::Vector2u(x, y), m_texturePointeur);
+				ouverture = new OuvertureSalle(sf::Vector2u(x, y), m_texturePointeur, m_deplacableManager);
 				tuiles.push_back(ouverture);
 				m_ouvertureSalle.push_back(ouverture);
 				break;

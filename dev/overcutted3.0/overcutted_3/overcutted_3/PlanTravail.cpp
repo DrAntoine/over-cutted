@@ -1,6 +1,6 @@
 #include "PlanTravail.h"
 
-PlanTravail::PlanTravail(sf::Vector2u position, TextureManager* pointeurTexture) : Outil(pointeurTexture)
+PlanTravail::PlanTravail(sf::Vector2u position, TextureManager* pointeurTexture, DeplacableManager* deplacableManager) : Outil(pointeurTexture)
 {
 	std::cout << "Constructeur PlanTravail (position)" << std::endl;
 	m_positionMap = position;

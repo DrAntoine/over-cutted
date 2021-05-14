@@ -1,9 +1,14 @@
 #include "DeplacableManager.h"
 
+DeplacableManager::DeplacableManager()
+{
+	nombreInstance = 0;
+}
+
 int DeplacableManager::GetInstanceID()
 {
-    NombreInstance++;
-    return NombreInstance;
+    nombreInstance += 1;
+    return nombreInstance;
 }
 
 void DeplacableManager::purgeVecteur(DeplacableType ressourceSupprime)
@@ -44,11 +49,6 @@ void DeplacableManager::purgeVecteur(DeplacableType ressourceSupprime)
 	default:
 		break;
 	}
-}
-
-DeplacableManager::DeplacableManager()
-{
-	NombreInstance = 0;
 }
 
 DeplacableManager::~DeplacableManager()

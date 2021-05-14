@@ -1,11 +1,13 @@
 #pragma once
 #include "Tuile.h"
 #include "Aliments.h"
+#include "DeplacableManager.h"
 
 class Outil : public Tuile
 {
 protected:
 	Deplacable* m_currentAliment;
+	//DeplacableManager* m_deplacableManager;
 	bool m_libre; //false si aliment/true si vide
 public:
 	Outil(TextureManager*);

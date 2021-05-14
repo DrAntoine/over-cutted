@@ -13,7 +13,7 @@ private:
 	bool m_libre; 
 	TypeObjet m_type;*/
 public:
-	PlanTravail(sf::Vector2u, TextureManager*);
+	PlanTravail(sf::Vector2u, TextureManager*, DeplacableManager*);
 	virtual ~PlanTravail();
 	void DeposerSurTuile(Deplacable*);
 	Deplacable* PrendreSurTuile();
