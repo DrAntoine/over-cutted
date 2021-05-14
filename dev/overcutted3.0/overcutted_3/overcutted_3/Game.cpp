@@ -37,7 +37,7 @@ void Game::draw()//window* w, m_gameClock
 	m_perso->draw(m_pointeurFenetre);
 	m_recette->drawRecette(m_pointeurFenetre);
 	int m_elementSize = m_elements.size();
-	if (m_elementSize < 0)
+	if (m_elementSize > 0)
 	{
 		for (int i = 0; i < m_elementSize; i++)
 		{
