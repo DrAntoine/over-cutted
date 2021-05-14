@@ -25,9 +25,9 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
             game.action(tempsEcoule, event); // appelle la fonction action du joueur
-         //game.update(tempsEcoule);
+         
         }
-
+        game.update();
         window.clear();
 		game.draw();
         window.display();

@@ -17,11 +17,11 @@ void PlanTravail::DeposerSurTuile(Deplacable* ptrObjet)
 	m_libre = false;
 	m_objetSurTuile->setposition(m_position);
 }
-//void PlanTravail::PrendreSurTuile(Deplacable* ptrObjet)
+//void PlanTravail::PrendreSurTuile(Deplacable* m_objetSurTuile)
 //{
-	//m_objetSurTuile = nullptr;
-	//m_libre = true;
-	//m_objetSurTuile->setposition(m_position);
+//	objetADonner = m_objetSurTuile;
+//	m_objetSurTuile = nullptr;
+//	m_libre = true;
 //}
 
 bool PlanTravail::getLibre()

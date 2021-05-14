@@ -17,6 +17,7 @@ Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur)
 	m_tileSize = sf::Vector2f(50, 50);
 	m_map = new Map(m_pointeurFenetre, &m_textureManager, &m_elements);
 	m_perso = new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(4,4), Perso_conf::zqsdae, m_tileSize, m_map);
+	m_recette = new Recette(&m_textureManager, sf::Vector2u(4, 4));
 	std::cout << "Game OK" << std::endl;
 }
 
@@ -34,6 +35,7 @@ void Game::draw()//window* w, m_gameClock
 {
 	m_map->drawmap();
 	m_perso->draw(m_pointeurFenetre);
+	m_recette->drawRecette(m_pointeurFenetre);
 	int m_elementSize = m_elements.size();
 	for (int i = 0; i < m_elementSize; i++)
 	{
@@ -47,10 +49,9 @@ void Game::action(sf::Time elapsedTime, sf::Event event)
 }
 
 
-/*void Game::update(sf::Time tempsEcoule)
+void Game::update()
 {
-	timeTest = tempsEcoule;
-	m_perso->action(timeTest, m_event);
-}*/
+	m_recette->CreationRecettes();
+}
 
 

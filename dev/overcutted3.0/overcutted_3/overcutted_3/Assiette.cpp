@@ -6,7 +6,7 @@ Assiette::Assiette(sf::Vector2f position,  TextureManager* pointeurTexture) : De
     std::cout << "Constructeur Assiette" << std::endl;
     m_type = DeplacableType::assiette;
     m_position = position;
-    m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(0,0));
+    m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0,2));
     std::cout << "Assiette OK" << std::endl;
 }
 

@@ -8,7 +8,8 @@ enum class TextureType
 {
 	Personnage,
 	Aliments, 
-	Outils
+	Outils,
+	Recette
 };
 
 class TextureManager
@@ -21,6 +22,7 @@ private:
 	sf::Texture m_textPerso;
 	sf::Texture m_textOutils;
 	sf::Texture m_textAliments;
+	sf::Texture m_textRecette;
 	
 	sf::Sprite m_sprite;
 

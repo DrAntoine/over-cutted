@@ -61,6 +61,16 @@ PlanTravail* Map::getPlanTravail(sf::Vector2u position)
 		}
 	}
 }
+Poubelle* Map::getPoubelle(sf::Vector2u position)
+{
+	for (int i = 0; i < m_poubelles.size(); i++)
+	{
+		if (m_poubelles[i]->getMapPos() == position)
+		{
+			return m_poubelles[i];
+		}
+	}
+}
 
 void Map::initmap()
 {

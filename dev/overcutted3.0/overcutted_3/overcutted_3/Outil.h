@@ -10,7 +10,7 @@ protected:
 public:
 	Outil(TextureManager*);
 	//Retourne l'état de m_libre. A consulter avant d'utiliser Recevoir(Aliment*) ou Donner();
-	bool Est_libre();
+	//bool Est_libre();
 
 	//Recois un pointeur d'Aliment, l'affecte à m_current_aliment si m_libre = true et switch l'état de m_libre. Ne fait rien si m_libre est false.
 	//virtual void Recevoir(Deplacable*);

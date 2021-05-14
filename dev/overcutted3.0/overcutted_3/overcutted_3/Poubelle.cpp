@@ -12,15 +12,27 @@ Poubelle::Poubelle(sf::Vector2u positionCarte, TextureManager* pointeurTexture) 
 	std::cout << "Poubelle OK" << std::endl;
 }
 
-void Poubelle::supprimer(Deplacable* alimentASupprimer)
+void Poubelle::DeposerSurTuile(Deplacable* ptrObjet)
 {
-	//alimentASupprimer->~Aliment(); //risquy il semblerait 
-	delete alimentASupprimer; //supprime l'addresse ou l'objet ?
+	m_objetSurTuile = ptrObjet;
+	//m_libre = false;
+	m_objetSurTuile->setposition(m_position);
+	//delete ptrObjet;
+	
 }
-
-void Poubelle::Recevoir(Deplacable* current_objet)
+bool Poubelle::getLibre()
 {
-	supprimer(current_objet);
+	return m_libre;
+}
+//void Poubelle::supprimer(Deplacable* alimentASupprimer)
+//{
+	//alimentASupprimer->~Aliment(); //risquy il semblerait 
+	//delete alimentASupprimer; //supprime l'addresse ou l'objet ?
+//}
+
+//void Poubelle::Recevoir(Deplacable* current_objet)
+//{
+	//supprimer(current_objet);
 	/*if (typeid(current_objet) == typeid(Aliment))
 	{
 		supprimer(current_objet);
@@ -30,13 +42,13 @@ void Poubelle::Recevoir(Deplacable* current_objet)
 		m_currentAliment = current_objet;
 		m_libre = false;
 	}*/
-}
+//}
 
-Deplacable* Poubelle::Donner()
-{
+//Deplacable* Poubelle::Donner()
+//{
 	/*m_libre = true;
 	Deplacable* item = m_currentAliment;
 	m_currentAliment = nullptr;
 	return item;*/
-	return nullptr;
-}
+	//return nullptr;
+//}

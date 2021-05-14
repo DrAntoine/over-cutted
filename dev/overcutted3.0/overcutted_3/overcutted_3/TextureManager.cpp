@@ -6,6 +6,7 @@ TextureManager::TextureManager()
 	m_textAliments.loadFromFile("Textures/Aliments.png");
 	m_textOutils.loadFromFile("Textures/decors.png");
 	m_textPerso.loadFromFile("Textures/Perso.png");
+	m_textRecette.loadFromFile("Textures/Recette.png");
 	m_imageSize = sf::Vector2u(50, 50);
 	std::cout << "TextureManager OK" << std::endl;
 }
@@ -29,6 +30,11 @@ sf::Sprite TextureManager::getTexture(TextureType m_type, sf::Vector2u positionI
 	{
 		m_sprite.setTexture(m_textPerso);
 		m_sprite.setTextureRect(sf::IntRect(positionInFile.x * m_imageSize.x, positionInFile.y * m_imageSize.y,  m_imageSize.x, m_imageSize.y));
+	}
+	if (m_type == TextureType::Recette)
+	{
+		m_sprite.setTexture(m_textRecette);
+		m_sprite.setTextureRect(sf::IntRect(0, 0, 300, 200));
 	}
 	return m_sprite;
 }

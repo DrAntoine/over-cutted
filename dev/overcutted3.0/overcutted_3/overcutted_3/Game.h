@@ -3,6 +3,7 @@
 #include "Map.h"
 #include "Perso.h"
 #include "TextureManager.h"
+#include "Recette.h"
 //#include "Deplacable.h"
 //#include "Entite.h"
 
@@ -16,6 +17,7 @@ private:
 	Perso* m_perso;
 	sf::RenderWindow* m_pointeurFenetre;
 	Map* m_map; //les tuiles (+ les outils et stock)
+	Recette* m_recette;
 	sf::Event* m_event;
 	sf::Time timeTest;
 	sf::Vector2f m_tileSize;
@@ -29,6 +31,6 @@ public:
 	Game(sf::RenderWindow*, sf::Event*);
 	void action(sf::Time, sf::Event);
 	void draw();//window* w, m_gameClock
-	void update(sf::Time tempsEcoule);
+	void update();
 };
 

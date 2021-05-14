@@ -255,6 +255,10 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 		if(!couldown_actif)	prendre_deposer();
 		m_current_action = Perso_Action::idle;
 	}
+	if (m_current_action == Perso_Action::interact)
+	{
+		interact();
+	}
 	
 	if (m_current_action == Perso_Action::move_down 
 		|| m_current_action == Perso_Action::move_up 
@@ -366,7 +370,19 @@ void Perso::prendre_deposer()
 				m_objet_en_mains->setposition(m_position);
 			}
 		}
+	
+		if (frontTileType == TuileType::Poubelle)
+		{
+			Poubelle* poubelle = m_map->getPoubelle(getFrontTile()->getMapPos());
+			if (!poubelle->getLibre())
+			{
+				m_objet_en_mains = poubelle->PrendreSurTuile();
+				m_main_libre = false;
+				m_objet_en_mains->setposition(m_position);
+			}
+		}
 	}
+	
 	else // si le perso à un truc en main
 	{
 		if (frontTileType == TuileType::Planche_decoupe)
@@ -389,6 +405,26 @@ void Perso::prendre_deposer()
 				m_main_libre = true;
 			}
 		}
+		if (frontTileType == TuileType::Poubelle)
+		{
+			Poubelle* poubelle = m_map->getPoubelle(getFrontTile()->getMapPos());
+			if (poubelle->getLibre())
+			{
+				poubelle->DeposerSurTuile(m_objet_en_mains);
+				m_objet_en_mains = nullptr;
+				m_main_libre = true;
+			}
+		}
+	}
+}
+void Perso::interact()
+{
+	TuileType frontTileType = getFrontTile()->getTypeTuile();
+	if (frontTileType == TuileType::Planche_decoupe)
+	{
+		Planche* planche= m_map->getPlanche(getFrontTile()->getMapPos());
+		if (!planche->getLibre())
+		AlimentEtat::couper;
 	}
 }
 

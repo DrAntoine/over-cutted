@@ -17,6 +17,7 @@ private:
 	sf::Vector2u m_initPosition;
 	sf::Vector2f previousPosition;
 	Deplacable *m_objet_en_mains;
+	Deplacable* m_objet_sur_tuile;
 	Perso_Action m_current_action;
 	sf::Sprite* ptrsprite;
 	
@@ -40,6 +41,7 @@ public:
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 	//void drawperso();
 	void action(sf::Time, sf::Event);
+	void interact();
 	void animation();
 
 

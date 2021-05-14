@@ -20,6 +20,7 @@ protected:
 	sf::Vector2u m_positionMap;
 	TuileType m_typeTuile;
 	Deplacable* m_objetSurTuile;
+	Deplacable* objetADonner;
 	bool m_libre;			// La tuile est elle libre ?
 	bool m_marchable;		// Peut on marcher dessus ?
 	bool m_deposable;		// Peut on deposer un truc dessus ?
