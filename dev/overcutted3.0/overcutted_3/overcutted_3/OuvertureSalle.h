@@ -9,6 +9,7 @@ private:
 	//bool stateOuvSal; // A quoi il sert ? 
 public:
 	OuvertureSalle(sf::Vector2u , TextureManager*);
+	virtual ~OuvertureSalle();
 	//void validation();
 	//void supprimer();
 

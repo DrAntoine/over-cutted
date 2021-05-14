@@ -11,3 +11,7 @@ Mur::Mur(sf::Vector2u positionCarte, TextureManager* pointeurText) : Tuile(point
 	m_sprite.setPosition(m_position);
 	std::cout << "Mur OK" << std::endl;
 }
+
+Mur::~Mur()
+{
+}

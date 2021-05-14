@@ -16,9 +16,14 @@ private:
 
 
 public:
+
     Recette(TextureManager*, sf::Vector2u);
     void typeRecette();
     void CreationRecettes();
     void drawRecette(sf::RenderWindow*);
+
+
+	virtual ~Recette();
+
 };
 

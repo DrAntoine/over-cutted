@@ -41,6 +41,17 @@ Stock* Map::getStock(sf::Vector2u position)
 	}
 }
 
+Poubelle* Map::getPoubelle(sf::Vector2u position)
+{
+	for (int i = 0; i < m_poubelles.size(); i++)
+	{
+		if (m_poubelles[i]->getMapPos() == position)
+		{
+			return m_poubelles[i];
+		}
+	}
+}
+
 Planche* Map::getPlanche(sf::Vector2u position)
 {
 	for (int i = 0; i < m_planches.size(); i++)
@@ -72,6 +83,18 @@ Poubelle* Map::getPoubelle(sf::Vector2u position)
 	}
 }
 
+void Map::updateM_element(std::vector<Deplacable*>* pointeurListeElement)
+{
+	for (int i = 0; i < m_poubelles.size(); i++)
+	{
+		m_poubelles[i]->UpdatePointeurM_Element(pointeurListeElement);
+	}
+	for (int j = 0; j < m_stocks.size(); j++)
+	{
+		m_stocks[j]->UpdatePointeurM_Element(pointeurListeElement);
+	}
+}
+
 void Map::initmap()
 {
 	Planche* planche = nullptr;
@@ -100,7 +123,7 @@ void Map::initmap()
 				m_planches.push_back(planche);
 				break;
 			case 3: 
-				poubelle = new Poubelle(sf::Vector2u(x, y), m_texturePointeur);
+				poubelle = new Poubelle(sf::Vector2u(x, y), m_texturePointeur, m_element);
 				tuiles.push_back(poubelle);
 				m_poubelles.push_back(poubelle);
 				break;

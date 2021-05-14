@@ -16,6 +16,7 @@ class TextureManager
 {
 public:
 	TextureManager();
+	virtual ~TextureManager();
 	sf::Sprite getTexture(TextureType m_type, sf::Vector2u positionInFile);
 
 private:

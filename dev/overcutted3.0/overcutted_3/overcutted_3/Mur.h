@@ -8,4 +8,5 @@ private:
 	//TextureManager* m_texture;
 public:
 	Mur(sf::Vector2u position, TextureManager* pointeurText);
+	virtual ~Mur();
 };

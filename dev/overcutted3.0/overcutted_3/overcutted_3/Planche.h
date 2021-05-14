@@ -22,6 +22,8 @@ private:
 	}*/
 public:
 	Planche(sf::Vector2u position, TextureManager*);
+	virtual ~Planche();
 	void DeposerSurTuile(Deplacable*);
+	Deplacable* PrendreSurTuile();
 	bool getLibre();
 };

@@ -10,6 +10,10 @@ Assiette::Assiette(sf::Vector2f position,  TextureManager* pointeurTexture) : De
     std::cout << "Assiette OK" << std::endl;
 }
 
+Assiette::~Assiette()
+{
+}
+
 void Assiette::deposer(Aliment* x)
 {
     if (checkAliment(x))

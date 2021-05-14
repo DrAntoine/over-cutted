@@ -8,9 +8,15 @@ Planche::Planche(sf::Vector2u position, TextureManager* pointeurTexture) : Outil
 	m_typeTuile = TuileType::Planche_decoupe;
 	m_marchable = false;
 	m_libre = true;
+	m_deposable = true;
+	m_prenable = true;
 	m_sprite = m_textureManager->getTexture(TextureType::Outils, sf::Vector2u(4, 0));
 	m_sprite.setPosition(m_position);
 	std::cout << "Planche OK" << std::endl;
+}
+
+Planche::~Planche()
+{
 }
 
 void Planche::DeposerSurTuile(Deplacable* ptrObjet)
@@ -18,6 +24,14 @@ void Planche::DeposerSurTuile(Deplacable* ptrObjet)
 	m_objetSurTuile = ptrObjet;
 	m_libre = false;
 	m_objetSurTuile->setposition(m_position);
+}
+
+Deplacable* Planche::PrendreSurTuile()
+{
+	Deplacable* objetARendre = m_objetSurTuile;
+	m_objetSurTuile = nullptr;
+	m_libre = true;
+	return objetARendre;
 }
 
 

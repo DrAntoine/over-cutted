@@ -10,6 +10,10 @@ Poisson::Poisson(sf::Vector2f position, TextureManager* pointeurTexture) : Alime
 	std::cout << "Poisson OK" << std::endl;
 }
 
+Poisson::~Poisson()
+{
+}
+
 sf::Sprite Poisson::spritePoisson()
 {
 

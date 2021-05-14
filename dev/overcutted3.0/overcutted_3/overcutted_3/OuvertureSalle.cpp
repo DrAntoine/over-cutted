@@ -11,3 +11,7 @@ OuvertureSalle::OuvertureSalle(sf::Vector2u positioncarte, TextureManager* point
 	m_sprite.setPosition(m_position);
 	std::cout << "OuvertureSalle OK" << std::endl;
 }
+
+OuvertureSalle::~OuvertureSalle()
+{
+}

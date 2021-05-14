@@ -27,6 +27,7 @@ void Recette::typeRecette()
     }
 }
 
+
 void Recette::CreationRecettes()
 {
     if (m_Recettes.size() < 2)
@@ -46,3 +47,8 @@ void Recette::drawRecette(sf::RenderWindow* ptrWindow)
         m_Recettes[i]->draw(m_ptrwindow);
     }
 }
+
+Recette::~Recette()
+{
+}
+

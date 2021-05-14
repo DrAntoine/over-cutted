@@ -10,6 +10,10 @@ Entite::Entite(TextureManager* pointeurText)
 	std::cout << "Entite OK" << std::endl;
 }
 
+Entite::~Entite()
+{
+}
+
 sf::Vector2f Entite::convert_posMap_to_pos(sf::Vector2u m_positionMap)
 {
 	sf::Vector2f position = sf::Vector2f(m_positionMap.x * m_taille.x, m_positionMap.y * m_taille.y);

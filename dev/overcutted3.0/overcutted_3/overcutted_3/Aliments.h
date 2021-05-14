@@ -12,7 +12,7 @@ protected:
 
 public:
 	Aliment(TextureManager*);
-	//~Aliment();
+	virtual ~Aliment();
 	void setCoupe();
 	//void setCuit();
 

@@ -8,6 +8,10 @@ Aliment::Aliment(TextureManager* pointeurTexture) : Deplacable(pointeurTexture)
 	std::cout << "Aliments OK" << std::endl;
 }
 
+Aliment::~Aliment()
+{
+}
+
 void Aliment::setCoupe()
 {
 	m_etat = AlimentEtat::couper;
