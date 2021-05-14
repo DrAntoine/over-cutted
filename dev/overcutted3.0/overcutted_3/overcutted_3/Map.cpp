@@ -73,18 +73,6 @@ PlanTravail* Map::getPlanTravail(sf::Vector2u position)
 	}
 }
 
-//void Map::updateM_element(std::vector<Deplacable*>* pointeurListeElement)
-//{
-//	for (unsigned int i = 0; i < m_poubelles.size(); i++)
-//	{
-//		m_poubelles[i]->UpdatePointeurM_Element(pointeurListeElement);
-//	}
-//	for (unsigned int j = 0; j < m_stocks.size(); j++)
-//	{
-//		m_stocks[j]->UpdatePointeurM_Element(pointeurListeElement);
-//	}
-//}
-
 void Map::initmap()
 {
 	Planche* planche = nullptr;

@@ -11,6 +11,7 @@ Stock::Stock(sf::Vector2u positionCarte, DeplacableType typeAlimentAFournir, Dep
 	m_libre = false;
 	m_deposable = false;
 	m_prenable = true;
+	m_interagissable = false;
 	m_ressourceAFournir = typeAlimentAFournir;
 
 	switch (typeAlimentAFournir)
@@ -43,9 +44,3 @@ Deplacable* Stock::PrendreSurTuile()
 	std::cout << "Creation nouveau Deplacable" << std::endl;
 	return objet;
 }
-
-//void Stock::UpdatePointeurM_Element(std::vector<Deplacable*>* nouveau_pointeur)
-//{
-//	m_pointeurListeElement = nouveau_pointeur;
-//}
-

@@ -12,16 +12,25 @@ Crevette::Crevette(sf::Vector2f position, TextureManager* pointeurTexture, int d
 Crevette::~Crevette()
 {
 }
-sf::Sprite Crevette::spriteCrevette()
+void Crevette::draw(sf::RenderWindow* maFenetre)
 {
+	spriteCrevette();
+	m_sprite.setPosition(m_position);
+	maFenetre->draw(m_sprite);
+}
 
+void Crevette::spriteCrevette()
+{
+	if (m_etat == AlimentEtat::intacte)
+	{
+		m_sprite = m_textureManager->getTexture(TextureType::Aliments, sf::Vector2u(0, 0));
+	}
 	if (m_etat == AlimentEtat::couper)
 	{
-		//m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
+		m_sprite = m_textureManager->getTexture(TextureType::Aliments,sf::Vector2u(1,0));
 	}
 	/*if (m_etat == AlimentEtat::cuit)
 	{
 		//m_sprite = m_textureManager->getTexture(TextureType::Aliments,);
 	}*/
-	return m_sprite;
 }

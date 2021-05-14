@@ -28,35 +28,9 @@ void Game::draw()//window* w, m_gameClock
 	m_deplacableManager->DrawDeplacable(m_pointeurFenetre);
 }
 
-//void Game::update_ListeDeplacable()
-//{
-//	bool doitEtrePurger = false;
-//	for (unsigned int i = 0; i < m_elements.size(); i++)
-//	{
-//		if (m_elements[i] == nullptr) doitEtrePurger = true;
-//	}
-//	if (doitEtrePurger)
-//	{
-//		m_elements = purgeVecteur(m_elements);
-//		m_map->updateM_element(&m_elements);
-//	}
-//}
-
-//std::vector<Deplacable*> Game::purgeVecteur(std::vector<Deplacable*> ancienVecteur)
-//{
-//	std::vector<Deplacable*> nouveauVecteur;
-//	for (unsigned int i = 0; i < ancienVecteur.size(); i++)
-//	{
-//		if (ancienVecteur[i] != nullptr) nouveauVecteur.push_back(ancienVecteur[i]);
-//	}
-//	return nouveauVecteur;
-//}
-
-
 void Game::action(sf::Time elapsedTime, sf::Event event)
 {
 	m_perso->action(elapsedTime, event);
-	//update_ListeDeplacable();
 	m_recette->CreationRecettes();
 }
 

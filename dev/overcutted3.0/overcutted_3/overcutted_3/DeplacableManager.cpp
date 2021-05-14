@@ -133,10 +133,12 @@ Deplacable* DeplacableManager::CreateElement(DeplacableType type, sf::Vector2f p
 	case DeplacableType::crevette:
 		crevette = new Crevette(position, textureManager, instanceID);
 		nouvelleElement = crevette;
+		m_crevettes.push_back(crevette);
 		break;
 	case DeplacableType::assiette:
 		assiette = new Assiette(position, textureManager, instanceID);
 		nouvelleElement = assiette;
+		m_assiettes.push_back(assiette);
 		break;
 	}
 	m_elementsDeplacable.push_back(nouvelleElement);

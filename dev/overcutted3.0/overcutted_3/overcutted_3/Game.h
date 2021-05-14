@@ -15,7 +15,6 @@ class Game
 private:
 	TextureManager m_textureManager;
 	DeplacableManager* m_deplacableManager;
-	//std::vector<Deplacable*> m_elements;
 	Perso* m_perso;
 	sf::RenderWindow* m_pointeurFenetre;
 	Map* m_map; //les tuiles (+ les outils et stock)
@@ -29,12 +28,7 @@ public:
 	virtual ~Game();
 	Game(sf::RenderWindow*, sf::Event*);
 	void action(sf::Time, sf::Event);
-	void draw();//window* w, m_gameClock
-
-
-
+	void draw();
 	void update(sf::Time tempsEcoule);
-	//void update_ListeDeplacable();
-	//std::vector<Deplacable*> purgeVecteur(std::vector<Deplacable*>);
 };
 

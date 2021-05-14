@@ -43,7 +43,7 @@ public:
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 	//void drawperso();
 	void action(sf::Time, sf::Event);
-	void interact();
+	void interact(sf::Time);
 	void animation();
 
 
@@ -58,7 +58,7 @@ public:
 	//*/
 
 	void prendre_deposer();
-	void utiliser();//sur planche,mettre la clock
+	//void utiliser();//sur planche,mettre la clock
 	void draw(sf::RenderWindow*);
 };
 

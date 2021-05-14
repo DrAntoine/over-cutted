@@ -4,7 +4,6 @@ Outil::Outil(TextureManager* pointeurTexture) : Tuile(pointeurTexture)
 {
 	std::cout << "Constructeur Outil" << std::endl;
 	m_currentAliment = nullptr;
-	//m_deplacableManager = deplacableManager;
 	m_libre = true;
 	std::cout << "Outil OK" << std::endl;
 }

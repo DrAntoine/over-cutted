@@ -93,11 +93,11 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 					break;
 				case sf::Keyboard::A: //Prendre/Deposer
 					std::cout << "Touche A relachee" << std::endl;
-					m_current_action = Perso_Action::TakeDrop;
+					m_current_action = Perso_Action::idle;
 					break;
 				case sf::Keyboard::E: //Interaction
 					std::cout << "Touche E relachee" << std::endl;
-					m_current_action = Perso_Action::interact;
+					//m_current_action = Perso_Action::interact;
 					break;
 				}
 			}
@@ -155,11 +155,11 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 					break;
 				case sf::Keyboard::U: //Prendre/Deposer
 					std::cout << "Touche U relachee" << std::endl;
-					m_current_action = Perso_Action::TakeDrop;
+					m_current_action = Perso_Action::idle;
 					break;
 				case sf::Keyboard::O: //Interaction
 					std::cout << "Touche O relachee" << std::endl;
-					m_current_action = Perso_Action::interact;
+					//m_current_action = Perso_Action::interact;
 					break;
 				}
 			}
@@ -217,11 +217,11 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 					break;
 				case sf::Keyboard::RControl: //Prendre/Deposer
 					std::cout << "Touche RCtrl relachee" << std::endl;
-					m_current_action = Perso_Action::TakeDrop;
+					m_current_action = Perso_Action::idle;
 					break;
 				case sf::Keyboard::RShift: //Interaction
 					std::cout << "Touche RMaj relachee" << std::endl;
-					m_current_action = Perso_Action::interact;
+					//m_current_action = Perso_Action::interact;
 					break;
 				}
 			}
@@ -261,7 +261,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	}
 	if (m_current_action == Perso_Action::interact)
 	{
-		interact();
+		interact(dureeIteration);
 	}
 	
 	if (m_current_action == Perso_Action::move_down 
@@ -308,10 +308,6 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 void Perso::draw(sf::RenderWindow* ptrFenetre)
 {
 	ptrFenetre->draw(m_sprite);
-	/*if (!m_main_libre)
-	{
-		m_objet_en_mains->draw(ptrFenetre);
-	}*/
 }
 
 void Perso::animation()
@@ -419,14 +415,20 @@ void Perso::prendre_deposer()
 		}
 	}
 }
-void Perso::interact()
+void Perso::interact(sf::Time tempsEcoule)
 {
-	TuileType frontTileType = getFrontTile()->getTypeTuile();
-	if (frontTileType == TuileType::Planche_decoupe)
+	if (getFrontTile()->getInteragissable())
 	{
-		Planche* planche= m_map->getPlanche(getFrontTile()->getMapPos());
-		if (!planche->getLibre())
-		AlimentEtat::couper;
+		TuileType frontTileType = getFrontTile()->getTypeTuile();
+		if (frontTileType == TuileType::Planche_decoupe)
+		{
+			Planche* planche = m_map->getPlanche(getFrontTile()->getMapPos());
+			if (!planche->getLibre())
+			{
+				planche->interact(tempsEcoule);
+				if (planche->estFini()) m_current_action = Perso_Action::idle;
+			}
+		}
 	}
 }
 

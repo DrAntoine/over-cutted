@@ -15,9 +15,5 @@ public:
 	Stock(sf::Vector2u , DeplacableType ,DeplacableManager* , TextureManager*);
 	virtual ~Stock();
 	Deplacable* PrendreSurTuile();
-	//void UpdatePointeurM_Element(std::vector<Deplacable*>*);
-	/*void Interaction();
-	void Poser(Deplacable*);
-	Deplacable* Reprendre();*/
 };
 

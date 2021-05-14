@@ -7,6 +7,7 @@ private:
 public:
 	Crevette(sf::Vector2f, TextureManager*, int);
 	virtual ~Crevette();
-	sf::Sprite spriteCrevette();
+	void spriteCrevette();
+	void draw(sf::RenderWindow*);
 };
 
