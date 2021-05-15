@@ -42,10 +42,11 @@ public:
 	virtual ~Perso();
 	//Perso(Map *m_map, std::vector<Deplacable*>* m_elements); //HELP MEEEE
 	//void drawperso();
-	void action(sf::Time, sf::Event);
+	void action(sf::Time, sf::Event*);
+
 	void interact(sf::Time);
 	void animation();
-
+	void update(sf::Time);
 
 	//interaction avec la map
 	bool collision();

@@ -18,6 +18,7 @@ public:
 	bool estCoupable();
 	bool estCouper();
 	//void setCuit();
-
+	bool CompareEtatAliment(Aliment& const b);
 };
 
+bool operator==(Aliment& const a, Aliment& const b);

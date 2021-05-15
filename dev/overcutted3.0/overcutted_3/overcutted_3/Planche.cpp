@@ -85,6 +85,7 @@ void Planche::interact(sf::Time temps_ecoule)
 	else
 	{
 		std::cout << "Ne peut pas interagir" << std::endl;
+		m_fini = true;
 	}
 }
 

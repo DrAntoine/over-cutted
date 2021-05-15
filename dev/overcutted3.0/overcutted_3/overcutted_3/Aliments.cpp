@@ -32,4 +32,18 @@ bool Aliment::estCouper()
 	return m_couper;
 }
 
+bool Aliment::CompareEtatAliment(Aliment& const b)
+{
+	if (m_couper == b.m_couper && m_etat == b.m_etat) return true;
+	return false;
+}
 
+//AlimentEtat Aliment::getEtat()
+//{
+//	return m_etat;
+//}
+
+bool operator==(Aliment& const a, Aliment& const b)
+{
+	return a.CompareEtatAliment(b);
+}

@@ -27,7 +27,7 @@ public:
 	Game();
 	virtual ~Game();
 	Game(sf::RenderWindow*, sf::Event*);
-	void action(sf::Time, sf::Event);
+	void action(sf::Time);
 	void draw();
 	void update(sf::Time tempsEcoule);
 };

@@ -28,12 +28,15 @@ void Game::draw()//window* w, m_gameClock
 	m_deplacableManager->DrawDeplacable(m_pointeurFenetre);
 }
 
-void Game::action(sf::Time elapsedTime, sf::Event event)
+void Game::action(sf::Time elapsedTime)
 {
-	m_perso->action(elapsedTime, event);
-	m_recette->CreationRecettes();
+	m_perso->action(elapsedTime, m_event);
 }
 
-
+void Game::update(sf::Time elaspsedTime)
+{
+	m_perso->update(elaspsedTime);
+	//m_recette->;
+}
 
 
