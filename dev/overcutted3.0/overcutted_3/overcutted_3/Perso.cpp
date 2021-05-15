@@ -26,7 +26,7 @@ Perso::~Perso()
 }
 ;
 
-void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
+void Perso::action(sf::Time dureeIteration, sf::Event* m_eventPerso)
 {
 	if (couldown_actif)
 	{
@@ -41,9 +41,9 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	switch (m_config)
 		{
 		case Perso_conf::zqsdae:
-			if(m_eventPerso.type == sf::Event::EventType::KeyPressed)
+			if(m_eventPerso->type == sf::Event::EventType::KeyPressed)
 			{
-				switch (m_eventPerso.key.code)
+				switch (m_eventPerso->key.code)
 				{
 				case sf::Keyboard::Z: //Marche Haut
 					std::cout << "Touche Z pressee" << std::endl;
@@ -67,13 +67,13 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 					break;
 				case sf::Keyboard::E: //Interaction
 					std::cout << "Touche E pressee" << std::endl;
-					//m_current_action = Perso_Action::interact;
+					m_current_action = Perso_Action::interact;
 					break;
 				}
 			}
-			if (m_eventPerso.type == sf::Event::EventType::KeyReleased)
+			if (m_eventPerso->type == sf::Event::EventType::KeyReleased)
 			{
-				switch (m_eventPerso.key.code)
+				switch (m_eventPerso->key.code)
 				{
 				case sf::Keyboard::Z: //Marche Haut
 					std::cout << "Touche Z relachee" << std::endl;
@@ -97,15 +97,15 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 					break;
 				case sf::Keyboard::E: //Interaction
 					std::cout << "Touche E relachee" << std::endl;
-					m_current_action = Perso_Action::interact;
+					//m_current_action = Perso_Action::interact;
 					break;
 				}
 			}
 			break;
 		case Perso_conf::ijkluo:
-			if (m_eventPerso.type == sf::Event::EventType::KeyPressed)
+			if (m_eventPerso->type == sf::Event::EventType::KeyPressed)
 			{
-				switch (m_eventPerso.key.code)
+				switch (m_eventPerso->key.code)
 				{
 				case sf::Keyboard::I: //Marche Haut
 					std::cout << "Touche I pressee" << std::endl;
@@ -133,9 +133,9 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 					break;
 				}
 			}
-			else if (m_eventPerso.type == sf::Event::EventType::KeyReleased)
+			else if (m_eventPerso->type == sf::Event::EventType::KeyReleased)
 			{
-				switch (m_eventPerso.key.code)
+				switch (m_eventPerso->key.code)
 				{
 				case sf::Keyboard::I: //Marche Haut
 					std::cout << "Touche I relachee" << std::endl;
@@ -165,9 +165,9 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 			}
 			break;
 		case Perso_conf::arrowsMajCtrl:
-			if (m_eventPerso.type == sf::Event::EventType::KeyPressed)
+			if (m_eventPerso->type == sf::Event::EventType::KeyPressed)
 			{
-				switch (m_eventPerso.key.code)
+				switch (m_eventPerso->key.code)
 				{
 				case sf::Keyboard::Up: //Marche Haut
 					std::cout << "Touche ->Up pressee" << std::endl;
@@ -195,9 +195,9 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 					break;
 				}
 			}
-			else if (m_eventPerso.type == sf::Event::EventType::KeyReleased)
+			else if (m_eventPerso->type == sf::Event::EventType::KeyReleased)
 			{
-				switch (m_eventPerso.key.code)
+				switch (m_eventPerso->key.code)
 				{
 				case sf::Keyboard::Up: //Marche Haut
 					std::cout << "Touche ->Up relachee" << std::endl;
@@ -231,6 +231,10 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 		
 	}
 #pragma endregion config
+}
+
+void Perso::update(sf::Time dureeIteration)
+{
 	if (m_current_action == Perso_Action::move_left)
 	{
 		m_regard = Perso_Sens_regard::gauche;
@@ -240,13 +244,13 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	{
 		m_regard = Perso_Sens_regard::droite;
 		if (!collision())	m_position.x += dureeIteration.asSeconds() * speed;
-		
+
 	}
 	if (m_current_action == Perso_Action::move_up)
 	{
 		m_regard = Perso_Sens_regard::haut;
 		if (!collision()) m_position.y -= dureeIteration.asSeconds() * speed;
-		
+
 	}
 	if (m_current_action == Perso_Action::move_down)
 	{
@@ -256,17 +260,17 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 	if (m_current_action == Perso_Action::TakeDrop)
 	{
 		std::cout << "Action : Prendre/Deposer" << std::endl;
-		if(!couldown_actif)	prendre_deposer();
+		if (!couldown_actif)	prendre_deposer();
 		m_current_action = Perso_Action::idle;
 	}
 	if (m_current_action == Perso_Action::interact)
 	{
 		interact(dureeIteration);
 	}
-	
-	if (m_current_action == Perso_Action::move_down 
-		|| m_current_action == Perso_Action::move_up 
-		|| m_current_action == Perso_Action::move_left 
+
+	if (m_current_action == Perso_Action::move_down
+		|| m_current_action == Perso_Action::move_up
+		|| m_current_action == Perso_Action::move_left
 		|| m_current_action == Perso_Action::move_right)
 	{
 		std::string nomTuile = "";
@@ -298,7 +302,7 @@ void Perso::action(sf::Time dureeIteration, sf::Event m_eventPerso)
 			break;
 		}
 
-		std::cout << "Tuile en face " << nomTuile <<" (" << getFrontTile()->getMapPos().x<< "; "<< getFrontTile()->getMapPos().y <<")" <<std::endl;
+		std::cout << "Tuile en face " << nomTuile << " (" << getFrontTile()->getMapPos().x << "; " << getFrontTile()->getMapPos().y << ")" << std::endl;
 		animation();
 		m_sprite.setPosition(m_position);
 		if (!m_main_libre) m_objet_en_mains->setposition(m_position);
@@ -313,7 +317,7 @@ void Perso::draw(sf::RenderWindow* ptrFenetre)
 void Perso::animation()
 {
 	positionAnimaion.x++;
-	if (positionAnimaion.x > 3)
+	if (positionAnimaion.x > 2)
 	{
 		positionAnimaion.x = 0;
 	}
