@@ -62,7 +62,7 @@ bool Assiette::DeposerSurAssiette(Aliment* x)
                 }
                 else
                 {
-                    m_SpriteAssiette == typeSpriteAssiette::poisson;
+                    m_SpriteAssiette = typeSpriteAssiette::poisson;
                 }
             }
             else return false;
