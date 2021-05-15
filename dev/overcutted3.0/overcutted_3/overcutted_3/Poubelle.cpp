@@ -24,9 +24,10 @@ Poubelle::~Poubelle()
 {
 }
 
-void Poubelle::DeposerSurTuile(Deplacable* objet)
+bool Poubelle::DeposerSurTuile(Deplacable* objet)
 {
 	m_deplacableManager->DeleteElement(objet);
+	return true;
 }
 
 Deplacable* Poubelle::PrendreSurTuile()

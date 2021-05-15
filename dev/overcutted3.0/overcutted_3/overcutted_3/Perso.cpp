@@ -390,9 +390,8 @@ void Perso::prendre_deposer()
 		if (frontTileType == TuileType::Planche_decoupe)
 		{
 			Planche* planche = m_map->getPlanche(getFrontTile()->getMapPos());
-			if (planche->getLibre())
+			if (planche->DeposerSurTuile(m_objet_en_mains))
 			{
-				planche->DeposerSurTuile(m_objet_en_mains);
 				m_objet_en_mains = nullptr;
 				m_main_libre = true;
 			}
@@ -400,9 +399,8 @@ void Perso::prendre_deposer()
 		if (frontTileType == TuileType::Plan_Travail)
 		{
 			PlanTravail* plantravail = m_map->getPlanTravail(getFrontTile()->getMapPos());
-			if (plantravail->getLibre())
+			if (plantravail->DeposerSurTuile(m_objet_en_mains))
 			{
-				plantravail->DeposerSurTuile(m_objet_en_mains);
 				m_objet_en_mains = nullptr;
 				m_main_libre = true;
 			}
@@ -410,9 +408,8 @@ void Perso::prendre_deposer()
 		if (frontTileType == TuileType::Poubelle)
 		{
 			Poubelle* poubelle = m_map->getPoubelle(getFrontTile()->getMapPos());
-			if (poubelle->getLibre())
+			if (poubelle->DeposerSurTuile(m_objet_en_mains))
 			{
-				poubelle->DeposerSurTuile(m_objet_en_mains);
 				m_objet_en_mains = nullptr;
 				m_main_libre = true;
 			}

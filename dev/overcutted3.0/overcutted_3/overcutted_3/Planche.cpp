@@ -25,11 +25,32 @@ Planche::~Planche()
 {
 }
 
-void Planche::DeposerSurTuile(Deplacable* ptrObjet)
+bool Planche::DeposerSurTuile(Deplacable* ptrObjet)
 {
-	m_objetSurTuile = ptrObjet;
-	m_libre = false;
-	m_objetSurTuile->setposition(m_position);
+	if (m_libre)
+	{
+		m_objetSurTuile = ptrObjet;
+		m_libre = false;
+		m_objetSurTuile->setposition(m_position);
+		return true;
+	}
+	else if (!m_libre && m_objetSurTuile->getType() == DeplacableType::assiette)
+	{
+		Assiette* assiette = m_deplacableManager->getAssiette(m_objetSurTuile->getId());
+		DeplacableType objet = ptrObjet->getType();
+		if (objet == DeplacableType::crevette || objet == DeplacableType::poisson)
+		{
+			Aliment* aliment = nullptr;
+			if (objet == DeplacableType::crevette) aliment = m_deplacableManager->getCrevette(ptrObjet->getId());
+			if (objet == DeplacableType::poisson) aliment = m_deplacableManager->getPoisson(ptrObjet->getId());
+			return assiette->DeposerSurAssiette(aliment);
+		}
+		else return false;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 Deplacable* Planche::PrendreSurTuile()

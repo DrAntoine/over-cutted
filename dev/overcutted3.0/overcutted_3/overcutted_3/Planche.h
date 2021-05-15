@@ -29,7 +29,7 @@ private:
 public:
 	Planche(sf::Vector2u position, TextureManager*, DeplacableManager*);
 	virtual ~Planche();
-	void DeposerSurTuile(Deplacable*);
+	bool DeposerSurTuile(Deplacable*);
 	Deplacable* PrendreSurTuile();
 	bool getLibre();
 	void interact(sf::Time);

@@ -186,7 +186,7 @@ void DeplacableManager::DrawDeplacable(sf::RenderWindow* pointeurFenetre)
 	{
 		for (unsigned int i = 0; i < m_elementSize; i++)
 		{
-			m_elementsDeplacable[i]->draw(pointeurFenetre);
+			if(m_elementsDeplacable[i]->getVisible()) m_elementsDeplacable[i]->draw(pointeurFenetre);
 		}
 	}
 }

@@ -38,11 +38,6 @@ bool Aliment::CompareEtatAliment(Aliment& const b)
 	return false;
 }
 
-//AlimentEtat Aliment::getEtat()
-//{
-//	return m_etat;
-//}
-
 bool operator==(Aliment& const a, Aliment& const b)
 {
 	return a.CompareEtatAliment(b);

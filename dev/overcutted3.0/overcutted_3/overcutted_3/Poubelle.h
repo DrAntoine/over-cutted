@@ -20,7 +20,7 @@ private:
 public:
 	Poubelle(sf::Vector2u, TextureManager*, DeplacableManager*);
 	virtual ~Poubelle();
-	void DeposerSurTuile(Deplacable*);
+	bool DeposerSurTuile(Deplacable*);
 	Deplacable* PrendreSurTuile();
 	bool getLibre();
 	//void UpdatePointeurM_Element(std::vector<Deplacable*>*);

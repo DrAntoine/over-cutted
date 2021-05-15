@@ -1,10 +1,12 @@
 #pragma once
 #include "Outil.h"
+#include "DeplacableManager.h"
 
 class PlanTravail : public Outil
 
 {
 private:
+	DeplacableManager* m_deplacableManager;
 	/* hérité de entite
 	sf::Vector2f m_taille;
 	sf::Vector2f m_position;
@@ -15,7 +17,7 @@ private:
 public:
 	PlanTravail(sf::Vector2u, TextureManager*, DeplacableManager*);
 	virtual ~PlanTravail();
-	void DeposerSurTuile(Deplacable*);
+	bool DeposerSurTuile(Deplacable*);
 	Deplacable* PrendreSurTuile();
 	bool getLibre();
 };

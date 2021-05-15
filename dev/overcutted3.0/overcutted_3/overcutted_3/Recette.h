@@ -1,5 +1,6 @@
 #pragma once
 #include "Entite.h"
+#include "Assiette.h"
 
 class Recette :public Entite
 {
@@ -21,7 +22,7 @@ public:
     void typeRecette();
     void CreationRecettes();
     void drawRecette(sf::RenderWindow*);
-
+    void ValidationRecette(Assiette*);
 
 	virtual ~Recette();
 
