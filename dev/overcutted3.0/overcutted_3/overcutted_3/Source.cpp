@@ -6,7 +6,8 @@
 int main()
 {
     std::cout << "Source" << std::endl;
-    sf::RenderWindow window(sf::VideoMode(1100, 800), "SFML works!");
+    sf::Uint32 styleFenetre = sf::Style::Titlebar | sf::Style::Close;
+    sf::RenderWindow window(sf::VideoMode(1100, 800), "Overcutted - The game that is not over yet because we are .... ;)", styleFenetre);
     window.setFramerateLimit(60);
     sf::Clock horloge;
     sf::Time tempsEcoule;
