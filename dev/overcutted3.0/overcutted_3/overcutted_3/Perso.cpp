@@ -317,7 +317,7 @@ void Perso::draw(sf::RenderWindow* ptrFenetre)
 void Perso::animation()
 {
 	positionAnimaion.x++;
-	if (positionAnimaion.x > 2)
+	if (positionAnimaion.x > 3)
 	{
 		positionAnimaion.x = 0;
 	}
