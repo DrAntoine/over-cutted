@@ -6,6 +6,8 @@
 int main()
 {
     std::cout << "Source" << std::endl;
+    enum statut {Intro, jeu, pause};
+    statut jeuStatut = statut::Intro;
     sf::Uint32 styleFenetre = sf::Style::Titlebar | sf::Style::Close;
     sf::RenderWindow window(sf::VideoMode(1100, 800), "Overcutted", styleFenetre);
     window.setFramerateLimit(60);
@@ -33,46 +35,46 @@ int main()
 
     while (window.isOpen())
     {
-        //sf::Event event;
-        while (fondActif == true)
-        {
-            window.clear();
-            window.draw(spriteFond);
-            window.display();
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-            {
-                fondActif = false;
-            }
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-        {
-            pauseActif = true;
-        }
-
-        while (pauseActif == true)
-        {
-            window.clear();
-            window.draw(spritepause);
-            window.display();
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-            {
-                pauseActif = false;
-            }
-        }
-
         tempsEcoule = horloge.restart();
         
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-            game.action(tempsEcoule); // appelle la fonction action du joueur
-         
+            if (jeuStatut == statut::jeu)
+            {   
+                if (event.type == sf::Event::EventType::KeyPressed && event.key.code == sf::Keyboard::Escape)
+                {
+                    jeuStatut = statut::pause;
+                }
+                else game.action(tempsEcoule); // appelle la fonction action du joueur
+            }
+            if (jeuStatut == statut::pause && event.type == sf::Event::EventType::KeyPressed)
+            {
+                if(event.key.code == sf::Keyboard::Space) jeuStatut = statut::jeu;
+            }
+            if (jeuStatut == statut::Intro && event.type == sf::Event::EventType::KeyPressed)
+            {
+                if (event.key.code == sf::Keyboard::Space) jeuStatut = statut::jeu;
+            }
+
         }
-        game.update(tempsEcoule);
+        if (jeuStatut == statut::jeu) game.update(tempsEcoule);
         window.clear();
-		game.draw();
+        switch (jeuStatut)
+        {
+        case Intro:
+            window.draw(spriteFond);
+            break;
+        case jeu:
+            game.draw();
+            break;
+        case pause:
+            window.draw(spritepause);
+            break;
+        default:
+            break;
+        } 
         window.display();
     }
     std::cout << "Source Ok" << std::endl;
