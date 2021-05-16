@@ -34,5 +34,6 @@ public:
     int getid();
     bool getReussi();
     virtual ~Recette();
+    bool getErreur();
 };
 

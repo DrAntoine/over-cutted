@@ -26,7 +26,7 @@ Recette::Recette(TextureManager* textureptr, DeplacableManager* deplacableManage
 		poissonTemp = m_deplacableManager->getPoisson(objetTemp->getId());
 		poissonTemp->setCoupe(); //pas besoin de le rendre invisible, des que on le met dans l'assiette il disparait :P
 		assietteAPresenter->DeposerSurAssiette(poissonTemp);
-		tempsDispoRecette = sf::seconds(25);
+		tempsDispoRecette = sf::seconds(45);
 		m_positionSprite = sf::Vector2u(0, 0);
 		break;
 	case typeRecette::CarpacioCrevette:
@@ -37,7 +37,7 @@ Recette::Recette(TextureManager* textureptr, DeplacableManager* deplacableManage
 		crevetteTemp = m_deplacableManager->getCrevette(objetTemp->getId());
 		crevetteTemp->setCoupe(); //pas besoin de le rendre invisible, des que on le met dans l'assiette il disparait :P
 		assietteAPresenter->DeposerSurAssiette(crevetteTemp);
-		tempsDispoRecette = sf::seconds(25);
+		tempsDispoRecette = sf::seconds(45);
 		m_positionSprite = sf::Vector2u(0, 1);
 		break;
 	case typeRecette::CarpacioCrevettePoisson:
@@ -52,7 +52,7 @@ Recette::Recette(TextureManager* textureptr, DeplacableManager* deplacableManage
 		crevetteTemp = m_deplacableManager->getCrevette(objetTemp->getId());
 		crevetteTemp->setCoupe(); //pas besoin de le rendre invisible, des que on le met dans l'assiette il disparait :P
 		assietteAPresenter->DeposerSurAssiette(crevetteTemp);
-		tempsDispoRecette = sf::seconds(30);
+		tempsDispoRecette = sf::seconds(60);
 		m_positionSprite = sf::Vector2u(0, 2);
 		break;
 	default:
@@ -149,13 +149,15 @@ void Recette::setEtat(etatRecette nouvelleEtat)
 {
 	if (nouvelleEtat == etatRecette::Erreur)
 	{
-		if (m_etatRecette != etatRecette::disparue && m_etatRecette != etatRecette::Echec)
+		if (m_etatRecette != etatRecette::disparue && m_etatRecette != etatRecette::Echec && m_etatRecette!=etatRecette::apparition && m_etatRecette!=etatRecette::Valide)
 		{
 			m_etatRecette = etatRecette::Erreur;
 			m_erreur = true;
 			erreurTime = sf::seconds(5);
 		}
 	}
+	if (nouvelleEtat == etatRecette::Valide) m_etatRecette = etatRecette::Valide;
+	if (nouvelleEtat == etatRecette::Neutre) m_etatRecette = etatRecette::Neutre;
 }
 
 void Recette::setPos(sf::Vector2f nouvellePos)
@@ -181,4 +183,9 @@ bool Recette::getReussi()
 Recette::~Recette()
 {
 	m_deplacableManager->DeleteElement(assietteAPresenter);
+}
+
+bool Recette::getErreur()
+{
+	return m_erreur;
 }

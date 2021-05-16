@@ -44,7 +44,7 @@ void RecetteManager::creationRecette(sf::Time elapsedTime)
 			break;
 		}
 		m_recettes.push_back(nouvelleRecette);
-		m_temp_avant_pop = sf::seconds((rand() % 5) + 2);
+		m_temp_avant_pop = sf::seconds((rand() % 10) + 5);
 	}
 }
 
@@ -55,15 +55,17 @@ bool RecetteManager::validationRecette(Assiette* assietteAVerif)
 	{
 		for (int i = 0; i < recettesSize; i++)
 		{
-			if(m_recettes[i]->getEtat() != etatRecette::Echec && m_recettes[i]->getEtat() != etatRecette::disparue)
-			if (m_recettes[i]->ValidationRecette(assietteAVerif))
+			if (m_recettes[i]->getEtat() != etatRecette::Echec && m_recettes[i]->getEtat() != etatRecette::disparue && m_recettes[i]->getEtat()!= etatRecette::apparition)
 			{
-				*m_score += 100;
-				m_recettes[i]->setEtat(etatRecette::Valide);
-				break;
+				if (m_recettes[i]->ValidationRecette(assietteAVerif))
+				{
+					m_score += 100;
+					m_recettes[i]->setEtat(etatRecette::Valide);
+					return true;
+				}
 			}
 		}
-		*m_score -= 25;
+		m_score -= 25;
 		setErreur();
 		return false;
 	}
@@ -80,12 +82,13 @@ void RecetteManager::setErreur()
 
 void RecetteManager::updateRecette(sf::Time elapsedTime)
 {
-	if (m_recettes.size() < 7) creationRecette(elapsedTime);
+	if (m_recettes.size() < 2) creationRecette(elapsedTime);
 	int vitesseDeplacementSeconde = 75;
 	for (int i = 0; i < m_recettes.size(); i++)
 	{
 		sf::Vector2f positionTemp = m_recettes[i]->getPos();
 		m_recettes[i]->updateRecette(elapsedTime);
+		if (m_recettes[i]->getEtat() == etatRecette::Erreur && m_recettes[i]->getErreur() == false) m_recettes[i]->setEtat(etatRecette::Neutre);
 		if (m_recettes[i]->getEtat() == etatRecette::disparue)
 		{
 			deleteRecette(m_recettes[i]->getid());

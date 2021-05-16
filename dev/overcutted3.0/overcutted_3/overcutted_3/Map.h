@@ -7,6 +7,7 @@
 
 //#include "Entite.h"
 
+#include "RecetteManager.h"
 #include "DeplacableManager.h"
 #include "PlanTravail.h"
 #include "Planche.h"
@@ -60,6 +61,7 @@ private:
     sf::RenderWindow* m_ptrApp;
     TextureManager* m_texturePointeur;
     DeplacableManager* m_deplacableManager;
+    RecetteManager* m_recetteManager;
     std::vector<Tuile*> tuiles;
     std::vector<Poubelle*> m_poubelles;
     std::vector<Stock*> m_stocks;
@@ -68,7 +70,7 @@ private:
     std::vector<OuvertureSalle*> m_ouvertureSalle;
 public:
     //Map();
-    Map(sf::RenderWindow*, TextureManager*, DeplacableManager*);
+    Map(sf::RenderWindow*, TextureManager*, DeplacableManager*, RecetteManager*);
     virtual ~Map();
 	void initmap();
     void drawmap();

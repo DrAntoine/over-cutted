@@ -7,12 +7,13 @@
 //	std::cout << "Map OK" << std::endl;
 //}
 
-Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText, DeplacableManager* deplacableManager)
+Map::Map(sf::RenderWindow* appPtr, TextureManager* pointeurText, DeplacableManager* deplacableManager, RecetteManager* recetteManager)
 {
 	std::cout << "Constructeur Map (RenderWindow*, TextureManager*, std::vector<Deplacable*>*)" << std::endl;
 	m_texturePointeur = pointeurText;
 	m_ptrApp = appPtr;// pointeur vers la fenetre
 	m_deplacableManager = deplacableManager;
+	m_recetteManager = recetteManager;
 	initmap();
 	std::cout << "Map OK" << std::endl;
 }
@@ -73,6 +74,17 @@ PlanTravail* Map::getPlanTravail(sf::Vector2u position)
 	}
 }
 
+OuvertureSalle* Map::getOuvertureSalle(sf::Vector2u position)
+{
+	for (unsigned int i = 0; i < m_ouvertureSalle.size(); i++)
+	{
+		if (m_ouvertureSalle[i]->getMapPos() == position)
+		{
+			return m_ouvertureSalle[i];
+		}
+	}
+}
+
 void Map::initmap()
 {
 	Planche* planche = nullptr;
@@ -121,7 +133,7 @@ void Map::initmap()
 				m_stocks.push_back(stock);
 				break;
 			case 7:
-				ouverture = new OuvertureSalle(sf::Vector2u(x, y), m_texturePointeur, m_deplacableManager);
+				ouverture = new OuvertureSalle(sf::Vector2u(x, y), m_texturePointeur, m_deplacableManager, m_recetteManager);
 				tuiles.push_back(ouverture);
 				m_ouvertureSalle.push_back(ouverture);
 				break;

@@ -34,7 +34,7 @@ bool Aliment::estCouper()
 
 bool Aliment::CompareEtatAliment(Aliment& const b)
 {
-	if (m_couper == b.m_couper && m_etat == b.m_etat) return true;
+	if (m_couper == b.m_couper && m_etat == b.m_etat && m_type==b.m_type) return true;
 	return false;
 }
 

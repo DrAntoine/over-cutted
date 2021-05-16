@@ -110,7 +110,7 @@ bool Assiette::checkAlimentTypeEtat(Aliment* aVerif)
 {
     for (int j = 0; j < m_contenu.size(); j++)
     {
-        if (m_contenu[j] == aVerif) return true;
+        if (*m_contenu[j] == *aVerif) return true;
     }
     return false;
 }

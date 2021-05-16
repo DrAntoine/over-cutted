@@ -414,6 +414,15 @@ void Perso::prendre_deposer()
 				m_main_libre = true;
 			}
 		}
+		if (frontTileType == TuileType::Ouverture_Salle)
+		{
+			OuvertureSalle* ouvertureSalle = m_map->getOuvertureSalle(getFrontTile()->getMapPos());
+			if (ouvertureSalle->DeposerSurTuile(m_objet_en_mains))
+			{
+				m_objet_en_mains = nullptr;
+				m_main_libre = true;
+			}
+		}
 	}
 }
 void Perso::interact(sf::Time tempsEcoule)

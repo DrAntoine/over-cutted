@@ -2,16 +2,18 @@
 #include "Outil.h"
 #include "Recette.h"
 #include "DeplacableManager.h"
+#include "RecetteManager.h"
 
 class OuvertureSalle : public Outil
 {
 private:
-	std::vector<Recette*> recettes;
+	RecetteManager* m_recetteManager;
 	DeplacableManager* m_deplacableManager;
 	//bool stateOuvSal; // A quoi il sert ? 
 public:
-	OuvertureSalle(sf::Vector2u , TextureManager*, DeplacableManager*);
+	OuvertureSalle(sf::Vector2u , TextureManager*, DeplacableManager*, RecetteManager*);
 	virtual ~OuvertureSalle();
+	bool DeposerSurTuile(Deplacable*);
 	//void validation();
 	//void supprimer();
 
