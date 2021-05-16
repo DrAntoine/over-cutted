@@ -1,6 +1,5 @@
 #pragma once
-
-#include"Aliments.h"
+#include "Aliments.h"
 
 enum class typeSpriteAssiette { vide, poisson, crevette, poisson_crevette };
 
@@ -18,6 +17,7 @@ public:
 	bool checkAjoutAliment(Aliment* aAjouter);
 	bool checkAlimentTypeEtat(Aliment* aVerif);
 	int getNombreAliment();
+	Deplacable* getAliment(int);
 	bool estIdentique(Assiette &const B);
 };
 

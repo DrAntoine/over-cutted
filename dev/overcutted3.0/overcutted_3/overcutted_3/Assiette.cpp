@@ -15,6 +15,11 @@ Assiette::~Assiette()
 {
 }
 
+Deplacable* Assiette::getAliment(int i)
+{
+    return m_contenu[i];
+}
+
 int Assiette::getNombreAliment()
 {
     return m_contenu.size();

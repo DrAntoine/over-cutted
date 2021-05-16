@@ -18,6 +18,7 @@ public:
 	TextureManager();
 	virtual ~TextureManager();
 	sf::Sprite getTexture(TextureType m_type, sf::Vector2u positionInFile);
+	//sf::Sprite getTexture(TextureType m_type, sf::Vector2u positionInFile, sf::Vector2f imageSize);
 
 private:
 	sf::Texture m_textPerso;

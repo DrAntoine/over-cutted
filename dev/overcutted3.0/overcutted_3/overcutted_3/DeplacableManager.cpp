@@ -67,6 +67,18 @@ void DeplacableManager::DeleteElement(Deplacable* aDelete)
 {
 	DeplacableType type = aDelete->getType();
 	int id_delete = aDelete->getId();
+	if (type == DeplacableType::assiette)
+	{
+		Assiette* assietteTemp = getAssiette(id_delete);
+		int nbAlim = assietteTemp->getNombreAliment();
+		if (nbAlim > 0)
+		{
+			for (int i = 0; i < nbAlim; i++)
+			{
+				DeleteElement(assietteTemp->getAliment(i));
+			}
+		}
+	}
 	for (unsigned int i = 0; i < m_elementsDeplacable.size(); i++)
 	{
 		if (m_elementsDeplacable[i]->getId() == id_delete)
