@@ -62,7 +62,8 @@ bool RecetteManager::validationRecette(Assiette* assietteAVerif)
 			{
 				if (m_recettes[i]->ValidationRecette(assietteAVerif))
 				{
-					m_score += 100;
+					if (m_recettes[i]->tempsUtilise() < sf::seconds(20)) m_score += 150;
+					else m_score += 75;
 					m_recettes[i]->setEtat(etatRecette::Valide);
 					return true;
 				}

@@ -19,6 +19,7 @@ private:
     etatRecette m_etatRecette;
     sf::Time erreurTime;
     sf::Time tempsDispoRecette;
+    sf::Time TempInitial;
     sf::Vector2u m_positionSprite;
     bool m_reussi;
     bool m_erreur;
@@ -35,5 +36,6 @@ public:
     bool getReussi();
     virtual ~Recette();
     bool getErreur();
+    sf::Time tempsUtilise();
 };
 

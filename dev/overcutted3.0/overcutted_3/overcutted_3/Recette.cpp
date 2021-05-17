@@ -61,6 +61,7 @@ Recette::Recette(TextureManager* textureptr, DeplacableManager* deplacableManage
 		assietteAPresenter->Togglevisible();
 		break;
 	}
+	TempInitial = tempsDispoRecette;
 }
 
 void Recette::drawRecette(sf::RenderWindow* ptr_fenetre)
@@ -188,4 +189,9 @@ Recette::~Recette()
 bool Recette::getErreur()
 {
 	return m_erreur;
+}
+
+sf::Time Recette::tempsUtilise()
+{
+	return TempInitial-tempsDispoRecette;
 }
