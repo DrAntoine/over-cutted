@@ -18,6 +18,11 @@ int main()
     sf::Uint32 styleFenetre = sf::Style::Titlebar | sf::Style::Close;
     sf::RenderWindow window(sf::VideoMode(1100, 810), "Overcutted", styleFenetre);
     window.setFramerateLimit(60);
+
+    sf::Image icon;
+    if (!icon.loadFromFile("Textures/icon.png")) EXIT_FAILURE;
+
+    window.setIcon(256,256,icon.getPixelsPtr());
     sf::Clock horloge;
     sf::Time tempsEcoule;
     //===================== fonds
