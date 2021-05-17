@@ -24,16 +24,14 @@ private:
 	sf::Event* m_event;
 	sf::Time timeTest;
 	sf::Vector2f m_tileSize;
-	int* score;
-	//============== score
-	sf::Font font;
-	sf::Text text;
-	sf::Text text1;
+
+
+	int* m_score;
 
 public:
 	//Game();
 	virtual ~Game();
-	Game(sf::RenderWindow*, sf::Event*);
+	Game(sf::RenderWindow*, sf::Event*, int*);
 	void action(sf::Time);
 	void draw();
 	void update(sf::Time tempsEcoule);

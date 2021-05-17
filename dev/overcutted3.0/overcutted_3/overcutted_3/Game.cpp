@@ -1,11 +1,11 @@
 #include "Game.h"
 
 
-Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur)
+Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur, int* score)
 {
 	std::cout << "Constructeur Game (RenderWindow*)" << std::endl;
 	m_pointeurFenetre = app;
-	score = 0;
+	m_score = score;
 	m_event = m_EventPointeur;
 	m_tileSize = sf::Vector2f(50, 50);
 	m_deplacableManager = new DeplacableManager();
