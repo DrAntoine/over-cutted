@@ -1,5 +1,5 @@
 !Release/*
-#!Debug/*
+
 
 #fichier de conf visual studio
 *.vcxproj
