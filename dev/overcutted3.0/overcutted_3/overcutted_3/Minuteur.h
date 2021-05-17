@@ -3,20 +3,19 @@
 class Minuteur
 {
 private:
-    int minutes, secondes;
+    int minutes, secondesUnite,secondesDizaine;
     sf::Clock tempsJeu;
     sf::Time duree;
     sf::Font font;
     sf::Text text;
     sf::Text text1;
     sf::Text text2;
-    std::string seconde;
-    std::string minute;
+    sf::Text text3;
     sf::RenderWindow* m_ptrFenetre;
 
 public:
     Minuteur();
-    void décompte();
+    void decompte();
     void drawMinuteur(sf::RenderWindow*);
     int finDuJeu();
 };

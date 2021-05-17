@@ -51,7 +51,7 @@ void Game::update(sf::Time elaspsedTime)
 {
 	m_perso->update(elaspsedTime);
 	m_recetteManager->updateRecette(elaspsedTime);
-	minuteur.décompte();
+	minuteur.decompte();
 	//m_recette->;
 }
 
