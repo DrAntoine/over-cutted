@@ -351,14 +351,16 @@ void Perso::prendre_deposer()
 	{
 		if (frontTileType == TuileType::Stock)
 		{
-			Stock* stock = m_map->getStock(getFrontTile()->getMapPos());
+			Stock* stock = nullptr;
+			stock = m_map->getStock(getFrontTile()->getMapPos());
 			m_objet_en_mains = stock->PrendreSurTuile();
 			m_main_libre = false;
 			m_objet_en_mains->setposition(m_position);
 		}
 		if (frontTileType == TuileType::Planche_decoupe)
 		{
-			Planche* planche = m_map->getPlanche(getFrontTile()->getMapPos());
+			Planche* planche = nullptr;
+			planche = m_map->getPlanche(getFrontTile()->getMapPos());
 			if (!planche->getLibre())
 			{
 				m_objet_en_mains = planche->PrendreSurTuile();
@@ -368,7 +370,8 @@ void Perso::prendre_deposer()
 		}
 		if (frontTileType == TuileType::Plan_Travail)
 		{
-			PlanTravail* plantravail = m_map->getPlanTravail(getFrontTile()->getMapPos());
+			PlanTravail* plantravail = nullptr;
+			plantravail = m_map->getPlanTravail(getFrontTile()->getMapPos());
 			if (!plantravail->getLibre())
 			{
 				m_objet_en_mains = plantravail->PrendreSurTuile();
@@ -389,7 +392,8 @@ void Perso::prendre_deposer()
 	{
 		if (frontTileType == TuileType::Planche_decoupe)
 		{
-			Planche* planche = m_map->getPlanche(getFrontTile()->getMapPos());
+			Planche* planche = nullptr;
+			planche = m_map->getPlanche(getFrontTile()->getMapPos());
 			if (planche->DeposerSurTuile(m_objet_en_mains))
 			{
 				m_objet_en_mains = nullptr;
@@ -398,7 +402,8 @@ void Perso::prendre_deposer()
 		}
 		if (frontTileType == TuileType::Plan_Travail)
 		{
-			PlanTravail* plantravail = m_map->getPlanTravail(getFrontTile()->getMapPos());
+			PlanTravail* plantravail = nullptr;
+			plantravail = m_map->getPlanTravail(getFrontTile()->getMapPos());
 			if (plantravail->DeposerSurTuile(m_objet_en_mains))
 			{
 				m_objet_en_mains = nullptr;
@@ -407,7 +412,8 @@ void Perso::prendre_deposer()
 		}
 		if (frontTileType == TuileType::Poubelle)
 		{
-			Poubelle* poubelle = m_map->getPoubelle(getFrontTile()->getMapPos());
+			Poubelle* poubelle = nullptr;
+			poubelle = m_map->getPoubelle(getFrontTile()->getMapPos());
 			if (poubelle->DeposerSurTuile(m_objet_en_mains))
 			{
 				m_objet_en_mains = nullptr;
@@ -416,7 +422,8 @@ void Perso::prendre_deposer()
 		}
 		if (frontTileType == TuileType::Ouverture_Salle)
 		{
-			OuvertureSalle* ouvertureSalle = m_map->getOuvertureSalle(getFrontTile()->getMapPos());
+			OuvertureSalle* ouvertureSalle = nullptr;
+			ouvertureSalle = m_map->getOuvertureSalle(getFrontTile()->getMapPos());
 			if (ouvertureSalle->DeposerSurTuile(m_objet_en_mains))
 			{
 				m_objet_en_mains = nullptr;
@@ -432,7 +439,8 @@ void Perso::interact(sf::Time tempsEcoule)
 		TuileType frontTileType = getFrontTile()->getTypeTuile();
 		if (frontTileType == TuileType::Planche_decoupe)
 		{
-			Planche* planche = m_map->getPlanche(getFrontTile()->getMapPos());
+			Planche* planche = nullptr;
+			planche = m_map->getPlanche(getFrontTile()->getMapPos());
 			if (!planche->getLibre())
 			{
 				planche->interact(tempsEcoule);

@@ -62,14 +62,14 @@ bool RecetteManager::validationRecette(Assiette* assietteAVerif)
 			{
 				if (m_recettes[i]->ValidationRecette(assietteAVerif))
 				{
-					if (m_recettes[i]->tempsUtilise() < sf::seconds(20)) m_score += 150;
-					else m_score += 75;
+					if (m_recettes[i]->tempsUtilise() < sf::seconds(20)) *m_score += 150;
+					else *m_score += 75;
 					m_recettes[i]->setEtat(etatRecette::Valide);
 					return true;
 				}
 			}
 		}
-		m_score -= 25;
+		*m_score -= 25;
 		setErreur();
 		return false;
 	}
@@ -87,7 +87,7 @@ void RecetteManager::setErreur()
 
 void RecetteManager::updateRecette(sf::Time elapsedTime)
 {
-	if (m_recettes.size() < 2) creationRecette(elapsedTime);
+	if (m_recettes.size() < 5) creationRecette(elapsedTime);
 	int vitesseDeplacementSeconde = 75;
 	if (m_recettes.size() > 0)
 	//std::cout << "Boucle updateManager" << std::endl;

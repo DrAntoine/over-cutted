@@ -37,18 +37,28 @@ int main()
     spritefin.setTexture(texturefin);
     std::string texte = "Score : ";
     sf::Text textfin;
+    sf::Font police;
+    textfin.setCharacterSize(40);
+    textfin.setFillColor(sf::Color::Black);
+    //textfin.setStyle(sf::Text::Bold);
+    police.loadFromFile("font/Bebas-Regular.ttf");
+    textfin.setFont(police);
+    sf::Text textScore;
+    textScore.setFont(police);
+    textScore.setCharacterSize(45);
+    textScore.setFillColor(sf::Color::White);
     bool textDefini = false;
 
-    int dureePartie = 10 * 30;
+    int dureePartie = 4 * 60;
     sf::Time tempsRestant = sf::seconds(dureePartie);
     sf::RectangleShape timerRectangle;
     timerRectangle.setFillColor(sf::Color::Green);
     timerRectangle.setSize(sf::Vector2f(10, 1100));
     timerRectangle.setPosition(sf::Vector2f(0, 800));
     sf::Event event;
-    sf::Font police;
+
     int score = 0;
-	Game game(&window, &event, &score);
+	Game game(&window, &event, &score, &tempsRestant);
 
     sf::Music test ;
     test.openFromFile("musique/musique1.ogg");
@@ -100,6 +110,9 @@ int main()
                 timerRectangle.setSize(sf::Vector2f(largeurTimer, 10));
                 window.draw(timerRectangle);
                 game.draw();
+                textScore.setString(texte + std::to_string(score));
+                textScore.setPosition(sf::Vector2f(890, 740));
+                window.draw(textScore);
             }
             else
             {
@@ -117,17 +130,14 @@ int main()
                 textDefini = true;
             }
             textfin.setString(texte);
-            textfin.setCharacterSize(24);
-            textfin.setFillColor(sf::Color::Black);
-            //textfin.setStyle(sf::Text::Bold);
-            police.loadFromFile("Calibri Regular.ttf");
-            textfin.setFont(police);
-            textfin.setPosition(sf::Vector2f(500, 200));
+            
+            textfin.setPosition(sf::Vector2f(450, 200));
             window.draw(textfin);
             break;
         default:
             break;
         } 
+        //std::cout << "Source score " << score << std::endl;
         window.display();
     }
     std::cout << "Source Ok" << std::endl;

@@ -14,7 +14,7 @@
 class Game
 {
 private:
-	Minuteur minuteur;
+	Minuteur* minuteur;
 	TextureManager m_textureManager;
 	DeplacableManager* m_deplacableManager;
 	Perso* m_perso;
@@ -31,7 +31,7 @@ private:
 public:
 	//Game();
 	virtual ~Game();
-	Game(sf::RenderWindow*, sf::Event*, int*);
+	Game(sf::RenderWindow*, sf::Event*, int*, sf::Time*);
 	void action(sf::Time);
 	void draw();
 	void update(sf::Time tempsEcoule);

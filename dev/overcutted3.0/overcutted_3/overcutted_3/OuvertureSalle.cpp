@@ -27,7 +27,8 @@ bool OuvertureSalle::DeposerSurTuile(Deplacable* objet)
 	DeplacableType typeObjet = objet->getType();
 	if (typeObjet == DeplacableType::assiette)
 	{
-		Assiette* assietteAValider = m_deplacableManager->getAssiette(objet->getId());
+		Assiette* assietteAValider = nullptr;
+		assietteAValider = m_deplacableManager->getAssiette(objet->getId());
 		m_recetteManager->validationRecette(assietteAValider);
 		m_deplacableManager->DeleteElement(assietteAValider);
 		return true;

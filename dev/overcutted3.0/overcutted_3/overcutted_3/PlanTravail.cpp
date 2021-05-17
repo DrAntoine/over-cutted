@@ -33,7 +33,8 @@ bool PlanTravail::DeposerSurTuile(Deplacable* ptrObjet)
 	}
 	else if (!m_libre && m_objetSurTuile->getType() == DeplacableType::assiette)
 	{
-		Assiette* assiette = m_deplacableManager->getAssiette(m_objetSurTuile->getId());
+		Assiette* assiette = nullptr;
+		assiette = m_deplacableManager->getAssiette(m_objetSurTuile->getId());
 		DeplacableType objet = ptrObjet->getType();
 		if (objet == DeplacableType::crevette || objet == DeplacableType::poisson)
 		{
