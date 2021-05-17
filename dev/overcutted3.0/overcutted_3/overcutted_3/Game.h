@@ -17,7 +17,7 @@ private:
 	Minuteur* minuteur;
 	TextureManager m_textureManager;
 	DeplacableManager* m_deplacableManager;
-	Perso* m_perso;
+	std::vector<Perso*> m_vectPerso;
 	sf::RenderWindow* m_pointeurFenetre;
 	Map* m_map; //les tuiles (+ les outils et stock)
 	RecetteManager* m_recetteManager;
