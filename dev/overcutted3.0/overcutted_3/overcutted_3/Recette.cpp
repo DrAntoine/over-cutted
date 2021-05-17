@@ -26,7 +26,7 @@ Recette::Recette(TextureManager* textureptr, DeplacableManager* deplacableManage
 		poissonTemp = m_deplacableManager->getPoisson(objetTemp->getId());
 		poissonTemp->setCoupe(); //pas besoin de le rendre invisible, des que on le met dans l'assiette il disparait :P
 		assietteAPresenter->DeposerSurAssiette(poissonTemp);
-		tempsDispoRecette = sf::seconds(45);
+		tempsDispoRecette = sf::seconds(60);
 		m_positionSprite = sf::Vector2u(0, 0);
 		break;
 	case typeRecette::CarpacioCrevette:
@@ -37,7 +37,7 @@ Recette::Recette(TextureManager* textureptr, DeplacableManager* deplacableManage
 		crevetteTemp = m_deplacableManager->getCrevette(objetTemp->getId());
 		crevetteTemp->setCoupe(); //pas besoin de le rendre invisible, des que on le met dans l'assiette il disparait :P
 		assietteAPresenter->DeposerSurAssiette(crevetteTemp);
-		tempsDispoRecette = sf::seconds(45);
+		tempsDispoRecette = sf::seconds(60);
 		m_positionSprite = sf::Vector2u(0, 1);
 		break;
 	case typeRecette::CarpacioCrevettePoisson:
@@ -52,7 +52,7 @@ Recette::Recette(TextureManager* textureptr, DeplacableManager* deplacableManage
 		crevetteTemp = m_deplacableManager->getCrevette(objetTemp->getId());
 		crevetteTemp->setCoupe(); //pas besoin de le rendre invisible, des que on le met dans l'assiette il disparait :P
 		assietteAPresenter->DeposerSurAssiette(crevetteTemp);
-		tempsDispoRecette = sf::seconds(60);
+		tempsDispoRecette = sf::seconds(70);
 		m_positionSprite = sf::Vector2u(0, 2);
 		break;
 	default:

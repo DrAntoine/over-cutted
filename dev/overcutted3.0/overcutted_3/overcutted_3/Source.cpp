@@ -49,7 +49,7 @@ int main()
     textScore.setFillColor(sf::Color::White);
     bool textDefini = false;
 
-    int dureePartie = 5 * 60;
+    int dureePartie = 4 * 60;
     sf::Time tempsRestant = sf::seconds(dureePartie);
     sf::RectangleShape timerRectangle;
     timerRectangle.setFillColor(sf::Color::Green);
