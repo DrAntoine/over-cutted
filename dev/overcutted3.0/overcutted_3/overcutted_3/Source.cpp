@@ -107,6 +107,7 @@ int main()
             break;
         case GameStatut::jeu:
             tempsRestant -= tempsEcoule;
+            if (test.getStatus() == sf::Music::Paused) test.play();
             if (tempsRestant.asSeconds() > sf::seconds(0).asSeconds())
             {
                 float largeurTimer = 1100 * (tempsRestant.asSeconds() / sf::seconds(dureePartie).asSeconds());
@@ -126,8 +127,10 @@ int main()
             break;
         case GameStatut::pause:
             window.draw(spritepause);
+            test.pause();
             break;
         case GameStatut::fin:
+            test.stop();
             window.draw(spritefin);
             if (!textDefini)
             {

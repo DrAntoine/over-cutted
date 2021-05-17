@@ -37,6 +37,7 @@ private:
 	sf::RenderWindow* m_ptrApp;
 	float couldown_takeDown;
 	bool couldown_actif;
+	int m_etatAnimation;
 public:
 	Perso(sf::RenderWindow*, TextureManager*, sf::Vector2u, Perso_conf, sf::Vector2f, Map*);
 	virtual ~Perso();
