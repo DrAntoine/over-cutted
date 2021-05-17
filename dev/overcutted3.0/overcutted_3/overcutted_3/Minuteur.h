@@ -18,6 +18,6 @@ public:
     Minuteur();
     void décompte();
     void drawMinuteur(sf::RenderWindow*);
-
+    int finDuJeu();
 };
 

@@ -45,4 +45,8 @@ void Minuteur::drawMinuteur(sf::RenderWindow* ptrfenetre)
 	m_ptrFenetre->draw(text1);
 	m_ptrFenetre->draw(text2);
 }
+int Minuteur::finDuJeu()
+{
+	return minutes, secondes;
+}
 

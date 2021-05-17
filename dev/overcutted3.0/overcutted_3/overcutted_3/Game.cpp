@@ -12,8 +12,15 @@ Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur)
 	m_recetteManager = new RecetteManager(&m_textureManager, m_deplacableManager, score);
 	m_map = new Map(m_pointeurFenetre, &m_textureManager, m_deplacableManager, m_recetteManager);
 	m_perso = new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(3,4), Perso_conf::zqsdae, m_tileSize, m_map);
-	//m_recette = new Recette(&m_textureManager, sf::Vector2u(4, 4));
 	std::cout << "Game OK" << std::endl;
+	//============== score
+	font.loadFromFile("font/Bebas-Regular.ttf");
+	text.setFont(font);
+	text1.setFont(font);
+	text.setString(" score : ");
+	text.setPosition(sf::Vector2f(820, 700));
+	text1.setPosition(sf::Vector2f(835, 700));
+
 }
 
 Game::~Game()
@@ -28,9 +35,11 @@ void Game::draw()//window* w, m_gameClock
 	m_recetteManager->drawRecette(m_pointeurFenetre);
 	m_map->drawmap();
 	m_perso->draw(m_pointeurFenetre);
-	//m_recette->drawRecette(m_pointeurFenetre);
+
 	m_deplacableManager->DrawDeplacable(m_pointeurFenetre);
 	minuteur.drawMinuteur(m_pointeurFenetre);
+
+
 }
 
 void Game::action(sf::Time elapsedTime)

@@ -1,6 +1,6 @@
 #include "RecetteManager.h"
 
-RecetteManager::RecetteManager(TextureManager* textureManager, DeplacableManager* DeplacableManager, int scorePtr)
+RecetteManager::RecetteManager(TextureManager* textureManager, DeplacableManager* DeplacableManager, int* scorePtr)
 {
 	srand(time(NULL));
 	m_score = scorePtr;
@@ -12,13 +12,6 @@ RecetteManager::RecetteManager(TextureManager* textureManager, DeplacableManager
 	//faire un random parmi les recettes dispo
 	//ajouter new recette (choix random) dans liste recette
 
-	//================== score
-	font.loadFromFile("font/Bebas-Regular.ttf");
-	text.setFont(font);
-	text1.setFont(font);
-	text.setString(" score : ");
-	text.setPosition(sf::Vector2f(820, 700));
-	text1.setPosition(sf::Vector2f(835, 700));
  }
 
 RecetteManager::~RecetteManager()
@@ -162,8 +155,5 @@ void RecetteManager::drawRecette(sf::RenderWindow* pointeurFenetre)
 		m_recettes[i]->setPos(positionTemp);
 		m_recettes[i]->drawRecette(pointeurFenetre);
 	}
-	m_ptrFenetre = pointeurFenetre;
-	//text1.setString(std::to_string(&m_score));
-	m_ptrFenetre->draw(text);
-	//m_ptrFenetre->draw(text1);
+
 }

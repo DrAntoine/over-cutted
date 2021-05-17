@@ -25,6 +25,11 @@ private:
 	sf::Time timeTest;
 	sf::Vector2f m_tileSize;
 	int* score;
+	//============== score
+	sf::Font font;
+	sf::Text text;
+	sf::Text text1;
+
 public:
 	//Game();
 	virtual ~Game();
