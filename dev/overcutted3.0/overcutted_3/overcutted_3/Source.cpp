@@ -1,12 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "Minuteur.h"
 #include "Game.h"
 
 int main()
 {
     std::cout << "Source" << std::endl;
-    enum statut {Intro, jeu, pause};
+    enum statut {Intro, jeu, pause,fin};
     statut jeuStatut = statut::Intro;
     sf::Uint32 styleFenetre = sf::Style::Titlebar | sf::Style::Close;
     sf::RenderWindow window(sf::VideoMode(1100, 800), "Overcutted", styleFenetre);

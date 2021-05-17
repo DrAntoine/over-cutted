@@ -156,6 +156,7 @@
     <ClCompile Include="Entite.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Minuteur.cpp" />
     <ClCompile Include="Mur.cpp" />
     <ClCompile Include="Outil.cpp" />
     <ClCompile Include="OuvertureSalle.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Entite.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Minuteur.h" />
     <ClInclude Include="Mur.h" />
     <ClInclude Include="Outil.h" />
     <ClInclude Include="OuvertureSalle.h" />

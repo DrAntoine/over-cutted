@@ -5,6 +5,7 @@
 #include "TextureManager.h"
 #include "DeplacableManager.h"
 #include "RecetteManager.h"
+#include "Minuteur.h"
 //#include "Deplacable.h"
 //#include "Entite.h"
 
@@ -13,6 +14,7 @@
 class Game
 {
 private:
+	Minuteur minuteur;
 	TextureManager m_textureManager;
 	DeplacableManager* m_deplacableManager;
 	Perso* m_perso;

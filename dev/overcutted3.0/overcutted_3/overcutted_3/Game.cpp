@@ -30,6 +30,7 @@ void Game::draw()//window* w, m_gameClock
 	m_perso->draw(m_pointeurFenetre);
 	//m_recette->drawRecette(m_pointeurFenetre);
 	m_deplacableManager->DrawDeplacable(m_pointeurFenetre);
+	minuteur.drawMinuteur(m_pointeurFenetre);
 }
 
 void Game::action(sf::Time elapsedTime)
@@ -41,6 +42,7 @@ void Game::update(sf::Time elaspsedTime)
 {
 	m_perso->update(elaspsedTime);
 	m_recetteManager->updateRecette(elaspsedTime);
+	minuteur.décompte();
 	//m_recette->;
 }
 

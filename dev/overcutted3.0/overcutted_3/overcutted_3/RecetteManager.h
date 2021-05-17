@@ -13,10 +13,16 @@ private:
 	TextureManager* m_textureManager;
 	DeplacableManager* m_deplacableManager;
 	unsigned int m_lastID;
-	int* m_score;
+	int m_score;
 	sf::Time m_temp_avant_pop;
+	//================== score
+	sf::Font font;
+	sf::Text text;
+	sf::Text text1;
+	std::string score;
+	sf::RenderWindow* m_ptrFenetre;
 public:
-	RecetteManager(TextureManager*, DeplacableManager*, int*);
+	RecetteManager(TextureManager*, DeplacableManager*, int);
 	~RecetteManager();
 	void creationRecette(sf::Time);
 	bool validationRecette(Assiette*);

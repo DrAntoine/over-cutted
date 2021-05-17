@@ -1,6 +1,6 @@
 #include "RecetteManager.h"
 
-RecetteManager::RecetteManager(TextureManager* textureManager, DeplacableManager* DeplacableManager, int* scorePtr)
+RecetteManager::RecetteManager(TextureManager* textureManager, DeplacableManager* DeplacableManager, int scorePtr)
 {
 	srand(time(NULL));
 	m_score = scorePtr;
@@ -11,6 +11,14 @@ RecetteManager::RecetteManager(TextureManager* textureManager, DeplacableManager
 	//tempsAvantProchainPlat
 	//faire un random parmi les recettes dispo
 	//ajouter new recette (choix random) dans liste recette
+
+	//================== score
+	font.loadFromFile("font/Bebas-Regular.ttf");
+	text.setFont(font);
+	text1.setFont(font);
+	text.setString(" score : ");
+	text.setPosition(sf::Vector2f(820, 700));
+	text1.setPosition(sf::Vector2f(835, 700));
  }
 
 RecetteManager::~RecetteManager()
@@ -82,26 +90,29 @@ void RecetteManager::setErreur()
 
 void RecetteManager::updateRecette(sf::Time elapsedTime)
 {
-	if (m_recettes.size() < 2) creationRecette(elapsedTime);
+	if (m_recettes.size() < 5) creationRecette(elapsedTime);
 	int vitesseDeplacementSeconde = 75;
-	for (int i = 0; i < m_recettes.size(); i++)
+	if (m_recettes.size() > 0)
 	{
-		sf::Vector2f positionTemp = m_recettes[i]->getPos();
-		m_recettes[i]->updateRecette(elapsedTime);
-		if (m_recettes[i]->getEtat() == etatRecette::Erreur && m_recettes[i]->getErreur() == false) m_recettes[i]->setEtat(etatRecette::Neutre);
-		if (m_recettes[i]->getEtat() == etatRecette::disparue)
+		for (int i = 0; i < m_recettes.size(); i++)
 		{
-			deleteRecette(m_recettes[i]->getid());
-		}
-		if (m_recettes[i]->getEtat() == etatRecette::Echec || m_recettes[i]->getEtat() == etatRecette::apparition)
-		{
-			positionTemp.x -= elapsedTime.asSeconds() * vitesseDeplacementSeconde;
-			m_recettes[i]->setPos(positionTemp);
-		}
-		if (m_recettes[i]->getEtat() == etatRecette::Valide)
-		{
-			positionTemp.x += elapsedTime.asSeconds() * vitesseDeplacementSeconde;
-			m_recettes[i]->setPos(positionTemp);
+			sf::Vector2f positionTemp = m_recettes[i]->getPos();
+			m_recettes[i]->updateRecette(elapsedTime);
+			if (m_recettes[i]->getEtat() == etatRecette::Erreur && m_recettes[i]->getErreur() == false) m_recettes[i]->setEtat(etatRecette::Neutre);
+			if (m_recettes[i]->getEtat() == etatRecette::disparue)
+			{
+				deleteRecette(m_recettes[i]->getid());
+			}
+			if (m_recettes[i]->getEtat() == etatRecette::Echec || m_recettes[i]->getEtat() == etatRecette::apparition)
+			{
+				positionTemp.x -= elapsedTime.asSeconds() * vitesseDeplacementSeconde;
+				m_recettes[i]->setPos(positionTemp);
+			}
+			if (m_recettes[i]->getEtat() == etatRecette::Valide)
+			{
+				positionTemp.x += elapsedTime.asSeconds() * vitesseDeplacementSeconde;
+				m_recettes[i]->setPos(positionTemp);
+			}
 		}
 	}
 }
@@ -151,4 +162,8 @@ void RecetteManager::drawRecette(sf::RenderWindow* pointeurFenetre)
 		m_recettes[i]->setPos(positionTemp);
 		m_recettes[i]->drawRecette(pointeurFenetre);
 	}
+	m_ptrFenetre = pointeurFenetre;
+	//text1.setString(std::to_string(&m_score));
+	m_ptrFenetre->draw(text);
+	//m_ptrFenetre->draw(text1);
 }
