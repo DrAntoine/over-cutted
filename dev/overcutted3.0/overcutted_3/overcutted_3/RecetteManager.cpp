@@ -17,6 +17,7 @@ RecetteManager::RecetteManager(TextureManager* textureManager, DeplacableManager
 RecetteManager::~RecetteManager()
 {
 	int nb_recette = m_recettes.size();
+	//std::cout << "Boucle destructeurTextureManager" << std::endl;
 	for (int i = 0; i < nb_recette; i++)
 	{
 		delete m_recettes[i];
@@ -54,6 +55,7 @@ bool RecetteManager::validationRecette(Assiette* assietteAVerif)
 	int recettesSize = m_recettes.size();
 	if (recettesSize > 0)
 	{
+		//std::cout << "Boucle Validation Recette" << std::endl;
 		for (int i = 0; i < recettesSize; i++)
 		{
 			if (m_recettes[i]->getEtat() != etatRecette::Echec && m_recettes[i]->getEtat() != etatRecette::disparue && m_recettes[i]->getEtat()!= etatRecette::apparition)
@@ -75,6 +77,7 @@ bool RecetteManager::validationRecette(Assiette* assietteAVerif)
 
 void RecetteManager::setErreur()
 {
+	//std::cout << "Boucle setErreur" << std::endl;
 	for (int i = 0; i < m_recettes.size(); i++)
 	{
 		m_recettes[i]->setEtat(etatRecette::Erreur);
@@ -83,28 +86,31 @@ void RecetteManager::setErreur()
 
 void RecetteManager::updateRecette(sf::Time elapsedTime)
 {
-	if (m_recettes.size() < 5) creationRecette(elapsedTime);
+	if (m_recettes.size() < 2) creationRecette(elapsedTime);
 	int vitesseDeplacementSeconde = 75;
 	if (m_recettes.size() > 0)
+	//std::cout << "Boucle updateManager" << std::endl;
 	{
 		for (int i = 0; i < m_recettes.size(); i++)
 		{
 			sf::Vector2f positionTemp = m_recettes[i]->getPos();
 			m_recettes[i]->updateRecette(elapsedTime);
 			if (m_recettes[i]->getEtat() == etatRecette::Erreur && m_recettes[i]->getErreur() == false) m_recettes[i]->setEtat(etatRecette::Neutre);
-			if (m_recettes[i]->getEtat() == etatRecette::disparue)
 			{
-				deleteRecette(m_recettes[i]->getid());
-			}
-			if (m_recettes[i]->getEtat() == etatRecette::Echec || m_recettes[i]->getEtat() == etatRecette::apparition)
-			{
-				positionTemp.x -= elapsedTime.asSeconds() * vitesseDeplacementSeconde;
-				m_recettes[i]->setPos(positionTemp);
-			}
-			if (m_recettes[i]->getEtat() == etatRecette::Valide)
-			{
-				positionTemp.x += elapsedTime.asSeconds() * vitesseDeplacementSeconde;
-				m_recettes[i]->setPos(positionTemp);
+				if (m_recettes[i]->getEtat() == etatRecette::disparue)
+				{
+					deleteRecette(m_recettes[i]->getid());
+				}
+				else if (m_recettes[i]->getEtat() == etatRecette::Echec || m_recettes[i]->getEtat() == etatRecette::apparition)
+				{
+					positionTemp.x -= elapsedTime.asSeconds() * vitesseDeplacementSeconde;
+					m_recettes[i]->setPos(positionTemp);
+				}
+				else if (m_recettes[i]->getEtat() == etatRecette::Valide)
+				{
+					positionTemp.x += elapsedTime.asSeconds() * vitesseDeplacementSeconde;
+					m_recettes[i]->setPos(positionTemp);
+				}
 			}
 		}
 	}
@@ -112,6 +118,7 @@ void RecetteManager::updateRecette(sf::Time elapsedTime)
 
 void RecetteManager::deleteRecette(int idToDelete)
 {
+	//std::cout << "Boucle delete Recette" << std::endl;
 	for (int i = 0; i < m_recettes.size(); i++)
 	{
 		if (m_recettes[i]->getid() == idToDelete) 
@@ -127,6 +134,7 @@ void RecetteManager::deleteRecette(int idToDelete)
 void RecetteManager::purgeVecteur()
 {
 	bool needPurge = false;
+	//std::cout << "Boucle check purge vecteur" << std::endl;
 	for (int i = 0; i < m_recettes.size(); i++)
 	{
 		if (m_recettes[i] == nullptr)
@@ -138,6 +146,7 @@ void RecetteManager::purgeVecteur()
 	if (needPurge)
 	{
 		std::vector<Recette*> nouveauVecteur;
+		//std::cout << "Boucle purge vecteur" << std::endl;
 		for (int i = 0; i < m_recettes.size(); i++)
 		{
 			if (m_recettes[i] != nullptr) nouveauVecteur.push_back(m_recettes[i]);
@@ -148,6 +157,7 @@ void RecetteManager::purgeVecteur()
 
 void RecetteManager::drawRecette(sf::RenderWindow* pointeurFenetre)
 {
+	//std::cout << "Boucle drawRecette" << std::endl;
 	for (int i = 0; i < m_recettes.size(); i++)
 	{
 		sf::Vector2f positionTemp = m_recettes[i]->getPos();
