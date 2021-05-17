@@ -16,6 +16,7 @@ Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTextur
 	Perso_Sens_regard m_regard = Perso_Sens_regard::bas;
 	m_config = config;
 	couldown_takeDown = 0;
+	m_etatAnimation=0;
 	switch (m_config)
 	{
 	case Perso_conf::zqsdae:
@@ -395,24 +396,24 @@ void Perso::draw(sf::RenderWindow* ptrFenetre)
 
 void Perso::animation()
 {
-	positionAnimation.x++;
-	if (positionAnimation.x > 3)
+	m_etatAnimation++;
+	if (m_etatAnimation > 3)
 	{
-		positionAnimation.x = 0;
+		m_etatAnimation = 0;
 	}
 	switch (m_config)
 	{
 	case Perso_conf::zqsdae:
-		positionAnimation.x += 0*4;
+		positionAnimation.x=m_etatAnimation;
 		break;
 	case Perso_conf::ijkluo:
-		positionAnimation.x += 1*4;
+		positionAnimation.x = m_etatAnimation +4;
 		break;
 	case Perso_conf::arrowsMajCtrl:
-		positionAnimation.x += 2*4;
+		positionAnimation.x = m_etatAnimation + 2*4;
 		break;
 	case Perso_conf::numpad:
-		positionAnimation.x += 3*4;
+		positionAnimation.x = m_etatAnimation + 3*4;
 		break;
 	default:
 		break;
