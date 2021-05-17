@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur, int* score, sf::Time* tempsRestant)
+Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur, int* score, sf::Time* tempsRestant, int nbjoueur)
 {
 	std::cout << "Constructeur Game (RenderWindow*)" << std::endl;
 	m_pointeurFenetre = app;
@@ -12,13 +12,16 @@ Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur, int* score, sf::Ti
 	m_deplacableManager = new DeplacableManager();
 	m_recetteManager = new RecetteManager(&m_textureManager, m_deplacableManager, score);
 	m_map = new Map(m_pointeurFenetre, &m_textureManager, m_deplacableManager, m_recetteManager);
-	m_vectPerso.push_back(new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(3,4), Perso_conf::zqsdae, m_tileSize, m_map));
-	m_vectPerso.push_back(new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(3,3), Perso_conf::ijkluo, m_tileSize, m_map));
-	m_vectPerso.push_back(new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(2,4), Perso_conf::arrowsMajCtrl, m_tileSize, m_map));
-	m_vectPerso.push_back(new Perso(m_pointeurFenetre, &m_textureManager,sf::Vector2u(2,3), Perso_conf::numpad, m_tileSize, m_map));
+	
+	// Creation des personnages
+	for (int i = 0; i < nbjoueur; i++)
+	{
+		if (i == 0)	m_vectPerso.push_back(new Perso(m_pointeurFenetre, &m_textureManager, sf::Vector2u(3, 4), Perso_conf::zqsdae, m_tileSize, m_map));
+		if (i == 1)	m_vectPerso.push_back(new Perso(m_pointeurFenetre, &m_textureManager, sf::Vector2u(3, 3), Perso_conf::ijkluo, m_tileSize, m_map));
+		if (i == 2) m_vectPerso.push_back(new Perso(m_pointeurFenetre, &m_textureManager, sf::Vector2u(2, 4), Perso_conf::arrowsMajCtrl, m_tileSize, m_map));
+		if (i == 3) m_vectPerso.push_back(new Perso(m_pointeurFenetre, &m_textureManager, sf::Vector2u(2, 3), Perso_conf::numpad, m_tileSize, m_map));
+	}
 	std::cout << "Game OK" << std::endl;
-
-
 }
 
 Game::~Game()

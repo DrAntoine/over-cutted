@@ -3,9 +3,7 @@
 #include <SFML/Audio.hpp>
 #include "Minuteur.h"
 #include <string>
-
-
-#include "Game.h"
+#include "game.h"
 
 
 int main()
@@ -63,7 +61,7 @@ int main()
     sf::Event event;
 
     int score = 0;
-	Game game(&window, &event, &score, &tempsRestant);
+	Game* game = nullptr;
 
     sf::Music test ;
     test.openFromFile("musique/musique1.ogg");
@@ -79,14 +77,18 @@ int main()
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed || jeuGameStatut == GameStatut::fin && event.type == sf::Event::EventType::KeyPressed && event.key.code == sf::Keyboard::Space)
+            {
+                delete game;
+                game = nullptr;
                 window.close();
+            }
             if (jeuGameStatut == GameStatut::jeu)
             {   
                 if (event.type == sf::Event::EventType::KeyPressed && event.key.code == sf::Keyboard::Escape)
                 {
                     jeuGameStatut = GameStatut::pause;
                 }
-                else game.action(tempsEcoule); // appelle la fonction action du joueur
+                else game->action(tempsEcoule); // appelle la fonction action du joueur
             }
             if (jeuGameStatut == GameStatut::pause && event.type == sf::Event::EventType::KeyPressed)
             {
@@ -94,11 +96,18 @@ int main()
             }
             if (jeuGameStatut == GameStatut::Intro && event.type == sf::Event::EventType::KeyPressed)
             {
-                if (event.key.code == sf::Keyboard::Space) jeuGameStatut = GameStatut::jeu;
+                if (event.key.code == sf::Keyboard::A) game = new Game(&window, &event, &score, &tempsRestant, 1);
+                else if (event.key.code == sf::Keyboard::Z) game = new Game(&window, &event, &score, &tempsRestant, 2);
+                else if (event.key.code == sf::Keyboard::E) game = new Game(&window, &event, &score, &tempsRestant, 3);
+                else if (event.key.code == sf::Keyboard::R) game = new Game(&window, &event, &score, &tempsRestant, 4);
+                if (game != nullptr)
+                {
+                    jeuGameStatut = GameStatut::jeu;
+                }
             }
 
         }
-        if (jeuGameStatut == GameStatut::jeu) game.update(tempsEcoule);
+        if (jeuGameStatut == GameStatut::jeu) game->update(tempsEcoule);
         window.clear();
         switch (jeuGameStatut)
         {
@@ -115,7 +124,7 @@ int main()
                 if (tempsRestant.asSeconds() < sf::seconds(10).asSeconds() && timerRectangle.getFillColor() == sf::Color::Yellow) timerRectangle.setFillColor(sf::Color::Red);
                 timerRectangle.setSize(sf::Vector2f(largeurTimer, 10));
                 window.draw(timerRectangle);
-                game.draw();
+                game->draw();
                 textScore.setString(texte + std::to_string(score));
                 textScore.setPosition(sf::Vector2f(890, 740));
                 window.draw(textScore);

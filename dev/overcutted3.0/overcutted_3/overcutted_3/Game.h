@@ -31,7 +31,7 @@ private:
 public:
 	//Game();
 	virtual ~Game();
-	Game(sf::RenderWindow*, sf::Event*, int*, sf::Time*);
+	Game(sf::RenderWindow*, sf::Event*, int*, sf::Time*, int);
 	void action(sf::Time);
 	void draw();
 	void update(sf::Time tempsEcoule);
