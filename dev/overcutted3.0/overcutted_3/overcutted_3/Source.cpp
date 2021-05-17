@@ -1,9 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Audio.hpp>
 #include "Minuteur.h"
-
 #include <string>
+
 
 #include "Game.h"
 
@@ -50,8 +50,15 @@ int main()
     int score = 0;
 	Game game(&window, &event, &score);
 
+    sf::Music test ;
+    test.openFromFile("musique/musique1.ogg");
+    //sf::Sound sound;
+    //sound.setBuffer(test);
+    test.play();
+
     while (window.isOpen())
     {
+
         tempsEcoule = horloge.restart();
         
         while (window.pollEvent(event))
