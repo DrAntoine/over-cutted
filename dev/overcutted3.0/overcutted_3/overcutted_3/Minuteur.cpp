@@ -1,48 +1,54 @@
 #include "Minuteur.h"
 #include "iostream"
-Minuteur::Minuteur()
+//Minuteur::Minuteur()
+//{
+//	minutes = 5;
+//	secondesUnite = 0;
+//	secondesDizaine = 0;
+//	font.loadFromFile("font/Bebas-Regular.ttf");
+//	text.setFont(font);
+//	text1.setFont(font);
+//	text1.setString(" : ");
+//	text2.setFont(font);
+//	text3.setFont(font);
+//	text.setCharacterSize(50);
+//	text1.setCharacterSize(50);
+//	text2.setCharacterSize(50);
+//	text3.setCharacterSize(50);
+//	text.setPosition(sf::Vector2f(820, 740));
+//	text1.setPosition(sf::Vector2f(835, 735));
+//	text2.setPosition(sf::Vector2f(885, 740));
+//	text3.setPosition(sf::Vector2f(860, 740));
+//
+//	
+//}
+
+Minuteur::Minuteur(sf::Time* pointeurTemps)
 {
-	minutes = 5;
-	secondesUnite = 0;
-	secondesDizaine = 0;
+	m_pointeurTemps = pointeurTemps;
+	minutes, secondesDizaine, secondesUnite = 0, 0, 0;
 	font.loadFromFile("font/Bebas-Regular.ttf");
 	text.setFont(font);
 	text1.setFont(font);
 	text1.setString(" : ");
 	text2.setFont(font);
 	text3.setFont(font);
-	text.setCharacterSize(50);
-	text1.setCharacterSize(50);
-	text2.setCharacterSize(50);
-	text3.setCharacterSize(50);
-	text.setPosition(sf::Vector2f(820, 740));
-	text1.setPosition(sf::Vector2f(835, 735));
-	text2.setPosition(sf::Vector2f(885, 740));
-	text3.setPosition(sf::Vector2f(860, 740));
-
-	
+	text.setCharacterSize(45);
+	text1.setCharacterSize(45);
+	text2.setCharacterSize(45);
+	text3.setCharacterSize(45);
+	text.setPosition(sf::Vector2f(815, 740));
+	text1.setPosition(sf::Vector2f(825, 735));
+	text3.setPosition(sf::Vector2f(845, 740));
+	text2.setPosition(sf::Vector2f(865, 740));
 }
 
 void Minuteur::decompte()
 {
-	duree = tempsJeu.getElapsedTime();
-	if (duree.asSeconds() >= 1)
-	{
-		secondesUnite -= 1;
-		if (secondesUnite < 0 && secondesDizaine == 0)
-		{
-			minutes -= 1;
-			secondesDizaine = 5;
-			secondesUnite = 9;
-		}
-		if (secondesUnite < 0)
-		{
-			secondesDizaine -= 1;
-			secondesUnite = 9;
-		}
-		
-		tempsJeu.restart();
-	}
+	int tempsSeconde = (int)m_pointeurTemps->asSeconds();
+	minutes = tempsSeconde / 60;
+	secondesDizaine = (tempsSeconde - (60 * minutes)) / 10;
+	secondesUnite = (tempsSeconde - (60 * minutes)) % 10;
 	text.setString(std::to_string(minutes));
 	text2.setString(std::to_string(secondesUnite));
 	text3.setString(std::to_string(secondesDizaine));

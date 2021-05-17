@@ -1,12 +1,13 @@
 #include "Game.h"
 
 
-Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur, int* score)
+Game::Game(sf::RenderWindow* app, sf::Event* m_EventPointeur, int* score, sf::Time* tempsRestant)
 {
 	std::cout << "Constructeur Game (RenderWindow*)" << std::endl;
 	m_pointeurFenetre = app;
 	m_score = score;
 	m_event = m_EventPointeur;
+	minuteur = new Minuteur(tempsRestant);
 	m_tileSize = sf::Vector2f(50, 50);
 	m_deplacableManager = new DeplacableManager();
 	m_recetteManager = new RecetteManager(&m_textureManager, m_deplacableManager, score);
@@ -31,9 +32,7 @@ void Game::draw()//window* w, m_gameClock
 	m_perso->draw(m_pointeurFenetre);
 
 	m_deplacableManager->DrawDeplacable(m_pointeurFenetre);
-	minuteur.drawMinuteur(m_pointeurFenetre);
-
-
+	minuteur->drawMinuteur(m_pointeurFenetre);
 }
 
 void Game::action(sf::Time elapsedTime)
@@ -45,8 +44,8 @@ void Game::update(sf::Time elaspsedTime)
 {
 	m_perso->update(elaspsedTime);
 	m_recetteManager->updateRecette(elaspsedTime);
-	minuteur.decompte();
-	//m_recette->;
+	minuteur->decompte();
+	//std::cout << "Game score " << *m_score << std::endl;
 }
 
 
