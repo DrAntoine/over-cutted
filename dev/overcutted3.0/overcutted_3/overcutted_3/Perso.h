@@ -32,7 +32,7 @@ private:
 	
 	bool m_main_libre;
 	int speed, blockSize;
-	sf::Vector2u positionAnimaion;
+	sf::Vector2u positionAnimation;
 	//propre au personnage
 	sf::RenderWindow* m_ptrApp;
 	float couldown_takeDown;
