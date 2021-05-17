@@ -39,7 +39,7 @@ int main()
     sf::Text textfin;
     bool textDefini = false;
 
-    int dureePartie = 1 * 30;
+    int dureePartie = 10 * 30;
     sf::Time tempsRestant = sf::seconds(dureePartie);
     sf::RectangleShape timerRectangle;
     timerRectangle.setFillColor(sf::Color::Green);
