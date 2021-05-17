@@ -22,4 +22,4 @@ public:
 enum class AlimentEtat { intacte, couper, cuit };
 enum class DeplacableType { none, poisson, crevette, assiette };
 enum class TuileType { None, Sol, Plan_Travail, Planche_decoupe, Stock, Poubelle, Ouverture_Salle, Mur };
-enum class Perso_conf { zqsdae, ijkluo, arrowsMajCtrl };
+enum class Perso_conf { zqsdae, ijkluo, arrowsMajCtrl, numpad };

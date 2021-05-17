@@ -14,11 +14,28 @@ Perso::Perso(sf::RenderWindow* m_pointeurFenetre, TextureManager* pointeurTextur
 	m_current_action = Perso_Action::idle;
 	m_main_libre = true;
 	Perso_Sens_regard m_regard = Perso_Sens_regard::bas;
-	positionAnimaion = sf::Vector2u (0,0);
-	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimaion));
-	m_sprite.setPosition(m_position);
 	m_config = config;
 	couldown_takeDown = 0;
+	switch (m_config)
+	{
+	case Perso_conf::zqsdae:
+		positionAnimation = sf::Vector2u(0, 0);
+		break;
+	case Perso_conf::ijkluo:
+		positionAnimation = sf::Vector2u(4, 0);
+		break;
+	case Perso_conf::arrowsMajCtrl:
+		positionAnimation = sf::Vector2u(8, 0);
+		break;
+	case Perso_conf::numpad:
+		positionAnimation = sf::Vector2u(12, 0);
+		break;
+	default:
+		positionAnimation = sf::Vector2u(0, 0);
+		break;
+	}
+	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimation));
+	m_sprite.setPosition(m_position);
 	std::cout << "Perso OK" << std::endl;
 }
 Perso::~Perso()
@@ -226,6 +243,68 @@ void Perso::action(sf::Time dureeIteration, sf::Event* m_eventPerso)
 				}
 			}
 			break;
+		case Perso_conf::numpad:
+			if (m_eventPerso->type == sf::Event::EventType::KeyPressed)
+			{
+				switch (m_eventPerso->key.code)
+				{
+				case sf::Keyboard::Numpad8: //Marche Haut
+					std::cout << "Touche Numpad8 pressee" << std::endl;
+					m_current_action = Perso_Action::move_up;
+					break;
+				case sf::Keyboard::Numpad5: //Marche Bas
+					std::cout << "Touche Numpad5 pressee" << std::endl;
+					m_current_action = Perso_Action::move_down;
+					break;
+				case sf::Keyboard::Numpad4: //Marche Gauche
+					std::cout << "Touche Numpad4 pressee" << std::endl;
+					m_current_action = Perso_Action::move_left;
+					break;
+				case sf::Keyboard::Numpad6: //Marche Droite
+					std::cout << "Touche Numpad6 pressee" << std::endl;
+					m_current_action = Perso_Action::move_right;
+					break;
+				case sf::Keyboard::Numpad7: //Prendre/Deposer
+					std::cout << "Touche Numpad7 pressee" << std::endl;
+					m_current_action = Perso_Action::TakeDrop;
+					break;
+				case sf::Keyboard::Numpad9: //Interaction
+					std::cout << "Touche Numpad9 pressee" << std::endl;
+					m_current_action = Perso_Action::interact;
+					break;
+				}
+			}
+			if (m_eventPerso->type == sf::Event::EventType::KeyReleased)
+			{
+				switch (m_eventPerso->key.code)
+				{
+				case sf::Keyboard::Numpad8: //Marche Haut
+					std::cout << "Touche Numpad8 relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::Numpad5: //Marche Bas
+					std::cout << "Touche Numpad5 relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::Numpad4: //Marche Gauche
+					std::cout << "Touche Numpad4 relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::Numpad6: //Marche Droite
+					std::cout << "Touche Numpad6 relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::Numpad7: //Prendre/Deposer
+					std::cout << "Touche Numpad7 relachee" << std::endl;
+					m_current_action = Perso_Action::idle;
+					break;
+				case sf::Keyboard::Numpad9: //Interaction
+					std::cout << "Touche Numpad9 relachee" << std::endl;
+					//m_current_action = Perso_Action::interact;
+					break;
+				}
+			}
+			break;
 		default:
 			break;
 		
@@ -316,28 +395,45 @@ void Perso::draw(sf::RenderWindow* ptrFenetre)
 
 void Perso::animation()
 {
-	positionAnimaion.x++;
-	if (positionAnimaion.x > 3)
+	positionAnimation.x++;
+	if (positionAnimation.x > 3)
 	{
-		positionAnimaion.x = 0;
+		positionAnimation.x = 0;
+	}
+	switch (m_config)
+	{
+	case Perso_conf::zqsdae:
+		positionAnimation.x += 0*4;
+		break;
+	case Perso_conf::ijkluo:
+		positionAnimation.x += 1*4;
+		break;
+	case Perso_conf::arrowsMajCtrl:
+		positionAnimation.x += 2*4;
+		break;
+	case Perso_conf::numpad:
+		positionAnimation.x += 3*4;
+		break;
+	default:
+		break;
 	}
 	//unsigned int posY = 0;
 	switch (m_regard)
 	{
 	case Perso_Sens_regard::bas:
-		positionAnimaion.y = 0;
+		positionAnimation.y = 0;
 		break;
 	case Perso_Sens_regard::gauche:
-		positionAnimaion.y = 1;
+		positionAnimation.y = 1;
 		break;
 	case Perso_Sens_regard::droite:
-		positionAnimaion.y = 2;
+		positionAnimation.y = 2;
 		break;
 	case Perso_Sens_regard::haut:
-		positionAnimaion.y = 3;
+		positionAnimation.y = 3;
 		break;
 	}
-	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimaion));
+	m_sprite = m_textureManager->getTexture(TextureType::Personnage, sf::Vector2u(positionAnimation));
 
 }
 
