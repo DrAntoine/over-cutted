@@ -78,11 +78,12 @@ int main()
         {
             if (event.type == sf::Event::Closed || jeuGameStatut == GameStatut::fin && event.type == sf::Event::EventType::KeyPressed && event.key.code == sf::Keyboard::Space)
             {
+                jeuGameStatut = GameStatut::fin;
                 delete game;
                 game = nullptr;
                 window.close();
             }
-            if (jeuGameStatut == GameStatut::jeu)
+            else if (jeuGameStatut == GameStatut::jeu)
             {   
                 if (event.type == sf::Event::EventType::KeyPressed && event.key.code == sf::Keyboard::Escape)
                 {
@@ -90,11 +91,11 @@ int main()
                 }
                 else game->action(tempsEcoule); // appelle la fonction action du joueur
             }
-            if (jeuGameStatut == GameStatut::pause && event.type == sf::Event::EventType::KeyPressed)
+            else if (jeuGameStatut == GameStatut::pause && event.type == sf::Event::EventType::KeyPressed)
             {
                 if(event.key.code == sf::Keyboard::Space) jeuGameStatut = GameStatut::jeu;
             }
-            if (jeuGameStatut == GameStatut::Intro && event.type == sf::Event::EventType::KeyPressed)
+            else if (jeuGameStatut == GameStatut::Intro && event.type == sf::Event::EventType::KeyPressed)
             {
                 if (event.key.code == sf::Keyboard::A) game = new Game(&window, &event, &score, &tempsRestant, 1);
                 else if (event.key.code == sf::Keyboard::Z) game = new Game(&window, &event, &score, &tempsRestant, 2);
